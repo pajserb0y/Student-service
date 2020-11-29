@@ -10,7 +10,7 @@ import javax.swing.JMenuItem;
 public class MenuBar extends JMenuBar{
 
 	/**
-	 * alo bre ovo je prova
+	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -18,7 +18,7 @@ public class MenuBar extends JMenuBar{
 		// TODO Auto-generated constructor stub
 		JMenu file = new JMenu("File");
 		JMenuItem miNew = new JMenuItem("New     Ctrl+N");
-		ImageIcon imageIcon = new ImageIcon("images/Screenshot 2020-11-25 194909.png");
+		ImageIcon imageIcon = new ImageIcon("images/Screenshot 2020-11-25 194909(1).png");
 
 		Image image = imageIcon.getImage(); // transform it 
 		Image newimg = image.getScaledInstance(18, 18,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
@@ -40,9 +40,9 @@ public class MenuBar extends JMenuBar{
 
 		JMenu edit = new JMenu("Edit");
 		JMenuItem miEdit = new JMenuItem("Edit");
-		miEdit.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195241.png"));
+		miEdit.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195241(1).png"));
 		JMenuItem miDelete = new JMenuItem("Delete");
-		miDelete.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195314.png"));
+		miDelete.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195314(1).png"));
 		edit.add(miEdit);
 		edit.addSeparator();
 		edit.add(miDelete);

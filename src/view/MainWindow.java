@@ -40,5 +40,9 @@ public class MainWindow extends JFrame {
 		Label toDo = new Label();
 		toDo.setText("TODO: Prikaz entiteta sistema");
 		add(toDo);
+		
+		
+		StatusBar statusBar = new StatusBar();
+		add(statusBar, java.awt.BorderLayout.SOUTH);
 	}
 }
