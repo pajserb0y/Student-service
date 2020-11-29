@@ -1,11 +1,9 @@
 package view;
 
-import view.MenuBar;
-import view.Toolbar;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Label;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
@@ -38,5 +36,9 @@ public class MainWindow extends JFrame {
 		
 		Toolbar tb = new Toolbar();
 		add(tb,BorderLayout.NORTH);
+		
+		Label toDo = new Label();
+		toDo.setText("TODO: Prikaz entiteta sistema");
+		add(toDo);
 	}
 }
