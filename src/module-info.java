@@ -1,3 +1,3 @@
-module studentskaSluzba {
+/*module studentskaSluzba {
 	requires java.desktop;
-}
+}*/
