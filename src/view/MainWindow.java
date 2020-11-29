@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -29,5 +30,8 @@ public class MainWindow extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
 		this.add(panel);
+		
+		Toolbar tb = new Toolbar();
+		add(tb,BorderLayout.NORTH);
 	}
 }
