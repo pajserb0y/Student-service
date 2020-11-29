@@ -10,7 +10,7 @@ import javax.swing.JMenuItem;
 public class MenuBar extends JMenuBar{
 
 	/**
-	 * 
+	 * alo bre ovo je prova
 	 */
 	private static final long serialVersionUID = 1L;
 
