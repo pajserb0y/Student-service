@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,34 +17,40 @@ import javax.swing.border.BevelBorder;
 
 public class StatusBar extends JPanel{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -7960319300551657388L;
+
 
 	public StatusBar() {
 		// TODO Auto-generated constructor stub
 		
+		
 		this.setLayout(new BorderLayout());
 		this.setBorder(new BevelBorder(BevelBorder.LOWERED));
 		
-		JPanel levi= new JPanel();
-		levi.setLayout(new FlowLayout(FlowLayout.LEFT,10,5));
+		JPanel left = new JPanel();
+		left.setLayout(new FlowLayout(FlowLayout.LEFT,10,5));
 		
-		JLabel naziv= new JLabel("StatusBar");
+		JLabel naziv = new JLabel("StatusBar");
 		naziv.setText("Studentska sluzba");
-		levi.add(naziv);
+		left.add(naziv);
 		
-		JPanel desni=new JPanel();
-		desni.setLayout(new FlowLayout(FlowLayout.RIGHT,10,5));
+		JPanel right = new JPanel();
+		right.setLayout(new FlowLayout(FlowLayout.RIGHT,10,5));
 		
-		SimpleDateFormat sdf=new SimpleDateFormat("hh:mm  dd.MMM.yyyy");
-		JLabel vreme=new JLabel(sdf.format(new GregorianCalendar().getTime()));
-		Timer timer=new Timer(500, new ActionListener() {
+		/**REFERENCA: https://stackoverflow.com/ 
+		 * 			  http://www.java2s.com/Tutorial/Java/0040__Data-Type/FourdifferentdateformatsforfourcountriesUSUKGERMANYFRANCE.htm*/
+		
+		
+	    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm  dd.mm.yyyy");
+		JLabel time = new JLabel(sdf.format(new GregorianCalendar().getTime()));
+		Timer timer = new Timer(50, new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				vreme.setText(DateFormat.getDateTimeInstance().format(new Date()));
+				
+				time.setText(DateFormat.getTimeInstance(DateFormat.SHORT, Locale.FRENCH).format(new Date()) 
+						   + "    " 
+						   + DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.GERMANY).format(new Date()));
 				
 			}
 		});
@@ -52,10 +59,10 @@ public class StatusBar extends JPanel{
 		timer.setCoalesce(true);
 		timer.setInitialDelay(0);
 		timer.start();          
-		desni.add(vreme);
+		right.add(time);
 		
-		this.add(levi, BorderLayout.WEST);
-        this.add(desni, BorderLayout.EAST);
+		this.add(left, BorderLayout.WEST);
+        this.add(right, BorderLayout.EAST);
 		
 	}
 
