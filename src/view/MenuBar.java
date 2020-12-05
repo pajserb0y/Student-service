@@ -21,7 +21,7 @@ public class MenuBar extends JMenuBar{
 	public MenuBar() {
 		// TODO Auto-generated constructor stub
 		JMenu file = new JMenu("File");	
-		file.setMnemonic('A');
+		file.setMnemonic('F');
 		JMenuItem miNew = new JMenuItem("New");
 		ImageIcon imageIcon = new ImageIcon("images/Screenshot 2020-11-25 194909(1).png");
 		miNew.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
@@ -46,7 +46,7 @@ public class MenuBar extends JMenuBar{
 		file.add(miClose);
 
 		JMenu edit = new JMenu("Edit");	
-		edit.setMnemonic('B');
+		edit.setMnemonic('E');
 		JMenuItem miEdit = new JMenuItem("Edit");
 		miEdit.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195241(1).png"));
 		miEdit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, ActionEvent.CTRL_MASK));
@@ -59,7 +59,7 @@ public class MenuBar extends JMenuBar{
 		edit.add(miDelete);
 		
 		JMenu help = new JMenu("Help"); 
-		help.setMnemonic('C');
+		help.setMnemonic('H');
 		JMenuItem miHelp = new JMenuItem("Help");
 		miHelp.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));
 		miHelp.addActionListener(new ActionListener() 
