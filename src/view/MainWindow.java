@@ -9,6 +9,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+
 public class MainWindow extends JFrame {
 	
 	
@@ -24,7 +25,6 @@ public class MainWindow extends JFrame {
 		setTitle("Studentska služba");
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null); //postavlja prozor na centar ekrana
 		
 		JPanel panel = new JPanel();
@@ -39,7 +39,7 @@ public class MainWindow extends JFrame {
 		
 		Label toDo = new Label();
 		toDo.setText("TODO: Prikaz entiteta sistema");
-		add(toDo);
+		this.add(toDo);
 		
 		
 		StatusBar statusBar = new StatusBar();

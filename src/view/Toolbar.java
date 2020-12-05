@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
@@ -22,27 +23,28 @@ public class Toolbar extends JToolBar {
 	public Toolbar() {
 		
 		super(SwingConstants.HORIZONTAL);
+		this.setFloatable(false);
 		
 		JButton btnNew = new JButton();
-		btnNew.setToolTipText("Open");
+		btnNew.setToolTipText("New");
 		btnNew.setIcon(new ImageIcon("images/Screenshot 2020-11-25 194909(1).png"));
-		add(btnNew);
-	
-		addSeparator();
-	
-		JButton btnUredi = new JButton();
-		btnUredi.setToolTipText("Edit");
-		btnUredi.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195241(1).png"));
-		add(btnUredi);
-	
-		addSeparator();
-	
-		JButton btnObrisi = new JButton();
-		btnObrisi.setToolTipText("Obriši");
-		btnObrisi.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195314(1).png"));
-		add(btnObrisi);
+		this.add(btnNew);
 		
-		addSeparator();
+		this.addSeparator();
+	
+		JButton btnEdit = new JButton();
+		btnEdit.setToolTipText("Edit");
+		btnEdit.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195241(1).png"));
+		this.add(btnEdit);
+	
+		this.addSeparator();
+	
+		JButton btnDelete = new JButton();
+		btnDelete.setToolTipText("Delete");
+		btnDelete.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195314(1).png"));
+		this.add(btnDelete);
+		
+		this.addSeparator();
 		
 		
 		JPanel panCenter=new JPanel();
@@ -59,11 +61,11 @@ public class Toolbar extends JToolBar {
 		panCenter.add(panSearch);
         add(panCenter,BorderLayout.EAST);
         
-		addSeparator();
+		this.addSeparator();
 		
 		JButton btnSearch = new JButton();
 		btnSearch.setToolTipText("Search");
 		btnSearch.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195357(1).png"));
-		add(btnSearch, BorderLayout.EAST);
+		this.add(btnSearch, BorderLayout.EAST);
 	}
 }
