@@ -31,7 +31,7 @@ public class StatusBar extends JPanel{
 		left.setLayout(new FlowLayout(FlowLayout.LEFT,10,5));
 		
 		JLabel naziv = new JLabel("StatusBar");
-		naziv.setText("Studentska sluûba");
+		naziv.setText("Studentska slu≈æba");
 		left.add(naziv);
 		
 		JPanel right = new JPanel();
