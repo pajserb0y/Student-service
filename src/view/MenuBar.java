@@ -24,6 +24,7 @@ public class MenuBar extends JMenuBar{
 		file.setMnemonic('F');
 		JMenuItem miNew = new JMenuItem("New");
 		ImageIcon imageIcon = new ImageIcon("images/Screenshot 2020-11-25 194909(1).png");
+		miNew.setMnemonic('N');
 		miNew.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
 
 		Image image = imageIcon.getImage(); // transform it 
@@ -34,6 +35,7 @@ public class MenuBar extends JMenuBar{
 		
 		JMenuItem miClose = new JMenuItem("Close");
 		ImageIcon imageIcon1 = new ImageIcon("images/close.png");
+		miClose.setMnemonic('C');
 		miClose.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
 
 		Image image1 = imageIcon1.getImage(); // transform it 
@@ -49,10 +51,12 @@ public class MenuBar extends JMenuBar{
 		edit.setMnemonic('E');
 		JMenuItem miEdit = new JMenuItem("Edit");
 		miEdit.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195241(1).png"));
+		miEdit.setMnemonic('E');
 		miEdit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, ActionEvent.CTRL_MASK));
 	
 		JMenuItem miDelete = new JMenuItem("Delete");
 		miDelete.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195314(1).png"));
+		miDelete.setMnemonic('D');
 		miDelete.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, ActionEvent.CTRL_MASK));
 		edit.add(miEdit);
 		edit.addSeparator();
@@ -61,6 +65,7 @@ public class MenuBar extends JMenuBar{
 		JMenu help = new JMenu("Help"); 
 		help.setMnemonic('H');
 		JMenuItem miHelp = new JMenuItem("Help");
+		miHelp.setMnemonic('H');
 		miHelp.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));
 		miHelp.addActionListener(new ActionListener() 
 		{
@@ -72,6 +77,7 @@ public class MenuBar extends JMenuBar{
 		});		
 		
 		JMenuItem miAbout = new JMenuItem("About");
+		miAbout.setMnemonic('A');
 		miAbout.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK));
 		help.add(miHelp);
 		help.addSeparator();

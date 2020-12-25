@@ -22,7 +22,7 @@ public class MainWindow extends JFrame {
 		int screenWidth = screenSize.width;
 		setSize((screenWidth /4)*3,(screenHeight / 4)*3);
 		
-		setTitle("Studentska sluûba");
+		setTitle("Studentska slu≈æba");
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null); //postavlja prozor na centar ekrana
