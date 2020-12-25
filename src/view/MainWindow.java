@@ -8,6 +8,8 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+
 
 
 public class MainWindow extends JFrame {
@@ -37,12 +39,10 @@ public class MainWindow extends JFrame {
 		Toolbar tb = new Toolbar();
 		add(tb,BorderLayout.NORTH);
 		
-		Label toDo = new Label();
-		toDo.setText("TODO: Prikaz entiteta sistema");
-		this.add(toDo);
-		
-		
 		StatusBar statusBar = new StatusBar();
 		add(statusBar, java.awt.BorderLayout.SOUTH);
+		
+		TabbedPane tp = new TabbedPane();
+		add(tp, BorderLayout.CENTER);
 	}
 }
