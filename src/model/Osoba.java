@@ -22,6 +22,13 @@ public class Osoba {
 		this.telefon = telefon;
 		this.email = email;
 	}
+	
+	public Osoba(String ime, String prezime) {
+		super();
+		this.ime = ime;
+		this.prezime = prezime;
+	}
+	
 	public String getIme() {
 		return ime;
 	}

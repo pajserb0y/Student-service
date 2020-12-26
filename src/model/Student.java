@@ -3,13 +3,14 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
+enum STATUS {B, S}; //budzet i samofinansiranje
+
 public class Student extends Osoba {
 
 	private String brIndeksa;
 	private int godUpisa;
 	private int trenutnaGodStudija;
-	private enum Status {B, S} //budzet i samofinansiranje
-	private Status status;
+	private STATUS status;
 	private double prosek;
 	private ArrayList<String> spisakPolIspitaISpisakOcena;
 	private ArrayList<String> spisakNepolIspita;
@@ -17,7 +18,7 @@ public class Student extends Osoba {
 	
 	public Student(String ime, String prezime, Date datRodj, String adresaStan,
 			String brLicne, String telefon, String email, String brIndeksa,
-			int godUpisa, int trenutnaGodStudija, Status status, double prosek,
+			int godUpisa, int trenutnaGodStudija, STATUS status, double prosek,
 			ArrayList<String> spisakPolIspitaISpisakOcena,
 			ArrayList<String> spisakNepolIspita) {
 		super(ime, prezime, datRodj, adresaStan, brLicne, telefon, email);
@@ -29,7 +30,14 @@ public class Student extends Osoba {
 		this.spisakPolIspitaISpisakOcena = spisakPolIspitaISpisakOcena;
 		this.spisakNepolIspita = spisakNepolIspita;
 	}
-
+	
+	public Student(String brIndeksa, String ime, String prezime, int trenutnaGodStudija, STATUS status, double prosek) {
+		super(ime, prezime);
+		this.brIndeksa = brIndeksa;
+		this.trenutnaGodStudija = trenutnaGodStudija;
+		this.status = status;
+		this.prosek = prosek;
+	}
 
 	public String getBrIndeksa() {
 		return brIndeksa;
@@ -61,12 +69,12 @@ public class Student extends Osoba {
 	}
 
 
-	public Status getStatus() {
+	public STATUS getStatus() {
 		return status;
 	}
 
 
-	public void setStatus(Status status) {
+	public void setStatus(STATUS status) {
 		this.status = status;
 	}
 

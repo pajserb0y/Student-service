@@ -1,29 +1,49 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 
 import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+
+import model.AbstractTableModelStudent;
+import view.student.StudentiJTable;
+
 
 
 
 public class TabbedPane extends JTabbedPane{
+	
+	private static final long serialVersionUID = 1L;
+	
+	private static TabbedPane instance = null;
 
+	public static TabbedPane getInstance() {
+		if (instance == null) {
+			instance = new TabbedPane();
+		}
+		return instance;
+	}
+	
+	
+	public static JTable tabelaStudenata;
+
+	
 	public TabbedPane() {
-		// TODO Auto-generated constructor stub
-		JLabel TableTab = new JLabel();
+		//this.setBackground(new Color(169,169,69));
+
+		tabelaStudenata=new StudentiJTable();
 		
-		JPanel panel1= new JPanel();
-		JPanel panel2= new JPanel();
-		JPanel panel3= new JPanel();
+	
+		JScrollPane scrollPaneS = new JScrollPane(tabelaStudenata);
+		addTab("Student", scrollPaneS);
+
 		
-		addTab("Studenti", panel1);
-		
-		addTab("Profesori", panel2);
-		
-		addTab("Predmeti", panel3);
 	}
 
 }
