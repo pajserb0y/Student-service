@@ -1,0 +1,20 @@
+RA-1-2019;Luka;Jovanović;01/01/2000;Karađorđeva 83, Novi Sad;021/333-555;luka.jovanovic@mailinator.com;01/07/2019;1;B;0.0;Osnove programiranja
+RA-5-2019;Sofija;Petrović;16/05/2000;Miloša Pocerca 55, Šabac;015/343-356;sofija.petrovic@mailinator.com;11/07/2019;1;B;0.0;Osnove programiranja
+RA-3-2019;Stefan;Nikolić;18/03/2000;Knez Mihajlova 16, Beograd;011/9234-857;stefan.nikolic@mailinator.com;03/07/2019;1;B;0.0;Osnove programiranja
+RA-2-2019;Dunja;Ilić;11/11/2000;Petefi Šandora 15, Novi Sad;021/433-958;dunja.ilic@mailinator.com;01/07/2019;1;S;0.0;Osnove programiranja
+RA-4-2019;Lazar;�?orđević;03/12/2000;Josip Broz Tito 13, Subotica;024/333-559;lazar.djordjevic@mailinator.com;06/07/2019;1;S;0.0;
+RA-3-2018;Sara;Pavlović;03/12/1999;Vojvode Mišića 23, Šabac;015/313-061;sara.pavlovic@mailinator.com;01/07/2018;2;B;8.5;Diskretna matematika
+RA-15-2018;Vuk;Marković;03/12/1999;Temerinska 133, Novi Sad;021/351-091;vuk.markovic@mailinator.com;11/07/2018;2;B;7.9;Diskretna matematika
+RA-133-2017;Teodora;Popović;03/12/1998;Surepova 15, Šabac;015/324-500;teodora.popovic@gmailiantor.com;03/07/2017;2;S;7.8;Diskretna matematika
+RA-122-2017;Filip;Stojanović;03/12/1998;Francuska 113, Beograd;011/2333-900;filip.stojanovic@mailinator.com;02/07/2017;2;S;6.4;Diskretna matematika
+RA-201-2017;Ana;Živković;03/12/1998;Kralja Petra 20, Novi Sad;021/231-114;ana.zivkovic@mailinator.com;04/07/2017;2;S;7.9;
+RA-1-2017;Viktor;Janković;03/12/1998;Gogoljeva 3, Novi Sad;021/135-463;viktor.jankovic@mailinator.com;01/07/2017;3;B;8.0;Paralelno programiranje
+RA-5-2017;Petra;Todorović;03/12/1998;Njegoševa 2, Novi Sad;021/903-463;petra.todorovic@mailinator.com;12/07/2017;3;B;6.5;Paralelno programiranje
+RA-33-2017;Andrej;Stanković;03/12/1998;Radoja Domanovića 5, Novi Sad;021/731-067;andrej.stankovic@mailinator.com;19/07/2017;3;B;7.6;Paralelno programiranje
+RA-152-2016;Mila;Ristić;03/12/1997;Vojvode Stepe 183, Beograd;011/4333-800;mila.ristic@mailinator.com;15/07/2016;3;S;8.7;Paralelno programiranje
+RA-104-2016;Pavle;Kostić;03/12/1997;Crnotravska 13, Beograd;011/3130-007;pavle.kostic@mailinator.com;06/07/2016;3;S;8.9;
+RA-1-2016;Lena;Kova�?ević;03/12/1997;Bulevar Oslobođenja 143, Novi Sad;021/5333-801;lena.kovacevic@mailinator.com;01/07/2016;4;S;8.8;Ra�?unarstvo visokih performansi
+RA-5-2016;Filip;Živković;03/12/1997;1300 Kaplara, Šabac;015/333-500;filip.zivkovic@mailinator.com;21/07/2016;4;B;9.1;Ra�?unarstvo visokih performansi
+RA-33-2015;Tara;Dmiitrijević;03/12/1996;Milovana Glišića, Valjevo;014/303-007;tara.dimitrijevic@mailinator.com;23/07/2015;4;S;9.3;Ra�?unarstvo visokih performansi
+RA-102-2015;Vasilije;Micić;03/12/1996;Vuka Karadžića, Loznica;015/101-909;vasilije.micic@mailinator.com;04/07/2015;4;S;8.1;Ra�?unarstvo visokih performansi
+RA-244-2016;Lenka;Jović;03/12/1997;Bulevar Mihajla Pupina, Novi Sad;021/431-500;lenka.jovic@mailinator.com;07/07/2016;4;S;8.3;

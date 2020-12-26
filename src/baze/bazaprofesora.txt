@@ -1,0 +1,6 @@
+Aleksa;Petkoviæ;15/01/1965;Temerinska 15, Novi Sad;021/334-990;aleksa.petkovic@gmail.com;Dositeja Obradoviæa 6, Novi Sad, MI 105;007198721;Prof. dr;Redovni profesor;Osnove programiranja
+Jana;Lazareviæ;25/02/1963;Jovana Cvijiæa 26, Novi Sad;021/435-891;jana.lazarevic@gmail.com;Dositeja Obradoviæa 6, Novi Sad, Nastavni blok 206;008431903;Prof. dr;Redovni profesor;Diskretna matematika
+Nikola;Aleksiæ;23/03/1978;Gunduliæeva 75, Novi Sad;021/730-172;nadja.aleksic@gmail.com;Dositeja Obradoviæa 6, Novi Sad, NTP 307;005671007;Dr;Vanredni profesor;Paralelno programiranje,Operativni sistemi
+Ðorðe;Spasojeviæ;24/08/1978;Šekspirova 44, Novi Sad;021/514-893;djordje.spasojevic@gmail.com;Dositeja Obradoviæa 6, Novi Sad, MI 118;009999331;Dr;Vanredni profesor;Raèunarstvo visokih performansi
+Elena;Milenkoviæ;08/11/1985;Tolstojeva 52, Novi Sad;021/843-901;elena.milenkovic@gmail.com;Dositeja Obradoviæa 6, Novi Sad, Nastavni blok 217;003330976;Dr;Docent;
+Teodor;Mladenoviæ;14/12/1983;Jovana Subotiæa 33, Novi Sad;021/441-007;teodor.mladenovic@gmail.com;Dositeja Obradoviæa 6, Novi Sad, M35;007441998;Dr;Docent;
