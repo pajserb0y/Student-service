@@ -1,5 +1,13 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.Date;
+
+import view.TabbedPane;
+import model.BazaStudenata;
+import model.Student.STATUS;
+
+
 
 public class StudentController {
 
@@ -12,5 +20,12 @@ public class StudentController {
 		return instance;
 	}
 	
-
+	private StudentController() {}
+	
+	public void dodajStudenta(String ime, String prezime, Date datum, String adresa, String telefon,
+			String email, String indeks, int godinaUpisa, int trenutnaGodina, STATUS status) {
+	
+		BazaStudenata.getInstance().dodajStudenta(ime, prezime, datum, adresa, telefon, email, indeks, godinaUpisa, trenutnaGodina, status);
+		TabbedPane.getInstance().azurirajPrikaz(null, -1);
+	}
 }
