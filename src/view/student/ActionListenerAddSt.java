@@ -97,14 +97,7 @@ public class ActionListenerAddSt implements ActionListener {
 		}
 		
 		
-		indeks=AddStudentDialog.txtIndeks.getText();
-		if(!(indeks.matches("[A-Za-z]{2}-[0-9]{0,3}-20[0,1][0-9]"))){
-			if(f1==false && f3==false && f4==false && f5==false && f6==false && f7==false && f8==false && f9==false  && f10==false) {
-				JOptionPane.showMessageDialog(null,"Indeks unositi u formatu xx-bbb-yyyy!\n");
-				f2=true;
-			}
-		}
-		
+		indeks=AddStudentDialog.txtIndeks.getText();		
 		ArrayList<Student> listaStudenata = BazaStudenata.getInstance().getStudenti();
 		for(Student s:listaStudenata) {
 			if(indeks.equals(s.getBrIndeksa())) {
