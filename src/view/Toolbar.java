@@ -27,21 +27,21 @@ public class Toolbar extends JToolBar {
 		
 		JButton btnNew = new JButton();
 		btnNew.setToolTipText("New");
-		btnNew.setIcon(new ImageIcon("images/Screenshot 2020-11-25 194909(1).png"));
+		btnNew.setIcon(new ImageIcon("images/new.png"));
 		this.add(btnNew);
 		
 		this.addSeparator();
 	
 		JButton btnEdit = new JButton();
 		btnEdit.setToolTipText("Edit");
-		btnEdit.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195241(1).png"));
+		btnEdit.setIcon(new ImageIcon("images/edit.jpg"));
 		this.add(btnEdit);
 	
 		this.addSeparator();
 	
 		JButton btnDelete = new JButton();
 		btnDelete.setToolTipText("Delete");
-		btnDelete.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195314(1).png"));
+		btnDelete.setIcon(new ImageIcon("images/delete.png"));
 		this.add(btnDelete);
 		
 		this.addSeparator();
@@ -65,7 +65,7 @@ public class Toolbar extends JToolBar {
 		
 		JButton btnSearch = new JButton();
 		btnSearch.setToolTipText("Search");
-		btnSearch.setIcon(new ImageIcon("images/Screenshot 2020-11-25 195357(1).png"));
+		btnSearch.setIcon(new ImageIcon("images/search.png"));
 		this.add(btnSearch, BorderLayout.EAST);
 	}
 }

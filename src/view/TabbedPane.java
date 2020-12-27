@@ -1,18 +1,14 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
 
-import javax.swing.Icon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
+
 import model.AbstractTableModelStudent;
 import model.BazaStudenata;
+import view.profesor.ProfesorJTable;
 import view.student.StudentiJTable;
 
 
@@ -25,25 +21,26 @@ public class TabbedPane extends JTabbedPane{
 	private static TabbedPane instance = null;
 
 	public static TabbedPane getInstance() {
-		if (instance == null) {
+		if (instance == null)
 			instance = new TabbedPane();
-		}
 		return instance;
 	}
 	
-	
 	public static JTable tabelaStudenata;
-
+    public static JTable tabelaProfesora;
 	
 	public TabbedPane() {
 		//this.setBackground(new Color(169,169,69));
 
-		tabelaStudenata=new StudentiJTable();
-		
+		tabelaStudenata = new StudentiJTable();
+		tabelaProfesora = new ProfesorJTable();
 	
 		JScrollPane scrollPaneS = new JScrollPane(tabelaStudenata);
 		addTab("Student", scrollPaneS);
-
+		
+		JScrollPane scrollPaneP = new JScrollPane(tabelaProfesora);
+		addTab("Profesor",scrollPaneP);
+		
 	}
 	
 	
@@ -53,5 +50,7 @@ public class TabbedPane extends JTabbedPane{
 		modelStudent.setListaStudenata(BazaStudenata.getInstance().getStudenti());
 		
 		modelStudent.fireTableDataChanged();
+		
+
 	}
 }
