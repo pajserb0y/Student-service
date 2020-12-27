@@ -6,10 +6,7 @@ import javax.swing.JDialog;
 import javax.swing.JTextArea;
 
 public class DialogHelp extends JDialog{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	public DialogHelp(){
@@ -20,7 +17,6 @@ public class DialogHelp extends JDialog{
 		int screenWidth = screenSize.width;
 		setSize(2*screenWidth/5, 2*screenHeight/3);
 		setLocationRelativeTo(null);
-	
 		setTitle("Help");
 		
 		/**REFERENCA: https://docs.oracle.com/javase/tutorial/uiswing/components/ */
@@ -37,7 +33,10 @@ public class DialogHelp extends JDialog{
 	    				+ "Precice su date u okviru mnemonika za svaku stavku. \n"
 	    				+ "Sve stavke koje se nalaze u menubaru se nalaze i u implementiranom toolbaru, zajedno sa text fieldom i button-om za search. \n"
 	    				+ "Statusbar sadrzi naslov aplikacije i in-time promenu vremena i datuma. \n"
-	    				+ "kasnije ce se dodatno implementirati i ostale sve metode i zadaci projekta. \n");
+	    				+ "kasnije ce se dodatno implementirati i ostale sve metode i zadaci projekta. \n"
+	    				+ "-------------------------------------------------------------\n"
+	    				+ "Za domaci 2 je omogucen prikaz i dodavanje novi studenata i profesora. \n"
+	    				+ "Dodati su ActionListeneri na toolbar i menubar. \n");
 	    
 	    getContentPane().add(textArea); 
 	}

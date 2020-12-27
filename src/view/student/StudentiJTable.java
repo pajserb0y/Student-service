@@ -38,8 +38,9 @@ public class StudentiJTable extends JTable {
 			c.setBackground(Color.LIGHT_GRAY);
 		} else {
 			c.setBackground(Color.WHITE);
-		}
+		}			
 		return c;
 	}
-
+	
+	
 }

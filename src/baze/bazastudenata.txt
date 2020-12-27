@@ -1,4 +1,4 @@
-GD-3-2019;Luka;Jovanović;01.01.2000;Karađorđeva 83, Novi Sad;021/333-555;luka.jovanovic@mailinator.com;2019;1;B;0.0;Osnove programiranja
-SW-123-2017;Sofija;Petrović;16.05.2000;Miloša Pocerca 55, Šabac;015/343-356;sofija.petrovic@mailinator.com;2017;1;B;0.0;Osnove programiranja
-EE-353-2018;Stefan;Nikolić;18.03.2000;Knez Mihajlova 16, Beograd;011/9234-857;stefan.nikolic@mailinator.com;2018;1;B;0.0;Osnove programiranja
-RA-22-2019;Dunja;Ilić;11.11.2000;Petefi Šandora 15, Novi Sad;021/433-958;dunja.ilic@mailinator.com;2019;1;S;0.0;Osnove programiranja
+GD-3-2019;Matija;Jovanović;01.01.2000;Karađorđeva 3, Novi Sad;021/343-555;matija.jovanovic@mailinator.com;2019;3;B;6.54;OET
+SW-123-2017;Luka;Petrović;16.05.2000;Puškinova 55, Šabac;015/343-351;luka.petrovic@mailinator.com;2017;1;S;7.68;Analiza 1
+EE-353-2018;Stefan;Petrić;18.03.1999;Knez Mihajlova 16, Beograd;011/3234-857;stefan.petrić@mailinator.com;2018;2;B;10.00;Osnove programiranja
+RA-22-2019;Žile;Ilić;11.11.2000;Prešernova 15, Novi Sad;021/433-952;žile.ilic@mailinator.com;2019;1;S;9.76;OISISI, Baze

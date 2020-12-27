@@ -25,6 +25,6 @@ public class StudentController {
 			String email, String indeks, int godinaUpisa, int trenutnaGodina, STATUS status) {
 	
 		BazaStudenata.getInstance().dodajStudenta(ime, prezime, datum, adresa, telefon, email, indeks, godinaUpisa, trenutnaGodina, status);
-		TabbedPane.getInstance().azurirajPrikaz(null, -1);
+		TabbedPane.azurirajPrikaz(null, -1);
 	}
 }

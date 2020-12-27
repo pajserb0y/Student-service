@@ -87,7 +87,6 @@ public class BazaStudenata {
 				String datumString = tokeni[3];
 				datum = formater.parse(datumString);
 				
-//				String p = tokeni[9];
 				if (tokeni[9].equals("B"))
 					status = STATUS.B;
 				else
