@@ -25,7 +25,7 @@ public class ActionListenerAddSt implements ActionListener {
 		String ime="";
 		String prz="";
 		Date dat=null;
-		int godUpisa = 0;
+		int godUpisa =0;
 		String adresa="";
 		String tel="";
 		String email="";
@@ -104,9 +104,9 @@ public class ActionListenerAddSt implements ActionListener {
 		
 		
 		indeks=AddStudentDialog.txtIndeks.getText();
-		if(!(indeks.matches("[A-Za-z]{2}-[0-9]{1,3}-20[0,1][0-9]"))){
+		if(!(indeks.matches("[A-Za-z]{2}-[0-9]{0,3}-20[0,1][0-9]"))){
 			if(flag1==false && flag3==false && flag4==false && flag5==false && flag6==false && flag7==false && flag8==false && flag9==false  && flag10==false) {
-				JOptionPane.showMessageDialog(null,"Indeks unositi u formatu xx-bb-yyyy!\n");
+				JOptionPane.showMessageDialog(null,"Indeks unositi u formatu xx-bbb-yyyy!\n");
 				flag2=true;
 			}
 		}
@@ -122,9 +122,9 @@ public class ActionListenerAddSt implements ActionListener {
 			JOptionPane.showMessageDialog(null,"Broj indeksa već postoji!\n");
 		}
 		
-		
-		//godUpisa = AddStudentDialog.txtGodUpisa.getText();
-		
+		String s="";
+		s= AddStudentDialog.txtGodUpisa.getText();
+		godUpisa = Integer.parseInt(s);
 		
 		int god=0;
 		godStudija=AddStudentDialog.cbGodStudija.getSelectedItem().toString();
@@ -139,8 +139,10 @@ public class ActionListenerAddSt implements ActionListener {
 		}
 		
 		
-		
-		//status = AddStudentDialog.cbStatus.getSelectedItem().toString();
+		if(AddStudentDialog.cbStatus.getSelectedItem().toString() == "Budžet" )
+			status = STATUS.B;
+		else
+			status = STATUS.S;
 		
 		
 //		if(status.equals("Budžet")) {
@@ -172,19 +174,19 @@ public class ActionListenerAddSt implements ActionListener {
 //		
 //		
 //		ArrayList<String> predmeti=new ArrayList<String>();
-//	
-//		if( indeks.equals("") || ime.equals("") || prz.equals("") || adresa.equals("") || tel.equals("")
-//		|| email.equals("") || god==0 || (b==false && s==false) ) {
-//				if(flag2==false && flag3==false && flag1==false && flag4==false && flag5==false && flag6==false && flag7==false && flag8==false && flag9==false && flag10==false)
-//					JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!");
-//		}else if(flag1==false && flag2==false && flag3==false && flag4==false && flag5==false && flag6==false && flag7==false && flag8==false && flag9==false && flag10==false) {
-//			StudentController.getInstance().dodajStudenta(indeks, ime, prezime, datum, adresa, telefon, email,datumUpisa, god, sts, prosek,predmeti);
-//			int  exit = JOptionPane.showConfirmDialog(null, "Student dodat" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-//			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION){
-//				ActionListenerAdd.dialogSt.setVisible(false);			
-//			}
-//		
-//		}
+	
+		if( indeks.equals("") || ime.equals("") || prz.equals("") || adresa.equals("") || tel.equals("")
+		|| email.equals("") || god==0 ) {
+				if(flag2==false && flag3==false && flag1==false && flag4==false && flag5==false && flag6==false && flag7==false && flag8==false && flag9==false && flag10==false)
+					JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!");
+		}else if(flag1==false && flag2==false && flag3==false && flag4==false && flag5==false && flag6==false && flag7==false && flag8==false && flag9==false && flag10==false) {
+			StudentController.getInstance().dodajStudenta(ime, prz, dat, adresa, tel, email, indeks, godUpisa, god, status);
+			int  exit = JOptionPane.showConfirmDialog(null, "Student dodat" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION){
+				ActionListenerAdd.dialogStd.setVisible(false);			
+			}
+		
+		}
 	}
 
 }

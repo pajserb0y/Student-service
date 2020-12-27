@@ -38,11 +38,11 @@ public class AddStudentDialog extends JDialog{
 			Dimension screenSize = kit.getScreenSize();
 			int screenHeight = screenSize.height;
 			int screenWidth = screenSize.width;
-			setSize(2*screenWidth/5, 2*screenHeight/3);
-			setTitle("Studentska služba");
+			setSize(3*screenWidth/8, screenHeight/2);
+			setTitle("Dodavanje studenta");
 			//setDefaultCloseOperation(EXIT_ON_CLOSE);
 			setLocationRelativeTo(parent);
-			Dimension dim = new Dimension(screenWidth/9, screenHeight/40);
+			Dimension dim = new Dimension(screenWidth/9, screenHeight/38);
 			
 			
 			JPanel panelIme = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -98,6 +98,8 @@ public class AddStudentDialog extends JDialog{
 			lblGodUpisa.setPreferredSize(dim);
 			JLabel lblGodStudija = new JLabel("Trenutna godina studija*");
 			lblGodStudija.setPreferredSize(dim);
+			JLabel lblStatus = new JLabel("Način finansiranja*");
+			lblStatus.setPreferredSize(dim);
 
 			
 			cbGodStudija.removeAllItems();
@@ -105,6 +107,10 @@ public class AddStudentDialog extends JDialog{
 			cbGodStudija.addItem("II (druga)");
 			cbGodStudija.addItem("III (treća)");
 			cbGodStudija.addItem("IV (četvrta)");
+			
+			cbStatus.removeAllItems();
+			cbStatus.addItem("Budžet");
+			cbStatus.addItem("Samofinansiranje");
 
 			
 			panelIme.add(lblIme);
@@ -125,6 +131,8 @@ public class AddStudentDialog extends JDialog{
 			panelGodUpisa.add(txtGodUpisa);
 			panelGodStudija.add(lblGodStudija);
 			panelGodStudija.add(cbGodStudija);
+			panelStatus.add(lblStatus);
+			panelStatus.add(cbStatus);
 			
 			panelBtnPot_Odu.add(btnPotvrdi);
 			panelBtnPot_Odu.add(btnOdustani);
@@ -142,6 +150,7 @@ public class AddStudentDialog extends JDialog{
 			boxCentar.add(panelIndeks);
 			boxCentar.add(panelGodUpisa);
 			boxCentar.add(panelGodStudija);
+			boxCentar.add(panelStatus);
 			boxCentar.add(panelBtnPot_Odu);
 			
 			add(boxCentar, BorderLayout.NORTH);

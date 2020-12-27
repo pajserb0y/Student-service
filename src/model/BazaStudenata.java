@@ -1,10 +1,17 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import model.Student.STATUS;
+
+
 
 
 
@@ -36,19 +43,129 @@ public class BazaStudenata {
 		this.kolone.add("Prosek");
 	}
 	
-	private void initStudente() {
-		this.studenti = new ArrayList<Student>();
+	private ArrayList<Student> initStudente() {
+//		String[] tokeni;
+//
+//		BufferedReader br = null;
+//		try {
+//			br = new BufferedReader(new FileReader("src\\baze\\bazastudenata.txt"));
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		String linija = null;
+//		STATUS s;
+//		
+//		try {
+//			while((linija = br.readLine())!= null)
+//			{
+//				tokeni = linija.split(";");
+//				
+//				for(int i = 0; i < tokeni.length; i++)
+//					tokeni[i] = tokeni[i].trim();
+//				
+//				SimpleDateFormat formater = new SimpleDateFormat("dd.mm.yyyy");
+//				String datumString = tokeni[3];
+//				Date datum = formater.parse(datumString);
+//				
+//				if (tokeni[9].equals("B"))
+//					s = STATUS.B;
+//				else
+//					s = STATUS.S;
+//				
+//				ArrayList<String> predmeti = new ArrayList<String>();
+//				
+//				if(tokeni.length > 11)
+//				{
+//					String[] predmetiString = tokeni[11].split(",");
+//					
+//					for(int i  = 0; i < predmetiString.length; i++)
+//						predmeti.add(predmetiString[i]);
+//				}
+//				int godUpisa = Integer.parseInt(tokeni[7]);
+//				int trenutnaGod = Integer.parseInt(tokeni[8]);
+//				double prosek = Double.parseDouble(tokeni[10]);
+//				Student st = new Student(tokeni[0], tokeni[1], tokeni[2], datum, tokeni[4], tokeni[5], tokeni[6], godUpisa,	trenutnaGod, s, prosek, predmeti);
+//				studenti.add(st);
+//		
+//			}
+		studenti = new ArrayList<Student>();
+		String[] tokens;
 		String indeks;
 		String ime;
 		String prezime;
+		Date datum;
+		String adresa;
+		String telefon;
+		String email;
+		int datumupisa;
 		int godina;
-		STATUS status;
 		double prosek;
-		
-		
-		studenti.add(new Student("RA-111-2018", "Mika", "Mikic", 3, STATUS.B, (8.22)));
-		studenti.add(new Student("RA-42-2018", "Zika", "Zikic", 4, STATUS.B, (9.87)));
-		studenti.add(new Student("RA-110-2018", "Pera", "Mikic", 1, STATUS.S, (6.22)));
+		STATUS status;
+		BufferedReader br = null;
+		try {
+			br = new BufferedReader(new FileReader("src\\baze\\bazastudenata.txt"));
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		String line = null;
+		try {
+			while ((line = br.readLine()) != null) {
+				tokens = line.split(";");
+				for(int i = 0; i < tokens.length; i++)
+				{
+					System.out.printf("%s \n", tokens[i]);
+				}
+				
+				indeks = tokens[0].trim();
+				ime = tokens[1].trim();
+				prezime = tokens[2].trim();
+
+				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+				String datumStr = tokens[3].trim();
+				datum = formatter.parse(datumStr);
+
+				adresa=tokens[4].trim();
+				telefon=tokens[5].trim().trim();
+				email=tokens[6].trim();
+				datumupisa=Integer.parseInt(tokens[7].trim());
+				godina=Integer.parseInt(tokens[8].trim());
+				String pom;
+				pom = tokens[9].trim();
+
+				if (pom.equalsIgnoreCase("B"))
+					status = STATUS.B;
+				else
+					status = STATUS.S;
+
+				prosek = Double.parseDouble(tokens[10].trim());
+
+				ArrayList<String> predmeti = new ArrayList<String>();
+				if (tokens.length > 11) {
+					String[] pomPred = tokens[11].trim().split(":");
+					for (int i = 0; i < pomPred.length; i++) {
+						predmeti.add(pomPred[i]);
+					}
+				}
+				Student s = new Student(ime, prezime, datum, adresa, telefon, email, indeks, datumupisa,  godina, status, prosek, predmeti);
+				studenti.add(s);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			br.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return studenti;
 
 	}
 

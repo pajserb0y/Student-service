@@ -32,6 +32,19 @@ public class Student extends Osoba {
 		this.spisakNepolIspita = spisakNepolIspita;
 	}
 	
+	public Student( String ime, String prezime, Date datRodj, String adresaStan,
+			String telefon, String email, String brIndeksa,
+			int godUpisa, int trenutnaGodStudija, STATUS status, double prosek,
+			ArrayList<String> spisakPolIspitaISpisakOcena) {
+		super(ime, prezime, datRodj, adresaStan, telefon, email);
+		this.brIndeksa = brIndeksa;
+		this.godUpisa = godUpisa;
+		this.trenutnaGodStudija = trenutnaGodStudija;
+		this.status = status;
+		this.prosek = prosek;
+		this.spisakPolIspitaISpisakOcena = spisakPolIspitaISpisakOcena;
+	}
+	
 	public Student(String brIndeksa, String ime, String prezime, int trenutnaGodStudija, STATUS status, double prosek) {
 		super(ime, prezime);
 		this.brIndeksa = brIndeksa;
@@ -48,6 +61,17 @@ public class Student extends Osoba {
 		this.godUpisa = godinaUpisa;
 		this.trenutnaGodStudija = trenutnaGodina;
 		this.status = status;
+	}
+	
+	public Student(String ime, String prezime, Date datum, String adresa,
+			String telefon, String email, String indeks, int godinaUpisa,
+			int trenutnaGodina, STATUS status, double prosek) {
+		super(ime, prezime, datum, adresa, telefon, email);
+		this.brIndeksa = indeks;
+		this.godUpisa = godinaUpisa;
+		this.trenutnaGodStudija = trenutnaGodina;
+		this.status = status;
+		this.prosek = prosek;
 	}
 	
 	public Object toCell(int column) {
