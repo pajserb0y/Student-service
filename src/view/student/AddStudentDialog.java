@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -19,6 +18,8 @@ import javax.swing.JTextField;
 
 public class AddStudentDialog extends JDialog{
 
+	private static final long serialVersionUID = 1L;
+	
 	public static JTextField txtIme = new JTextField();
 	public static JTextField txtPrz = new JTextField();
 	public static JTextField txtDat = new JTextField();
@@ -40,7 +41,6 @@ public class AddStudentDialog extends JDialog{
 			int screenWidth = screenSize.width;
 			setSize(3*screenWidth/8, screenHeight/2);
 			setTitle("Dodavanje studenta");
-			//setDefaultCloseOperation(EXIT_ON_CLOSE);
 			setLocationRelativeTo(parent);
 			Dimension dim = new Dimension(screenWidth/9, screenHeight/38);
 			

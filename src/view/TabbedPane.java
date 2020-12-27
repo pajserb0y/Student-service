@@ -17,6 +17,8 @@ import view.student.StudentiJTable;
 
 public class TabbedPane extends JTabbedPane{
 	
+	private static final long serialVersionUID = 1L;
+	
 	private static TabbedPane instance = null;
 
 	public static TabbedPane getInstance() {
@@ -46,11 +48,10 @@ public class TabbedPane extends JTabbedPane{
 		
 		AbstractTableModelStudent modelStudent=(AbstractTableModelStudent) tabelaStudenata.getModel();
 		modelStudent.setListaStudenata(BazaStudenata.getInstance().getStudenti());
+		modelStudent.fireTableDataChanged();
 		
 		AbstractTableModelProfesor modelProfesor = (AbstractTableModelProfesor) tabelaProfesora.getModel();
-		
 		modelProfesor.fireTableDataChanged();
-		modelStudent.fireTableDataChanged();
 	}
 
 }

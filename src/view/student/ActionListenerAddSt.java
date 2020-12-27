@@ -33,16 +33,16 @@ public class ActionListenerAddSt implements ActionListener {
 		String godStudija="I (prva)";
 		STATUS status = STATUS.B;
 		
-		boolean flag1=false;
-		boolean flag2=false;
-		boolean flag3=false;
-		boolean flag4=false;
-		boolean flag5=false;
-		boolean flag6=false;
-		boolean flag7=false;
-		boolean flag8=false;
-		boolean flag9=false;
-		boolean flag10=false;
+		boolean f1=false;
+		boolean f2=false;
+		boolean f3=false;
+		boolean f4=false;
+		boolean f5=false;
+		boolean f6=false;
+		boolean f7=false;
+		boolean f8=false;
+		boolean f9=false;
+		boolean f10=false;
 
 		
 		
@@ -50,16 +50,16 @@ public class ActionListenerAddSt implements ActionListener {
 		prz=AddStudentDialog.txtPrz.getText();	
 
 		if(!ime.matches("[A-Za-zšđžćčŠĐŽČĆ]+") ) {
-			if(flag1==false && flag2==false && flag3==false && flag4==false && flag5==false && flag6==false && flag7==false  && flag8==false && flag9==false) {
+			if(f1==false && f2==false && f3==false && f4==false && f5==false && f6==false && f7==false  && f8==false && f9==false) {
 				JOptionPane.showMessageDialog(null,"Ime i prezime treba da se sastoje samo od slova!\n");
-				flag10=true;
+				f10=true;
 			}
 		}
 
 		if(!prz.matches("[A-Za-zšđžćčŠĐŽČĆ]+") ) {
-			if(flag1==false && flag2==false && flag3==false && flag4==false && flag5==false && flag6==false && flag7==false  && flag8==false && flag9==false && flag10==false) {
+			if(f1==false && f2==false && f3==false && f4==false && f5==false && f6==false && f7==false  && f8==false && f9==false && f10==false) {
 				JOptionPane.showMessageDialog(null,"Ime i prezime treba da se sastoje samo od slova!\n");
-				flag10=true;
+				f10=true;
 			}
 		}
 		
@@ -67,18 +67,12 @@ public class ActionListenerAddSt implements ActionListener {
 		SimpleDateFormat format= new SimpleDateFormat("dd.mm.yyyy");		
 		
 		try {
-			dat=format.parse(AddStudentDialog.txtDat.getText());
-			
-			String datRS = null;
-			datRS=format.format(dat);
-			
-			String[] tokens1=datRS.split("/");
-			
+			dat=format.parse(AddStudentDialog.txtDat.getText());			
 		} catch(ParseException e1) {
-			if(flag2==false && flag1==false && flag4==false && flag5==false && flag6==false && flag7==false  && flag8==false && flag9==false && flag10==false) {
+			if(f2==false && f1==false && f4==false && f5==false && f6==false && f7==false  && f8==false && f9==false && f10==false) {
 				JOptionPane.showMessageDialog(null,"Obavezno popuniti sva polja! \n"  
 												+ " \t NAPOMENA: Datum uneti u formatu dd.mm.yyyy!\n");
-				flag3=true;
+				f3=true;
 			}
 		}
 		
@@ -88,43 +82,45 @@ public class ActionListenerAddSt implements ActionListener {
 		
 		tel=AddStudentDialog.txtTel.getText();
 		if(!tel.matches("[0-9]{3}/[0-9]{3,4}-[0-9]{3,4}") ) {
-			if(flag1==false && flag2==false && flag3==false && flag4==false && flag6==false && flag7==false && flag8==false && flag9==false && flag10==false) {
+			if(f1==false && f2==false && f3==false && f4==false && f6==false && f7==false && f8==false && f9==false && f10==false) {
 				JOptionPane.showMessageDialog(null,"Telefon unositi kao niz brojeva formata xxx/xxx-xxx!\\n");
-				flag5=true;
+				f5=true;
 			}
 		}
 		
 		email=AddStudentDialog.txtEmail.getText();
 		if(!email.matches("[A-Za-z0-9.]+[A-Za-z0-9.]+@[A-Za-z.]+[A-Za-z.]+")) {
-			if(flag1==false && flag2==false && flag3==false && flag4==false && flag6==false && flag7==false && flag8==false && flag10==false && flag5==false) {
+			if(f1==false && f2==false && f3==false && f4==false && f6==false && f7==false && f8==false && f10==false && f5==false) {
 				JOptionPane.showMessageDialog(null,"Email uneti sa obaveznim znakom @!");
-				flag9=true;
+				f9=true;
 			}
 		}
 		
 		
 		indeks=AddStudentDialog.txtIndeks.getText();
 		if(!(indeks.matches("[A-Za-z]{2}-[0-9]{0,3}-20[0,1][0-9]"))){
-			if(flag1==false && flag3==false && flag4==false && flag5==false && flag6==false && flag7==false && flag8==false && flag9==false  && flag10==false) {
+			if(f1==false && f3==false && f4==false && f5==false && f6==false && f7==false && f8==false && f9==false  && f10==false) {
 				JOptionPane.showMessageDialog(null,"Indeks unositi u formatu xx-bbb-yyyy!\n");
-				flag2=true;
+				f2=true;
 			}
 		}
 		
 		ArrayList<Student> listaStudenata = BazaStudenata.getInstance().getStudenti();
 		for(Student s:listaStudenata) {
 			if(indeks.equals(s.getBrIndeksa())) {
-					flag7=true;
+					f7=true;
 					break;
 				}
 		}
-		if(flag1==false && flag2==false && flag3==false && flag4==false && flag5==false && flag6==false && flag7==true  && flag8==false && flag9==false && flag10==false) {
+		if(f1==false && f2==false && f3==false && f4==false && f5==false && f6==false && f7==true  && f8==false && f9==false && f10==false) {
 			JOptionPane.showMessageDialog(null,"Broj indeksa već postoji!\n");
 		}
 		
-		String s="";
-		s= AddStudentDialog.txtGodUpisa.getText();
-		godUpisa = Integer.parseInt(s);
+		
+		try{
+			godUpisa = Integer.parseInt(AddStudentDialog.txtGodUpisa.getText());
+		} catch(NumberFormatException ex){ 
+		}
 		
 		int god=0;
 		godStudija=AddStudentDialog.cbGodStudija.getSelectedItem().toString();
@@ -145,47 +141,18 @@ public class ActionListenerAddSt implements ActionListener {
 			status = STATUS.S;
 		
 		
-//		if(status.equals("Budžet")) {
-//			god=1;
-//		}else if(status.equals("Samofinansiranje")) {
-//			god=2;
 		
-		
-//		if(god==1) {
-//			prosek=0.0;
-//		}else {
-//			try {
-//				prosek=Double.parseDouble(DialogAddStudent.txtProsek.getText());
-//					if(prosek>10 || prosek <6) {
-//						if(flag2==false && flag1==false && flag4==false && flag5==false && flag3==false && flag7==false && flag8==false  && flag9==false && flag10==false) {
-//							JOptionPane.showMessageDialog(null,"Prosek moze biti u intervalu 6-10.");
-//							flag6=true;
-//							}
-//						}
-//			
-//			} catch (NumberFormatException e1) {
-//				if(flag2==false && flag3==false && flag4==false  && flag5==false && flag6==false && flag7==false && flag8==false && flag9==false && flag10==false) {
-//					JOptionPane.showMessageDialog(null," Obavezno je popunjavanje svih polja! \n"
-//							+ "\t NAPOMENA:Prosek unositi isključivo kao broj.");
-//					flag1=true;
-//				}
-//			}
-//		}
-//		
-//		
-//		ArrayList<String> predmeti=new ArrayList<String>();
 	
 		if( indeks.equals("") || ime.equals("") || prz.equals("") || adresa.equals("") || tel.equals("")
 		|| email.equals("") || god==0 ) {
-				if(flag2==false && flag3==false && flag1==false && flag4==false && flag5==false && flag6==false && flag7==false && flag8==false && flag9==false && flag10==false)
+				if(f2==false && f3==false && f1==false && f4==false && f5==false && f6==false && f7==false && f8==false && f9==false && f10==false)
 					JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!");
-		}else if(flag1==false && flag2==false && flag3==false && flag4==false && flag5==false && flag6==false && flag7==false && flag8==false && flag9==false && flag10==false) {
+		}else if(f1==false && f2==false && f3==false && f4==false && f5==false && f6==false && f7==false && f8==false && f9==false && f10==false) {
 			StudentController.getInstance().dodajStudenta(ime, prz, dat, adresa, tel, email, indeks, godUpisa, god, status);
 			int  exit = JOptionPane.showConfirmDialog(null, "Student dodat" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION){
 				ActionListenerAdd.dialogStd.setVisible(false);			
 			}
-		
 		}
 	}
 

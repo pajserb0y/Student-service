@@ -13,9 +13,6 @@ import model.Student.STATUS;
 
 
 
-
-
-
 public class BazaStudenata {
 	
 	private static BazaStudenata instance = null;
@@ -44,114 +41,71 @@ public class BazaStudenata {
 	}
 	
 	private ArrayList<Student> initStudente() {
-//		String[] tokeni;
-//
-//		BufferedReader br = null;
-//		try {
-//			br = new BufferedReader(new FileReader("src\\baze\\bazastudenata.txt"));
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		String linija = null;
-//		STATUS s;
-//		
-//		try {
-//			while((linija = br.readLine())!= null)
-//			{
-//				tokeni = linija.split(";");
-//				
-//				for(int i = 0; i < tokeni.length; i++)
-//					tokeni[i] = tokeni[i].trim();
-//				
-//				SimpleDateFormat formater = new SimpleDateFormat("dd.mm.yyyy");
-//				String datumString = tokeni[3];
-//				Date datum = formater.parse(datumString);
-//				
-//				if (tokeni[9].equals("B"))
-//					s = STATUS.B;
-//				else
-//					s = STATUS.S;
-//				
-//				ArrayList<String> predmeti = new ArrayList<String>();
-//				
-//				if(tokeni.length > 11)
-//				{
-//					String[] predmetiString = tokeni[11].split(",");
-//					
-//					for(int i  = 0; i < predmetiString.length; i++)
-//						predmeti.add(predmetiString[i]);
-//				}
-//				int godUpisa = Integer.parseInt(tokeni[7]);
-//				int trenutnaGod = Integer.parseInt(tokeni[8]);
-//				double prosek = Double.parseDouble(tokeni[10]);
-//				Student st = new Student(tokeni[0], tokeni[1], tokeni[2], datum, tokeni[4], tokeni[5], tokeni[6], godUpisa,	trenutnaGod, s, prosek, predmeti);
-//				studenti.add(st);
-//		
-//			}
-		studenti = new ArrayList<Student>();
-		String[] tokens;
-		String indeks;
-		String ime;
-		String prezime;
-		Date datum;
-		String adresa;
-		String telefon;
-		String email;
-		int datumupisa;
-		int godina;
-		double prosek;
-		STATUS status;
+		this.studenti = new ArrayList<Student>();
+		String[] tokeni;
+		
+		String indeks="";
+		String ime="";
+		String prezime="";
+		Date datum = null;		
+		String adresa="";
+		String telefon="";
+		String email="";
+		int godUpisa=0;
+		int trenutnaGod=0;
+		double prosek=0.0;
+		STATUS status= STATUS.B;
+
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new FileReader("src\\baze\\bazastudenata.txt"));
-		} catch (FileNotFoundException e1) {
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			e.printStackTrace();
 		}
-
-		String line = null;
+		String linija = null;
+		
 		try {
-			while ((line = br.readLine()) != null) {
-				tokens = line.split(";");
-				for(int i = 0; i < tokens.length; i++)
-				{
-					System.out.printf("%s \n", tokens[i]);
-				}
+			while((linija = br.readLine())!= null)
+			{
+				tokeni = linija.split(";");
 				
-				indeks = tokens[0].trim();
-				ime = tokens[1].trim();
-				prezime = tokens[2].trim();
-
-				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-				String datumStr = tokens[3].trim();
-				datum = formatter.parse(datumStr);
-
-				adresa=tokens[4].trim();
-				telefon=tokens[5].trim().trim();
-				email=tokens[6].trim();
-				datumupisa=Integer.parseInt(tokens[7].trim());
-				godina=Integer.parseInt(tokens[8].trim());
-				String pom;
-				pom = tokens[9].trim();
-
-				if (pom.equalsIgnoreCase("B"))
+				for(int i = 0; i < tokeni.length; i++)
+					tokeni[i] = tokeni[i].trim();
+				
+				indeks = tokeni[0];
+				ime = tokeni[1];
+				prezime = tokeni[2];
+				adresa = tokeni[4];
+				telefon = tokeni[5];
+				email = tokeni[6];
+				godUpisa = Integer.parseInt(tokeni[7]);
+				trenutnaGod = Integer.parseInt(tokeni[8]);
+				prosek = Double.parseDouble(tokeni[10]);
+				
+				SimpleDateFormat formater = new SimpleDateFormat("dd.mm.yyyy");
+				String datumString = tokeni[3];
+				datum = formater.parse(datumString);
+				
+//				String p = tokeni[9];
+				if (tokeni[9].equals("B"))
 					status = STATUS.B;
 				else
 					status = STATUS.S;
-
-				prosek = Double.parseDouble(tokens[10].trim());
-
+				
+				
 				ArrayList<String> predmeti = new ArrayList<String>();
-				if (tokens.length > 11) {
-					String[] pomPred = tokens[11].trim().split(":");
-					for (int i = 0; i < pomPred.length; i++) {
-						predmeti.add(pomPred[i]);
-					}
+				if(tokeni.length > 11)
+				{
+					String[] predmetiString = tokeni[11].split(",");
+					
+					for(int i  = 0; i < predmetiString.length; i++)
+						predmeti.add(predmetiString[i]);
 				}
-				Student s = new Student(ime, prezime, datum, adresa, telefon, email, indeks, datumupisa,  godina, status, prosek, predmeti);
-				studenti.add(s);
+				
+				studenti.add(new Student(ime, prezime, datum, adresa, telefon, email, indeks,  godUpisa, trenutnaGod, status, prosek, predmeti));
 			}
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
