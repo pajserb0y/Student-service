@@ -12,7 +12,7 @@ public class ProfesorController {
 	
 	private ProfesorController() {}
 	
-	public ProfesorController getInstance()
+	public static ProfesorController getInstance()
 	{
 		if(instance == null)
 			instance = new ProfesorController();

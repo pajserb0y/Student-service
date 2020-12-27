@@ -1,5 +1,0 @@
-OP301;Osnove programiranja;1;1;007198721;RA-1-2019:RA-2-2019:RA-3-2019:RA-5-2019
-DM881;Diskretna matematika;3;2;008431903;RA-3-2018:RA-15-2018:RA-133-2017:RA-122-2017
-PP007;Paralelno programiranje;5;3;005671007;RA-1-2017:RA-5-2017:RA-33-2017:RA-152-2016
-RVP33;RaÄ?unarstvo visokih performansi;7;4;009999331;RA-1-2016:RA-5-2016:RA-33-2015:RA-102-2015
-JSD91;Jezici specifiÄ?ni za domen;8;4;;

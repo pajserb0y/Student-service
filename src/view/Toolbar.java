@@ -28,6 +28,8 @@ public class Toolbar extends JToolBar {
 		JButton btnNew = new JButton();
 		btnNew.setToolTipText("New");
 		btnNew.setIcon(new ImageIcon("images/new.png"));
+		btnNew.addActionListener(new ActionListenerAdd());
+		btnNew.setActionCommand("ADD");
 		this.add(btnNew);
 		
 		this.addSeparator();
