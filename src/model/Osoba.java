@@ -29,6 +29,17 @@ public class Osoba {
 		this.prezime = prezime;
 	}
 	
+	public Osoba(String ime, String prezime, Date datum, String adresa,
+			String telefon, String email) {
+		super();
+		this.ime = ime;
+		this.prezime = prezime;
+		this.datRodj = datum;
+		this.adresaStan = adresa;
+		this.telefon = telefon;
+		this.email = email;
+	}
+
 	public String getIme() {
 		return ime;
 	}

@@ -13,9 +13,6 @@ import javax.swing.KeyStroke;
 
 public class MenuBar extends JMenuBar{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public MenuBar() {
@@ -26,6 +23,7 @@ public class MenuBar extends JMenuBar{
 		miNew.setIcon(new ImageIcon("images/new.png"));
 		miNew.setMnemonic('N');
 		miNew.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
+		miNew.addActionListener(new ActionListenerAdd());
 		
 		JMenuItem miClose = new JMenuItem("Close");
 		miClose.setIcon(new ImageIcon("images/close.png"));

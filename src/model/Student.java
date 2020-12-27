@@ -3,13 +3,14 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
-enum STATUS {B, S}; //budzet i samofinansiranje
+//enum STATUS {B, S}; //budzet i samofinansiranje
 
 public class Student extends Osoba {
 
 	private String brIndeksa;
 	private int godUpisa;
 	private int trenutnaGodStudija;
+	public enum STATUS {B,S};
 	private STATUS status;
 	private double prosek;
 	private ArrayList<String> spisakPolIspitaISpisakOcena;
@@ -39,6 +40,28 @@ public class Student extends Osoba {
 		this.prosek = prosek;
 	}
 
+	public Student(String ime, String prezime, Date datum, String adresa,
+			String telefon, String email, String indeks, int godinaUpisa,
+			int trenutnaGodina, STATUS status) {
+		super(ime, prezime, datum, adresa, telefon, email);
+		this.brIndeksa = indeks;
+		this.godUpisa = godinaUpisa;
+		this.trenutnaGodStudija = trenutnaGodina;
+		this.status = status;
+	}
+	
+	public Object toCell(int column) {
+		switch(column) {
+		case 0: return getBrIndeksa();
+		case 1: return getIme();
+		case 2: return getPrezime();
+		case 3: return getTrenutnaGodStudija();
+		case 4: return getStatus();
+		case 5: return getProsek();
+		default: return null;
+		}
+	}	
+	
 	public String getBrIndeksa() {
 		return brIndeksa;
 	}

@@ -12,6 +12,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
 import model.AbstractTableModelStudent;
+import model.BazaStudenata;
 import view.student.StudentiJTable;
 
 
@@ -43,7 +44,14 @@ public class TabbedPane extends JTabbedPane{
 		JScrollPane scrollPaneS = new JScrollPane(tabelaStudenata);
 		addTab("Student", scrollPaneS);
 
-		
 	}
-
+	
+	
+	public static void azurirajPrikaz(String akcija, int vrednost) {
+		
+		AbstractTableModelStudent modelStudent=(AbstractTableModelStudent) tabelaStudenata.getModel();
+		modelStudent.setListaStudenata(BazaStudenata.getInstance().getStudenti());
+		
+		modelStudent.fireTableDataChanged();
+	}
 }
