@@ -135,11 +135,17 @@ public class BazaProfesora {
 			return p.getTitula();
 		case 3:
 			return p.getZvanje();
-		case 4:
-			return p.getSpisakPredmeta();
 		default :
 			return null;
 		}
+	}
+	
+	public void dodajProfesora(String ime, String prezime, Date datumRodjenja, String adresa, String telefon,String email ,String adresaK,
+			 String brLicne,String titula, String zvanje ,ArrayList<String> predmeti)
+	{
+		Profesor p = new Profesor(ime , prezime, datumRodjenja, adresa,
+				telefon, email, adresaK, brLicne, titula, zvanje, predmeti);
+		profesori.add(p);
 	}
 }
 

@@ -3,12 +3,11 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Label;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
+
 
 
 
@@ -42,7 +41,7 @@ public class MainWindow extends JFrame {
 		StatusBar statusBar = new StatusBar();
 		add(statusBar, java.awt.BorderLayout.SOUTH);
 		
-		TabbedPane tp = new TabbedPane();
+		TabbedPane tp = TabbedPane.getInstance();
 		add(tp, BorderLayout.CENTER);
 	}
 }

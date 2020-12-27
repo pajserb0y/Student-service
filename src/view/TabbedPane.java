@@ -5,6 +5,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
+import model.AbstractTableModelProfesor;
 import view.profesor.ProfesorJTable;
 import view.student.StudentiJTable;
 
@@ -12,8 +13,6 @@ import view.student.StudentiJTable;
 
 
 public class TabbedPane extends JTabbedPane{
-	
-	private static final long serialVersionUID = 1L;
 	
 	private static TabbedPane instance = null;
 
@@ -26,7 +25,7 @@ public class TabbedPane extends JTabbedPane{
 	public static JTable tabelaStudenata;
     public static JTable tabelaProfesora;
 	
-	public TabbedPane() {
+	private TabbedPane() {
 		//this.setBackground(new Color(169,169,69));
 
 		tabelaStudenata = new StudentiJTable();
@@ -37,5 +36,11 @@ public class TabbedPane extends JTabbedPane{
 
 		JScrollPane scrollPaneP = new JScrollPane(tabelaProfesora);
 		addTab("Profesor",scrollPaneP);
+	}
+	
+	public static void azurirajPrikaz(String akcija,int vrednost)
+	{
+		AbstractTableModelProfesor modelProfesor = (AbstractTableModelProfesor) tabelaProfesora.getModel();
+		modelProfesor.fireTableDataChanged();
 	}
 }
