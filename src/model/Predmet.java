@@ -5,22 +5,30 @@ import java.util.ArrayList;
 public class Predmet {
 	private String sifraPred;
 	private String nazPred;
-	private String semestar;
-	private String GodStud;
+	private int godStud;
+	private int semestar;
 	private String profesor;
-	private String espb;
-	private ArrayList<String> studentiPolozili = new ArrayList<String>(); // DA LI TREBA OVDE DA SE NAPAVI VEC?
-	private ArrayList<String> studentiNisuPolozili = new ArrayList<String>();
+	private int espb;
+	private ArrayList<String> studentiPolozili; 
+	private ArrayList<String> studentiNisuPolozili;
 	
-	public Predmet() {};
-	
-	public Predmet(String sifraPred, String nazPred, String semestar, String godStud, String profesor, String espb,
+	public Predmet(String sifraPred, String nazPred, int godStud, int semestar, String profesor, int espb) {
+		super();
+		this.sifraPred = sifraPred;
+		this.nazPred = nazPred;
+		this.godStud = godStud;
+		this.semestar = semestar;
+		this.profesor = profesor;
+		this.espb = espb;
+	}
+
+	public Predmet(String sifraPred, String nazPred, int godStud, int semestar, String profesor, int espb,
 			ArrayList<String> studentiPolozili, ArrayList<String> studentiNisuPolozili) {
 		super();
 		this.sifraPred = sifraPred;
 		this.nazPred = nazPred;
+		this.godStud = godStud;
 		this.semestar = semestar;
-		GodStud = godStud;
 		this.profesor = profesor;
 		this.espb = espb;
 		this.studentiPolozili = studentiPolozili;
@@ -43,20 +51,20 @@ public class Predmet {
 		this.nazPred = nazPred;
 	}
 
-	public String getSemestar() {
+	public int getGodStud() {
+		return godStud;
+	}
+
+	public void setGodStud(int godStud) {
+		this.godStud = godStud;
+	}
+
+	public int getSemestar() {
 		return semestar;
 	}
 
-	public void setSemestar(String semestar) {
+	public void setSemestar(int semestar) {
 		this.semestar = semestar;
-	}
-
-	public String getGodStud() {
-		return GodStud;
-	}
-
-	public void setGodStud(String godStud) {
-		GodStud = godStud;
 	}
 
 	public String getProfesor() {
@@ -67,11 +75,11 @@ public class Predmet {
 		this.profesor = profesor;
 	}
 
-	public String getEspb() {
+	public int getEspb() {
 		return espb;
 	}
 
-	public void setEspb(String espb) {
+	public void setEspb(int espb) {
 		this.espb = espb;
 	}
 
@@ -90,5 +98,6 @@ public class Predmet {
 	public void setStudentiNisuPolozili(ArrayList<String> studentiNisuPolozili) {
 		this.studentiNisuPolozili = studentiNisuPolozili;
 	}
-
 }
+	
+	

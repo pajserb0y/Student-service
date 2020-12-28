@@ -9,6 +9,7 @@ import model.AbstractTableModelProfesor;
 
 import model.AbstractTableModelStudent;
 import model.BazaStudenata;
+import view.predmet.PredmetJTable;
 import view.profesor.ProfesorJTable;
 import view.student.StudentiJTable;
 
@@ -29,12 +30,14 @@ public class TabbedPane extends JTabbedPane{
 	
 	public static JTable tabelaStudenata;
     public static JTable tabelaProfesora;
+    public static JTable tabelaPredmeta;
 	
 	private TabbedPane() {
 		//this.setBackground(new Color(169,169,69));
 
 		tabelaStudenata = new StudentiJTable();
 		tabelaProfesora = new ProfesorJTable();
+		tabelaPredmeta = new PredmetJTable();
 	
 		JScrollPane scrollPaneS = new JScrollPane(tabelaStudenata);
 		addTab("Student", scrollPaneS);
@@ -42,6 +45,8 @@ public class TabbedPane extends JTabbedPane{
 		JScrollPane scrollPaneP = new JScrollPane(tabelaProfesora);
 		addTab("Profesor",scrollPaneP);
 		
+		JScrollPane scrollPanePred = new JScrollPane(tabelaPredmeta);
+		addTab("Predmet",scrollPanePred);
 	}
 	
 	public static void azurirajPrikaz(String akcija, int vrednost) {
