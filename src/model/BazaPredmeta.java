@@ -125,4 +125,11 @@ public class BazaPredmeta {
 				return null;
 			}
 		}
+		
+		public void dodajPredmet(String sifraPred, String nazPred, int godStud, int semestar, String profesor, int espb,
+				ArrayList<String> studentiPolozili, ArrayList<String> studentiNisuPolozili)
+		{
+			Predmet p = new Predmet(sifraPred, nazPred, godStud, semestar, profesor, espb);
+			this.predmeti.add(p);
+		}
 }

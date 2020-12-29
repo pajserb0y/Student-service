@@ -5,8 +5,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
+import model.AbstractTableModelPredmet;
 import model.AbstractTableModelProfesor;
-
 import model.AbstractTableModelStudent;
 import model.BazaStudenata;
 import view.predmet.PredmetJTable;
@@ -57,6 +57,9 @@ public class TabbedPane extends JTabbedPane{
 		
 		AbstractTableModelProfesor modelProfesor = (AbstractTableModelProfesor) tabelaProfesora.getModel();
 		modelProfesor.fireTableDataChanged();
+		
+		AbstractTableModelPredmet modelPredmet = (AbstractTableModelPredmet) tabelaPredmeta.getModel();
+		modelPredmet.fireTableDataChanged();
 	}
 
 }

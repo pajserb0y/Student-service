@@ -3,6 +3,7 @@ package view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import view.predmet.AddPredmetDialog;
 import view.profesor.AddProfesorDialog;
 import view.student.AddStudentDialog;
 
@@ -11,6 +12,7 @@ public class ActionListenerAdd implements ActionListener {
 
 	public static AddStudentDialog dialogStd;
 	public static AddProfesorDialog dialogProf;
+	public static AddPredmetDialog dialogPred;
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -19,6 +21,7 @@ public class ActionListenerAdd implements ActionListener {
 
 		dialogStd = new AddStudentDialog(null, "Dodavanje studenta", true);
 		dialogProf = new AddProfesorDialog(null,"Dodavanje profesora",true);
+		dialogPred = new AddPredmetDialog(null, "Dodavanje predmeta", true);
 		 
 		if(index == 0) {
 			
@@ -46,6 +49,14 @@ public class ActionListenerAdd implements ActionListener {
 			AddProfesorDialog.txtEmail.setText("");
 			AddProfesorDialog.titula.removeAllItems();
 			AddProfesorDialog.zvanje.removeAllItems();
+		}else if(index == 2) {
+			dialogPred.setVisible(true);
+			AddPredmetDialog.txtNaz.setText("");
+			AddPredmetDialog.txtSif.setText("");
+			AddPredmetDialog.txtProf.setText("");
+			AddPredmetDialog.txtEspb.setText("");
+			AddPredmetDialog.godStud.removeAllItems();
+			AddPredmetDialog.semest.removeAllItems();
 		}
 	}
 
