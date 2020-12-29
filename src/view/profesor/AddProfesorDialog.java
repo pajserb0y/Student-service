@@ -38,7 +38,7 @@ public class AddProfesorDialog extends JDialog{
 		int screenHeight = screenSize.height;
 		int screenWidth = screenSize.width;
 		
-		setSize(3*screenWidth/8, 5*screenHeight/8);
+		setSize(3*screenWidth/8, 5*screenHeight/9);
 		setLocationRelativeTo(parent);
 		
 		JPanel panelIme = new JPanel(new FlowLayout(FlowLayout.LEFT));

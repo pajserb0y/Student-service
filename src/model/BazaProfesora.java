@@ -79,7 +79,7 @@ public class BazaProfesora {
 					for(int i  = 0; i < predmetiString.length;++i)
 						predmeti.add(predmetiString[i].trim());
 				}
-				profesori.add(new Profesor(tokeni[0],tokeni[1],datum,tokeni[3],tokeni[4],tokeni[5],tokeni[6],tokeni[7],
+				profesori.add(new Profesor(tokeni[0],tokeni[1],datum,tokeni[3],tokeni[7],tokeni[4],tokeni[5],tokeni[6],
 						tokeni[8],tokeni[9],predmeti));
 			}
 		} catch (IOException e) {
