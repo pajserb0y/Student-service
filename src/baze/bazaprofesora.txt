@@ -1,6 +1,6 @@
-Luka;Lutkić;15/03/1978;Prešernova 15, Novi Sad;021/332-890;luka.lutkic@gmail.com;Dositeja Obradović 6, Novi Sad, MI 207;007558452;Prof. dr;Redovni profesor;Osnove programiranja
-Radiša;Trajković;28/12/1970;Jovana Cvijića 5, Novi Sad;021/555-666;radiša.trajković@gmail.com;Dositeja Obradović 6, Novi Sad, Nastavni blok 206;008431903;Prof. dr;Redovni profesor;Diskretna matematika
-Nino;Rešić;23/11/1978;Preradovićeva 75, Novi Sad;021/344-100;nino.resic@gmail.com;Dositeja Obradović 6, Novi Sad, NTP 307;005666607;Dr;Vanredni profesor;Paralelno programiranje,Operativni sistemi
-Milan;Topalović;24/08/1978;Tolstojeva 44, Novi Sad;021/224-993;milan.topalovic@gmail.com;Dositeja Obradović 6, Novi Sad, MI 118;009999331;Dr;Vanredni profesor;Računarstvo visokih performansi
-Lav;Tolstoj;08/11/1900;Tolstojeva 52, Novi Sad;021/843-901;lav.tolstoj@gmail.com;Dositeja Obradović 6, Novi Sad, Nastavni blok 217;012330976;Dr;Redovni profesor;Engleski jezik
+Luka;Lutkić;15/03/1978;Prešernova 15, Novi Sad;021/332-890;luka.lutkic@gmail.com;Dositeja Obradović 6, Novi Sad, MI 207;007558452;Prof. dr;Redovni profesor;
+Radiša;Trajković;28/12/1970;Jovana Cvijića 5, Novi Sad;021/555-666;radisa.trajkovic@gmail.com;Dositeja Obradović 6, Novi Sad, Nastavni blok 206;008431903;Prof. dr;Redovni profesor;Diskretna matematika
+Nino;Rešić;23/11/1978;Preradovićeva 75, Novi Sad;021/344-100;nino.resic@gmail.com;Dositeja Obradović 6, Novi Sad, NTP 307;555555555;Dr;Vanredni profesor;
+Milan;Topalović;24/08/1978;Tolstojeva 44, Novi Sad;021/224-993;milan.topalovic@gmail.com;Dositeja Obradović 6, Novi Sad, MI 118;009999331;Dr;Vanredni profesor;
+Lav;Tolstoj;08/11/1900;Tolstojeva 52, Novi Sad;021/843-901;lav.tolstoj@gmail.com;Dositeja Obradović 6, Novi Sad, Nastavni blok 217;012330976;Dr;Redovni profesor;
 Teodor;Ruzvelt;14/12/1923;Bulevar Oslobodjenja 33, Novi Sad;021/007-007;teodor.ruzvelt@gmail.com;Dositeja Obradović 6, Novi Sad, M85;007441098;Dr;Docent;

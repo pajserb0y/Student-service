@@ -7,15 +7,15 @@ public class Profesor extends Osoba {
 	private String adresaKanc;
 	private String titula;
 	private String zvanje;
-	private ArrayList<String> spisakPredmeta = new ArrayList<String>();
+	private ArrayList<Predmet> listaPredmeta = new ArrayList<Predmet>();
 
-	public Profesor(String ime, String prezime, Date datRodj, String adresaStan, String brLicne, String telefon,
-			String email, String adresaKanc, String titula, String zvanje, ArrayList<String> spisakPredmeta) {
+	public Profesor(String ime, String prezime, Date datRodj, String adresaStan, String telefon,
+			String email, String adresaKanc, String brLicne, String titula, String zvanje, ArrayList<Predmet> listaPredmeta) {
 		super(ime, prezime, datRodj, adresaStan, brLicne, telefon, email);
 		this.adresaKanc = adresaKanc;
 		this.titula = titula;
 		this.zvanje = zvanje;
-		this.spisakPredmeta = spisakPredmeta;
+		this.listaPredmeta = listaPredmeta;
 	}
 
 	public String getAdresaKanc() {
@@ -42,12 +42,12 @@ public class Profesor extends Osoba {
 		this.zvanje = zvanje;
 	}
 
-	public ArrayList<String> getSpisakPredmeta() {
-		return spisakPredmeta;
+	public ArrayList<Predmet> getSpisakPredmeta() {
+		return listaPredmeta;
 	}
 
-	public void setSpisakPredmeta(ArrayList<String> spisakPredmeta) {
-		this.spisakPredmeta = spisakPredmeta;
+	public void setSpisakPredmeta(ArrayList<Predmet> spisakPredmeta) {
+		this.listaPredmeta = spisakPredmeta;
 	}
 	
 	

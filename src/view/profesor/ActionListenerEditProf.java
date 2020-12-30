@@ -13,9 +13,10 @@ import controller.ProfesorController;
 import model.BazaProfesora;
 import model.Predmet;
 import model.Profesor;
-import view.ActionListenerAdd;
+import view.ActionListenerEdit;
+import view.TabbedPane;
 
-public class ActionListenerAddProf implements ActionListener{
+public class ActionListenerEditProf implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -30,18 +31,19 @@ public class ActionListenerAddProf implements ActionListener{
 		String adrKanc = "";
 		String titula = "";
 		String zvanje = "";
-		
-		
-		ime = AddProfesorDialog.txtIme.getText();
-		prz = AddProfesorDialog.txtPrz.getText();
-		brLk = AddProfesorDialog.txtBrLk.getText();
-		tel = AddProfesorDialog.txtTel.getText();
-		adr = AddProfesorDialog.txtAdr.getText();
-		email = AddProfesorDialog.txtEmail.getText();
-		adrKanc = AddProfesorDialog.txtAdrKanc.getText();
-		titula = AddProfesorDialog.titula.getSelectedItem().toString();
-		zvanje = AddProfesorDialog.zvanje.getSelectedItem().toString();
-		String txtDat = AddProfesorDialog.txtDat.getText();
+		int rowView = TabbedPane.tabelaProfesora.getSelectedRow();
+		int rowModel = TabbedPane.tabelaProfesora.convertRowIndexToModel(rowView);
+		String staraLk = (String)BazaProfesora.getInstance().getRow(rowModel).getBrLicne();
+		ime = EditProfesorDialog.txtIme.getText();
+		prz = EditProfesorDialog.txtPrz.getText();
+		brLk = EditProfesorDialog.txtBrLk.getText();
+		tel = EditProfesorDialog.txtTel.getText();
+		adr = EditProfesorDialog.txtAdr.getText();
+		email = EditProfesorDialog.txtEmail.getText();
+		adrKanc = EditProfesorDialog.txtAdrKanc.getText();
+		titula = EditProfesorDialog.titula.getSelectedItem().toString();
+		zvanje = EditProfesorDialog.zvanje.getSelectedItem().toString();
+		String txtDat = EditProfesorDialog.txtDat.getText();
 		
 		
 		if (!brLk.matches("[0-9]+") || brLk.length() != 9) {
@@ -51,13 +53,17 @@ public class ActionListenerAddProf implements ActionListener{
 		}
 		
 		ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();
-		for(Profesor p : profesori) 
-			if(brLk.equals(p.getBrLicne()))
-			{
-				JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!\n"
-						+ "\tNAPOMENA: Broj lične karte već postoji u bazi profesora!");
-				return;
-			}
+		
+		if(!staraLk.equals(brLk))
+		{
+			for(Profesor p : profesori) 
+				if(brLk.equals(p.getBrLicne()))
+				{
+					JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!\n"
+							+ "\tNAPOMENA: Broj lične karte već postoji u bazi profesora!");
+					return;
+				}
+		}
 		
 		if(!ime.matches("[A-Za-zšđžćčŠĐŽČĆ]+") ) {
 			JOptionPane.showMessageDialog(null,"Obavezno je popunjavanje svih polja!\n"
@@ -98,10 +104,10 @@ public class ActionListenerAddProf implements ActionListener{
 			return;
 			}
 		else {
-			ProfesorController.getInstance().dodajProfesora(ime, prz, dat, adr, tel, email, adrKanc,brLk, titula, zvanje, new ArrayList<Predmet>());
-			int  exit = JOptionPane.showConfirmDialog(null, "Profesor dodat." , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+			ProfesorController.getInstance().izmeniProfesora(staraLk,ime, prz, dat, adr, tel, email, adrKanc,brLk, titula, zvanje, new ArrayList<Predmet>());
+			int  exit = JOptionPane.showConfirmDialog(null, "Profesor je izmenjen." , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION){
-				ActionListenerAdd.dialogProf.setVisible(false);	
+				ActionListenerEdit.dialogProf.setVisible(false);	
 			}
 		}
 	}

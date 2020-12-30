@@ -33,15 +33,8 @@ public class BazaProfesora {
 		this.kolone = new ArrayList<String>();
 		kolone.add("Ime");
 		kolone.add("Prezime");
-//		kolone.add("DATUM RODJENJA");
-//		kolone.add("ADRESA STANOVANJA");
-//		kolone.add("BROJ LICNE KARTE");
-//		kolone.add("TELEFON");
-//		kolone.add("EMAIL");
-//		kolone.add("ADRESA KANCELARIJE");
 		kolone.add("Titula");
 		kolone.add("Zvanje");
-//      kolone.add("SPISAK PREDMETA");
 	}
 	
 	private ArrayList<Profesor> initProfesora()
@@ -70,16 +63,9 @@ public class BazaProfesora {
 				String datumString = tokeni[2];
 				Date datum = formater.parse(datumString);
 				
-				ArrayList<String> predmeti = new ArrayList<String>();
+				ArrayList<Predmet> predmeti = null;
 				
-				if(tokeni.length > 10)
-				{
-					String[] predmetiString = tokeni[10].split(",");
-					
-					for(int i  = 0; i < predmetiString.length;++i)
-						predmeti.add(predmetiString[i].trim());
-				}
-				profesori.add(new Profesor(tokeni[0],tokeni[1],datum,tokeni[3],tokeni[7],tokeni[4],tokeni[5],tokeni[6],
+				profesori.add(new Profesor(tokeni[0],tokeni[1],datum,tokeni[3],tokeni[4],tokeni[5],tokeni[6],tokeni[7],
 						tokeni[8],tokeni[9],predmeti));
 			}
 		} catch (IOException e) {
@@ -141,11 +127,34 @@ public class BazaProfesora {
 	}
 	
 	public void dodajProfesora(String ime, String prezime, Date datumRodjenja, String adresa, String telefon,String email ,String adresaK,
-			 String brLicne,String titula, String zvanje ,ArrayList<String> predmeti)
+			 String brLicne,String titula, String zvanje ,ArrayList<Predmet> predmeti)
 	{
 		Profesor p = new Profesor(ime , prezime, datumRodjenja, adresa,
 				telefon, email, adresaK, brLicne, titula, zvanje, predmeti);
 		profesori.add(p);
+	}
+
+	public void izmeniProfesora(String staraLk, String ime, String prezime, Date datumRodjenja, String adresa,
+			String telefon, String email, String adresaK, String brLicne, String titula, String zvanje,
+			ArrayList<Predmet> predmeti) {
+		for(Profesor p : profesori)
+		{
+			if(p.getBrLicne().equals(staraLk))
+			{
+				p.setIme(ime);
+				p.setPrezime(prezime);
+				p.setDatRodj(datumRodjenja);
+				p.setAdresaStan(adresa);
+				p.setTelefon(telefon);
+				p.setEmail(email);
+				p.setAdresaKanc(adresaK);
+				p.setBrLicne(brLicne);
+				p.setTitula(titula);
+				p.setZvanje(zvanje);
+				p.setSpisakPredmeta(p.getSpisakPredmeta()); //msm da ovo treba da ostane ne pormenjeno jer se to sne moze izmeniti
+				return;
+			}
+		}
 	}
 }
 
