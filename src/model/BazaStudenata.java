@@ -55,6 +55,8 @@ public class BazaStudenata {
 		int trenutnaGod=0;
 		double prosek=0.0;
 		STATUS status= STATUS.B;
+		ArrayList<Predmet> spisakPolIspitaISpisakOcena = null;
+		ArrayList<Predmet> spisakNepolIspita = null;
 
 		BufferedReader br = null;
 		try {
@@ -93,16 +95,7 @@ public class BazaStudenata {
 					status = STATUS.S;
 				
 				
-				ArrayList<String> predmeti = new ArrayList<String>();
-				if(tokeni.length > 11)
-				{
-					String[] predmetiString = tokeni[11].split(",");
-					
-					for(int i  = 0; i < predmetiString.length; i++)
-						predmeti.add(predmetiString[i]);
-				}
-				
-				studenti.add(new Student(ime, prezime, datum, adresa, telefon, email, indeks,  godUpisa, trenutnaGod, status, prosek, predmeti));
+				studenti.add(new Student(ime, prezime, datum, adresa, telefon, email, indeks, godUpisa, trenutnaGod, status, prosek, spisakPolIspitaISpisakOcena, spisakNepolIspita));
 			}
 			
 		} catch (IOException e) {
@@ -163,9 +156,14 @@ public class BazaStudenata {
 	}
 	
 	public void dodajStudenta(String ime, String prezime, Date datum, String adresa, String telefon,
-			String email, String indeks, int godinaUpisa, int trenutnaGodina, STATUS status) {
+			String email, String indeks, int godinaUpisa, int trenutnaGodina, STATUS status, double prosek, 
+			ArrayList<Predmet> spisakPolIspitaISpisakOcena, ArrayList<Predmet> spisakNepolIspita) {
 		
-		this.studenti.add(new Student(ime, prezime, datum, adresa, telefon, email, indeks, godinaUpisa, trenutnaGodina, status));
+		prosek = 0;
+		spisakPolIspitaISpisakOcena = null;
+		spisakNepolIspita = null;
+		
+		this.studenti.add(new Student(ime, prezime, datum, adresa, telefon, email, indeks, godinaUpisa, trenutnaGodina, status, prosek, spisakPolIspitaISpisakOcena, spisakNepolIspita));
 	}
 	
 }

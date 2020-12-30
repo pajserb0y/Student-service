@@ -13,16 +13,16 @@ public class Student extends Osoba {
 	public enum STATUS {B,S};
 	private STATUS status;
 	private double prosek;
-	private ArrayList<String> spisakPolIspitaISpisakOcena;
-	private ArrayList<String> spisakNepolIspita;
+	private ArrayList<Predmet> spisakPolIspitaISpisakOcena;
+	private ArrayList<Predmet> spisakNepolIspita;
 	
 	
 	public Student(String ime, String prezime, Date datRodj, String adresaStan,
-			String brLicne, String telefon, String email, String brIndeksa,
+			String telefon, String email, String brIndeksa,
 			int godUpisa, int trenutnaGodStudija, STATUS status, double prosek,
-			ArrayList<String> spisakPolIspitaISpisakOcena,
-			ArrayList<String> spisakNepolIspita) {
-		super(ime, prezime, datRodj, adresaStan, brLicne, telefon, email);
+			ArrayList<Predmet> spisakPolIspitaISpisakOcena,
+			ArrayList<Predmet> spisakNepolIspita) {
+		super(ime, prezime, datRodj, adresaStan, telefon, email);
 		this.brIndeksa = brIndeksa;
 		this.godUpisa = godUpisa;
 		this.trenutnaGodStudija = trenutnaGodStudija;
@@ -32,47 +32,7 @@ public class Student extends Osoba {
 		this.spisakNepolIspita = spisakNepolIspita;
 	}
 	
-	public Student( String ime, String prezime, Date datRodj, String adresaStan,
-			String telefon, String email, String brIndeksa,
-			int godUpisa, int trenutnaGodStudija, STATUS status, double prosek,
-			ArrayList<String> spisakPolIspitaISpisakOcena) {
-		super(ime, prezime, datRodj, adresaStan, telefon, email);
-		this.brIndeksa = brIndeksa;
-		this.godUpisa = godUpisa;
-		this.trenutnaGodStudija = trenutnaGodStudija;
-		this.status = status;
-		this.prosek = prosek;
-		this.spisakPolIspitaISpisakOcena = spisakPolIspitaISpisakOcena;
-	}
-	
-	public Student(String brIndeksa, String ime, String prezime, int trenutnaGodStudija, STATUS status, double prosek) {
-		super(ime, prezime);
-		this.brIndeksa = brIndeksa;
-		this.trenutnaGodStudija = trenutnaGodStudija;
-		this.status = status;
-		this.prosek = prosek;
-	}
 
-	public Student(String ime, String prezime, Date datum, String adresa,
-			String telefon, String email, String indeks, int godinaUpisa,
-			int trenutnaGodina, STATUS status) {
-		super(ime, prezime, datum, adresa, telefon, email);
-		this.brIndeksa = indeks;
-		this.godUpisa = godinaUpisa;
-		this.trenutnaGodStudija = trenutnaGodina;
-		this.status = status;
-	}
-	
-	public Student(String ime, String prezime, Date datum, String adresa,
-			String telefon, String email, String indeks, int godinaUpisa,
-			int trenutnaGodina, STATUS status, double prosek) {
-		super(ime, prezime, datum, adresa, telefon, email);
-		this.brIndeksa = indeks;
-		this.godUpisa = godinaUpisa;
-		this.trenutnaGodStudija = trenutnaGodina;
-		this.status = status;
-		this.prosek = prosek;
-	}
 	
 	public Object toCell(int column) {
 		switch(column) {
@@ -136,25 +96,24 @@ public class Student extends Osoba {
 	}
 
 
-	public ArrayList<String> getSpisakPolIspitaISpisakOcena() {
+	public ArrayList<Predmet> getSpisakPolIspitaISpisakOcena() {
 		return spisakPolIspitaISpisakOcena;
 	}
 
 
 	public void setSpisakPolIspitaISpisakOcena(
-			ArrayList<String> spisakPolIspitaISpisakOcena) {
+			ArrayList<Predmet> spisakPolIspitaISpisakOcena) {
 		this.spisakPolIspitaISpisakOcena = spisakPolIspitaISpisakOcena;
 	}
 
 
-	public ArrayList<String> getSpisakNepolIspita() {
+	public ArrayList<Predmet> getSpisakNepolIspita() {
 		return spisakNepolIspita;
 	}
 
 
-	public void setSpisakNepolIspita(ArrayList<String> spisakNepolIspita) {
+	public void setSpisakNepolIspita(ArrayList<Predmet> spisakNepolIspita) {
 		this.spisakNepolIspita = spisakNepolIspita;
 	}
 
-	
 }
