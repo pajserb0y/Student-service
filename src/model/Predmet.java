@@ -7,23 +7,13 @@ public class Predmet {
 	private String nazPred;
 	private int godStud;
 	private int semestar;
-	private String profesor;
+	private Profesor profesor;
 	private int espb;
-	private ArrayList<String> studentiPolozili; 
-	private ArrayList<String> studentiNisuPolozili;
+	private ArrayList<Student> studentiPolozili; 
+	private ArrayList<Student> studentiNisuPolozili;
 	
-	public Predmet(String sifraPred, String nazPred, int godStud, int semestar, String profesor, int espb) {
-		super();
-		this.sifraPred = sifraPred;
-		this.nazPred = nazPred;
-		this.godStud = godStud;
-		this.semestar = semestar;
-		this.profesor = profesor;
-		this.espb = espb;
-	}
-
-	public Predmet(String sifraPred, String nazPred, int godStud, int semestar, String profesor, int espb,
-			ArrayList<String> studentiPolozili, ArrayList<String> studentiNisuPolozili) {
+	public Predmet(String sifraPred, String nazPred, int godStud, int semestar, Profesor profesor, int espb,
+			ArrayList<Student> studentiPolozili, ArrayList<Student> studentiNisuPolozili) {
 		super();
 		this.sifraPred = sifraPred;
 		this.nazPred = nazPred;
@@ -67,11 +57,11 @@ public class Predmet {
 		this.semestar = semestar;
 	}
 
-	public String getProfesor() {
+	public Profesor getProfesor() {
 		return profesor;
 	}
 
-	public void setProfesor(String profesor) {
+	public void setProfesor(Profesor profesor) {
 		this.profesor = profesor;
 	}
 
@@ -83,19 +73,19 @@ public class Predmet {
 		this.espb = espb;
 	}
 
-	public ArrayList<String> getStudentiPolozili() {
+	public ArrayList<Student> getStudentiPolozili() {
 		return studentiPolozili;
 	}
 
-	public void setStudentiPolozili(ArrayList<String> studentiPolozili) {
+	public void setStudentiPolozili(ArrayList<Student> studentiPolozili) {
 		this.studentiPolozili = studentiPolozili;
 	}
 
-	public ArrayList<String> getStudentiNisuPolozili() {
+	public ArrayList<Student> getStudentiNisuPolozili() {
 		return studentiNisuPolozili;
 	}
 
-	public void setStudentiNisuPolozili(ArrayList<String> studentiNisuPolozili) {
+	public void setStudentiNisuPolozili(ArrayList<Student> studentiNisuPolozili) {
 		this.studentiNisuPolozili = studentiNisuPolozili;
 	}
 }

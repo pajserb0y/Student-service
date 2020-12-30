@@ -57,25 +57,14 @@ public class BazaPredmeta {
 					int godina = Integer.parseInt(tokeni[3]);
 					int semestar = Integer.parseInt(tokeni[2]);
 					int espb = Integer.parseInt(tokeni[4]);
-					String profesor = null;
+					Profesor profesor = null;
 					
-					ArrayList<String> polozeni = new ArrayList<>() ;
-					ArrayList<String> nepolozeni = new ArrayList<>() ;
-					if(tokeni.length > 5)
-						profesor = tokeni[5];
-					if(tokeni.length > 6) {
-						String[] polozeniString = tokeni[6].split(",");
-						for(int i = 0;i < polozeniString.length;++i)
-							polozeni.add(polozeniString[i]);
-						if(tokeni.length > 7)
-						{
-							String[] nepolozeniString = tokeni[7].split(",");
-							for(int i = 0;i < nepolozeniString.length;++i)
-								nepolozeni.add(nepolozeniString[i]);
-						}
-					}
+					ArrayList<Student> polozili  = null;
+					ArrayList<Student> nisu_polozili = null;
 					
-					Predmet p = new Predmet(tokeni[0], tokeni[1], godina, semestar,profesor , espb, polozeni,nepolozeni);
+					
+					
+					Predmet p = new Predmet(tokeni[0], tokeni[1], godina, semestar,profesor , espb, polozili,nisu_polozili);
 					predmeti.add(p);
 				}
 			} catch (IOException e) {
@@ -126,10 +115,10 @@ public class BazaPredmeta {
 			}
 		}
 		
-		public void dodajPredmet(String sifraPred, String nazPred, int godStud, int semestar, String profesor, int espb,
-				ArrayList<String> studentiPolozili, ArrayList<String> studentiNisuPolozili)
-		{
-			Predmet p = new Predmet(sifraPred, nazPred, godStud, semestar, profesor, espb);
-			this.predmeti.add(p);
-		}
+//		public void dodajPredmet(String sifraPred, String nazPred, int godStud, int semestar, String profesor, int espb,
+//				ArrayList<String> studentiPolozili, ArrayList<String> studentiNisuPolozili)
+//		{
+//			Predmet p = new Predmet(sifraPred, nazPred, godStud, semestar, profesor, espb,studentiPolozili,studentiNisuPolozili);
+//			this.predmeti.add(p);
+//		}
 }
