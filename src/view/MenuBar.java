@@ -39,6 +39,7 @@ public class MenuBar extends JMenuBar{
 		miEdit.setIcon(new ImageIcon("images/edit.jpg"));
 		miEdit.setMnemonic('E');
 		miEdit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, ActionEvent.CTRL_MASK));
+		miEdit.addActionListener(new ActionListenerEdit());
 	
 		JMenuItem miDelete = new JMenuItem("Delete");
 		miDelete.setIcon(new ImageIcon("images/delete.png"));

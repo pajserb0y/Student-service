@@ -7,23 +7,61 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import model.AbstractTableModelProfesor;
 import model.BazaProfesora;
+import model.BazaStudenata;
 import view.profesor.EditProfesorDialog;
-
+import view.student.EditStudentDialog;
 
 
 public class ActionListenerEdit implements ActionListener{
 	
+	public static EditStudentDialog dialogStd;
 	public static EditProfesorDialog dialogProf;
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		dialogProf = new EditProfesorDialog(null,"Izmena profesora", true);
+		
+		dialogStd = new EditStudentDialog(null, "Izmena studenta", true);
+		dialogProf = new EditProfesorDialog(null, "Izmena profesora", true);
+		
 		int index = TabbedPane.getInstance().getSelectedIndex();
 		
-		if(index == 1) //kad budes dodavao studenta promeni ovo u else if samo a ti stavi iznad if(index == 0)
+		if(index == 0)
+		{
+			int rowView = TabbedPane.tabelaStudenata.getSelectedRow();
+			int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(rowView);
+			if(rowModel != -1)
+			{
+				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+				
+				String ime = BazaStudenata.getInstance().getRow(rowModel).getIme();
+				String prz = BazaStudenata.getInstance().getRow(rowModel).getPrezime();
+				Date dat = BazaStudenata.getInstance().getRow(rowModel).getDatRodj();
+				String adr = BazaStudenata.getInstance().getRow(rowModel).getAdresaStan();
+				String tel = BazaStudenata.getInstance().getRow(rowModel).getTelefon();
+				String email = BazaStudenata.getInstance().getRow(rowModel).getEmail();
+				String indeks = BazaStudenata.getInstance().getRow(rowModel).getBrIndeksa();
+				int godUpisa = BazaStudenata.getInstance().getRow(rowModel).getGodUpisa();
+				
+				
+				EditStudentDialog.txtIme.setText(ime);
+				EditStudentDialog.txtPrz.setText(prz);
+				EditStudentDialog.txtDat.setText(formater.format(dat));
+				EditStudentDialog.txtAdresa.setText(adr);
+				EditStudentDialog.txtTel.setText(tel);
+				EditStudentDialog.txtEmail.setText(email);
+				EditStudentDialog.txtIndeks.setText(indeks);
+				EditStudentDialog.txtGodUpisa.setText(Integer.toString(godUpisa));
+				
+				dialogStd.setVisible(true);
+				dialogStd.pack();
+			}else {
+				JOptionPane.showMessageDialog(null, "Morate izabrati studenta pre izmene!");
+			}
+		}
+		
+		else if(index == 1) //kad budes dodavao studenta promeni ovo u else if samo a ti stavi iznad if(index == 0)
 		{
 			int rowView = TabbedPane.tabelaProfesora.getSelectedRow();
 			int rowModel = TabbedPane.tabelaProfesora.convertRowIndexToModel(rowView);

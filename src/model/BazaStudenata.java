@@ -85,7 +85,7 @@ public class BazaStudenata {
 				trenutnaGod = Integer.parseInt(tokeni[8]);
 				prosek = Double.parseDouble(tokeni[10]);
 				
-				SimpleDateFormat formater = new SimpleDateFormat("dd.mm.yyyy");
+				SimpleDateFormat formater = new SimpleDateFormat("dd/mm/yyyy");
 				String datumString = tokeni[3];
 				datum = formater.parse(datumString);
 				
@@ -164,6 +164,28 @@ public class BazaStudenata {
 		spisakNepolIspita = null;
 		
 		this.studenti.add(new Student(ime, prezime, datum, adresa, telefon, email, indeks, godinaUpisa, trenutnaGodina, status, prosek, spisakPolIspitaISpisakOcena, spisakNepolIspita));
+	}
+
+	public void izmeniStudenta(String ime, String prezime, Date datum, String adresa, String telefon, String email, String indeks,
+			int godinaUpisa, int trenutnaGodina, STATUS status, double prosek,
+			ArrayList<Predmet> spisakPolIspitaISpisakOcena, ArrayList<Predmet> spisakNepolIspita) {
+		
+		for(Student s : studenti)
+		{
+			s.setIme(ime);
+			s.setPrezime(prezime);
+			s.setDatRodj(datum);
+			s.setAdresaStan(adresa);
+			s.setTelefon(telefon);
+			s.setEmail(email);
+			s.setBrIndeksa(indeks);
+			s.setGodUpisa(godinaUpisa);
+			s.setTrenutnaGodStudija(trenutnaGodina);
+			s.setStatus(status);
+//			s.setProsek(s.getProsek());  i nzm za ostalo sto ne menjam da uopste to i pisem
+			
+			return;
+		}
 	}
 	
 }
