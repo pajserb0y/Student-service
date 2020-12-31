@@ -51,9 +51,9 @@ public class AddProfesorDialog extends JDialog{
 		JPanel panelBrLk = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel panelTitula = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel panelZvanje = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelBtn = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		JPanel panelBtn = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		
-		panelBtn.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		panelBtn.setLayout(new FlowLayout(FlowLayout.CENTER));
 		getContentPane().add(panelBtn, BorderLayout.SOUTH);
 		JButton btnPotvrda = new JButton("Potvrdi");
 		btnPotvrda.addActionListener(new ActionListenerAddProf());

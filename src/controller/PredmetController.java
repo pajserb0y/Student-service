@@ -22,4 +22,10 @@ public class PredmetController {
 		//BazaPredmeta.getInstance().dodajPredmet(sifraPred, nazPred, godStud, semestar, profesor, espb, studentiPolozili, studentiNisuPolozili);
 		TabbedPane.azurirajPrikaz("DODAT", -1);
 	}
+
+	public void izbrisiPredmet(String sifraPred) {
+		// TODO Auto-generated method stub
+		BazaPredmeta.getInstance().izbrisiPredmet(sifraPred);
+		TabbedPane.azurirajPrikaz("IZBRISAN", -1);
+	}
 }

@@ -114,6 +114,16 @@ public class BazaPredmeta {
 				return null;
 			}
 		}
+
+		public void izbrisiPredmet(String sifraPred) {
+			// TODO Auto-generated method stub
+			for(Predmet p : predmeti) {
+				if(sifraPred.equals(p.getSifraPred())) {
+					predmeti.remove(p);
+					break;
+				}
+			}
+		}
 		
 //		public void dodajPredmet(String sifraPred, String nazPred, int godStud, int semestar, String profesor, int espb,
 //				ArrayList<String> studentiPolozili, ArrayList<String> studentiNisuPolozili)

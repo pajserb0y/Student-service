@@ -46,6 +46,8 @@ public class Toolbar extends JToolBar {
 		JButton btnDelete = new JButton();
 		btnDelete.setToolTipText("Delete");
 		btnDelete.setIcon(new ImageIcon("images/delete.png"));
+		btnDelete.addActionListener(new ActionListenerDelete());
+		btnEdit.setActionCommand("DELETE");
 		this.add(btnDelete);
 		
 		this.addSeparator();
