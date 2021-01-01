@@ -3,6 +3,8 @@ package controller;
 import java.util.ArrayList;
 
 import model.BazaPredmeta;
+import model.Profesor;
+import model.Student;
 import view.TabbedPane;
 
 public class PredmetController {
@@ -16,10 +18,12 @@ public class PredmetController {
 		return instance;
 	}
 	
-	public void dodajPredmet(String sifraPred, String nazPred, int godStud, int semestar, String profesor, int espb,
-			ArrayList<String> studentiPolozili, ArrayList<String> studentiNisuPolozili)
+	public void dodajPredmet(String sifraPred, String nazPred, int godStud, int semestar, Profesor profesor, int espb,
+			ArrayList<Student> studentiPolozili, ArrayList<Student> studentiNisuPolozili)
 	{
-		//BazaPredmeta.getInstance().dodajPredmet(sifraPred, nazPred, godStud, semestar, profesor, espb, studentiPolozili, studentiNisuPolozili);
+		studentiPolozili = null;
+		studentiNisuPolozili = null;
+		BazaPredmeta.getInstance().dodajPredmet(sifraPred, nazPred, godStud, semestar, profesor, espb, studentiPolozili, studentiNisuPolozili);
 		TabbedPane.azurirajPrikaz("DODAT", -1);
 	}
 }

@@ -7,6 +7,7 @@ import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -15,6 +16,12 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import model.BazaProfesora;
+import model.Profesor;
+import view.TabbedPane;
+import view.profesor.ActionListenerAddProf;
+import view.profesor.AddProfesorDialog;
 
 
 public class AddPredmetDialog extends JDialog {
@@ -34,7 +41,7 @@ public class AddPredmetDialog extends JDialog {
 		int screenHeight = screenSize.height;
 		int screenWidth = screenSize.width;
 		
-		setSize(2*screenWidth/8, 3*screenHeight/8);
+		setSize(2*screenWidth/7, 3*screenHeight/8);
 		setLocationRelativeTo(parent);
 		
 		JPanel panelSif = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -76,8 +83,34 @@ public class AddPredmetDialog extends JDialog {
 		
 		txtSif.setPreferredSize(dimenzija);
 		txtNaz.setPreferredSize(dimenzija);
-		txtProf.setPreferredSize(dimenzija);
 		txtEspb.setPreferredSize(dimenzija);
+		
+		txtProf.setPreferredSize(dimenzija);
+		//txtProf.setEditable(false);
+		JButton btnPlus = new JButton("+");
+//		btnPlus.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent arg0) {
+//				// TODO Auto-generated method stub
+//				ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();	
+////				int red = MyTabbedPane.tabelaProfesora.getSelectedRow();
+////				ArrayList<String> lista = (ArrayList<String>) TabbedPane.tabelaProfesora.getValueAt(red, 4);
+//				Profesor p = profesori.get(row);
+//				switch(col) {
+//				case 0:
+//					return p.getIme();
+//				case 1:
+//					return p.getPrezime();
+//				case 2:
+//					return p.getTitula();
+//				case 3:
+//					return p.getZvanje();
+//				default :
+//					return null;
+//				}
+//			}
+//		});
 		
 		semest.removeAllItems();
 		semest.addItem("Zimski");
@@ -98,7 +131,6 @@ public class AddPredmetDialog extends JDialog {
 		panelSemest.add(lblSemest);
 		panelSemest.add(semest);
 		
-
 		panelGodStud.add(lblGodStud);
 		panelGodStud.add(godStud);
 		
@@ -107,6 +139,7 @@ public class AddPredmetDialog extends JDialog {
 
 		panelProf.add(lblProf);
 		panelProf.add(txtProf);
+		panelProf.add(btnPlus);
 		
 		panelBtn.add(btnPotvrda);
 		panelBtn.add(btnOdustani);
@@ -116,9 +149,9 @@ public class AddPredmetDialog extends JDialog {
 		boxCentar.add(panelSif);
 		boxCentar.add(panelNaz);
 		boxCentar.add(panelEspb);
-		boxCentar.add(panelProf);
-		boxCentar.add(panelSemest);
 		boxCentar.add(panelGodStud);
+		boxCentar.add(panelSemest);
+		boxCentar.add(panelProf);
 		boxCentar.add(panelBtn);
 
 		add(boxCentar, BorderLayout.NORTH);

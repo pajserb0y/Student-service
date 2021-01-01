@@ -20,7 +20,7 @@ public class ActionListenerAddPred implements ActionListener {
 		// TODO Auto-generated method stub
 		String sifra  = "";
 		String naziv = "";
-		String profesor = "";
+		String profesor = null;
 		int espb = 0;
 		int semestar = 0;
 		int god = 0;
@@ -108,11 +108,11 @@ public class ActionListenerAddPred implements ActionListener {
 				JOptionPane.showMessageDialog(null, "\"Obavezno je popunjavanje svih polja!");
 				return;
 		}
-		else{
-			PredmetController.getInstance().dodajPredmet(sifra, naziv, god, semestar, profesor,espb, new ArrayList<String>(), new ArrayList<String>());
-			int  exit = JOptionPane.showConfirmDialog(null, "Predmet dodat" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION)
-				ActionListenerAdd.dialogPred.setVisible(false);	
-		}
+//		else{
+//			PredmetController.getInstance().dodajPredmet(sifra, naziv, god, semestar, profesor, espb, new ArrayList<String>(), new ArrayList<String>());
+//			int  exit = JOptionPane.showConfirmDialog(null, "Predmet dodat" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+//			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION)
+//				ActionListenerAdd.dialogPred.setVisible(false);	
+//		}
 	}
 }

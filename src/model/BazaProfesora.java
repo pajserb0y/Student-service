@@ -156,5 +156,52 @@ public class BazaProfesora {
 			}
 		}
 	}
+	
+//	public ArrayList<Profesor> dodajProfNaPred()
+//	{
+//		this.profesori = new ArrayList<Profesor>();
+//		String[] tokeni;
+//		
+//		
+//		BufferedReader br = null;
+//		try {
+//			br = new BufferedReader(new FileReader("src\\baze\\bazaprofesora.txt"));
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		String linija = null;
+//		try {
+//			while((linija = br.readLine())!= null)
+//			{
+//				tokeni = linija.split(";");
+//				
+//				for(int i = 0; i < tokeni.length; ++i)
+//					tokeni[i] = tokeni[i].trim();
+//				
+//				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+//				String datumString = tokeni[2];
+//				Date datum = formater.parse(datumString);
+//				
+//				ArrayList<Predmet> predmeti = null;
+//				
+//				profesori.add(new Profesor(tokeni[0],tokeni[1],datum,tokeni[3],tokeni[4],tokeni[5],tokeni[6],tokeni[7],
+//						tokeni[8],tokeni[9],predmeti));
+//			}
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		try {
+//			br.close();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return profesori;
+//	}
 }
 

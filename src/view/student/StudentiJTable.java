@@ -20,7 +20,8 @@ public class StudentiJTable extends JTable {
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		// Sama JTable komponenta je implementirana postujuci MVC arhitekturu.
 		this.setModel(new AbstractTableModelStudent());
-		
+		this.getTableHeader().setReorderingAllowed(false);
+		this.setAutoCreateRowSorter(true);
 	}
 
 	@Override
