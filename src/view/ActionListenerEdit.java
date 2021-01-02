@@ -120,7 +120,7 @@ public class ActionListenerEdit implements ActionListener{
 				String sifra = BazaPredmeta.getInstance().getRow(rowModel).getSifraPred();
 				String naziv = BazaPredmeta.getInstance().getRow(rowModel).getNazPred();
 				int god = BazaPredmeta.getInstance().getRow(rowModel).getGodStud();
-				int semestar = BazaPredmeta.getInstance().getRow(rowModel).getSemestar();
+				String semestar = BazaPredmeta.getInstance().getRow(rowModel).getSemestar();
 				Profesor profesor = BazaProfesora.getInstance().getRow(rowModel);
 				int espb = BazaPredmeta.getInstance().getRow(rowModel).getEspb();
 

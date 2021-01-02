@@ -55,7 +55,7 @@ public class BazaPredmeta {
 						tokeni[i] = tokeni[i].trim();
 					
 					int godina = Integer.parseInt(tokeni[3]);
-					int semestar = Integer.parseInt(tokeni[2]);
+					String semestar = tokeni[2];
 					int espb = Integer.parseInt(tokeni[4]);
 					Profesor profesor = null;
 					
@@ -114,15 +114,25 @@ public class BazaPredmeta {
 				return null;
 			}
 		}
+
+		public void izbrisiPredmet(String sifraPred) {
+			// TODO Auto-generated method stub
+			for(Predmet p : predmeti) {
+				if(sifraPred.equals(p.getSifraPred())) {
+					predmeti.remove(p);
+					break;
+				}
+			}
+		}
 		
-		public void dodajPredmet(String sifraPred, String nazPred, int godStud, int semestar, Profesor profesor, int espb,
+		public void dodajPredmet(String sifraPred, String nazPred, int godStud, String semestar, Profesor profesor, int espb,
 				ArrayList<Student> studentiPolozili, ArrayList<Student> studentiNisuPolozili)
 		{
 			Predmet p = new Predmet(sifraPred, nazPred, godStud, semestar, profesor, espb,studentiPolozili,studentiNisuPolozili);
 			this.predmeti.add(p);
 		}
 
-		public void izmeniPredmet(String sifraPred, String nazPred,	int godStud, int semestar, Profesor profesor, int espb,
+		public void izmeniPredmet(String sifraPred, String nazPred,	int godStud, String semestar, Profesor profesor, int espb,
 				ArrayList<Student> studentiPolozili, ArrayList<Student> studentiNisuPolozili) 
 		{
 			for(Predmet p : predmeti)

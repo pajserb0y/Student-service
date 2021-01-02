@@ -6,13 +6,13 @@ public class Predmet {
 	private String sifraPred;
 	private String nazPred;
 	private int godStud;
-	private int semestar;
+	private String semestar;
 	private Profesor profesor;
 	private int espb;
 	private ArrayList<Student> studentiPolozili; 
 	private ArrayList<Student> studentiNisuPolozili;
 	
-	public Predmet(String sifraPred, String nazPred, int godStud, int semestar, Profesor profesor, int espb,
+	public Predmet(String sifraPred, String nazPred, int godStud, String semestar, Profesor profesor, int espb,
 			ArrayList<Student> studentiPolozili, ArrayList<Student> studentiNisuPolozili) {
 		super();
 		this.sifraPred = sifraPred;
@@ -49,12 +49,12 @@ public class Predmet {
 		this.godStud = godStud;
 	}
 
-	public int getSemestar() {
+	public String getSemestar() {
 		return semestar;
 	}
 
-	public void setSemestar(int semestar) {
-		this.semestar = semestar;
+	public void setSemestar(String semestar2) {
+		this.semestar = semestar2;
 	}
 
 	public Profesor getProfesor() {

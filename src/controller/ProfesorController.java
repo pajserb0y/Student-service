@@ -33,18 +33,22 @@ public class ProfesorController {
 	public void izmeniProfesora(String staraLk, String ime, String prezime, Date datumRodjenja, String adresa,String telefon,
 			String email,String adresaK,String brLicne, String titula,String zvanje, ArrayList<Predmet> predmeti) {
 		
-		if(!brLicne.equals(staraLk)) //slucaj ako je promenjana licna karta profesora proci kroz sve predmete i na svim na kojima predaje
-		{						 	 //promeniti broj licne karte
+			ArrayList<Predmet> spisakPredmeta = null; //predmeti koje nalaze kod profesora sa starom licnom kartom(ostace sacuvati tj prebaceni kod ovog sa novom)
 			ArrayList<Predmet> predmetiPom = BazaPredmeta.getInstance().getPredmeti();
+			
 			for(Predmet predmet : predmetiPom)
 			{
 				if(predmet.getProfesor() != null)
-					if(staraLk.equals(predmet.getProfesor().getBrLicne()))
-						predmet.getProfesor().setBrLicne(brLicne);
+					if(staraLk.equals(predmet.getProfesor().getBrLicne())) {
+						 spisakPredmeta = predmet.getProfesor().getSpisakPredmeta();//sacuvacemo stari spisak predmeta pre prmene profesora jer
+																								      //u ovom momentu promene spisaka jos nisu moguce
+						predmet.setProfesor(new Profesor(ime, prezime, datumRodjenja, adresa, telefon, email, adresaK, brLicne, titula, zvanje, spisakPredmeta));
+					}
 			}
-		}
+			
 		BazaProfesora.getInstance().izmeniProfesora(staraLk ,ime, prezime, datumRodjenja, adresa, telefon, 
 				email, adresaK, brLicne, titula, zvanje, predmeti);
 		TabbedPane.azurirajPrikaz("IZMENA", -1);
+			
 	}
 }

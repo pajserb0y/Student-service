@@ -22,23 +22,15 @@ public class ActionListenerAddPred implements ActionListener {
 		String naziv = "";
 		Profesor profesor = null;
 		int espb = 0;
-		int semestar = 0;
+		String semestar = "";
 		int god = 0;
 		
 		
 		sifra = AddPredmetDialog.txtSif.getText();
 		naziv = AddPredmetDialog.txtNaz.getText();
 		String espbString = AddPredmetDialog.txtEspb.getText();
-		String semestarString = AddPredmetDialog.semest.getSelectedItem().toString();
+		semestar = AddPredmetDialog.semest.getSelectedItem().toString();
 		String godString = AddPredmetDialog.godStud.getSelectedItem().toString();
-		
-		ArrayList<Profesor> bazaProfesora = BazaProfesora.getInstance().getProfesori();
-		for(Profesor p : bazaProfesora) {
-			if(p.getBrLicne().equals(AddProfToPredDialog.getDodatProfesor().getBrLicne())) {
-				profesor = p;
-				return;
-			}
-		}
 		
 		
 		if(!sifra.matches("[A-Z0-9]+")) {
@@ -79,21 +71,19 @@ public class ActionListenerAddPred implements ActionListener {
 			god = 4;
 		}
 		
-		if (semestarString.equals("Zimski")) {
-			if(god == 1) {
-				semestar = 1;
-			}else if(god == 2) {
-				semestar = 3;
-			}else if(god == 3) {
-				semestar = 5;
-			}else {
-				semestar = 7;
+		
+		ArrayList<Profesor> bazaProfesora = BazaProfesora.getInstance().getProfesori();
+		for(Profesor p : bazaProfesora) {
+			if(AddProfToPredDialog.getDodatProfesor() != null){
+				if(p.getBrLicne().equals(AddProfToPredDialog.getDodatProfesor().getBrLicne())) {
+					profesor = p;
+					return;
+				}
 			}
-		}else if (semestarString.equals("Letnji")) {
-			semestar = 2 * god;
 		}
 		
-		if (sifra.equals("") || naziv.equals("") || espbString.equals("")) {
+		
+		if (sifra.equals("") || naziv.equals("") || espbString.equals("")){
 				JOptionPane.showMessageDialog(null, "\"Obavezno je popunjavanje svih polja!");
 				return;
 		}

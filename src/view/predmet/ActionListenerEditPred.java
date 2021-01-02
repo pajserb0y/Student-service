@@ -22,23 +22,16 @@ public class ActionListenerEditPred implements ActionListener{
 		String naziv = "";
 		Profesor profesor = null;
 		int espb = 0;
-		int semestar = 0;
+		String semestar = "";
 		int god = 0;
 		
 		
-		sifra = AddPredmetDialog.txtSif.getText();
-		naziv = AddPredmetDialog.txtNaz.getText();
-		String espbString = AddPredmetDialog.txtEspb.getText();
-		String semestarString = AddPredmetDialog.semest.getSelectedItem().toString();
-		String godString = AddPredmetDialog.godStud.getSelectedItem().toString();
+		sifra = EditPredmetDialog.txtSif.getText();
+		naziv = EditPredmetDialog.txtNaz.getText();
+		String espbString = EditPredmetDialog.txtEspb.getText();
+		semestar = EditPredmetDialog.semest.getSelectedItem().toString();
+		String godString = EditPredmetDialog.godStud.getSelectedItem().toString();
 		
-		ArrayList<Profesor> bazaProfesora = BazaProfesora.getInstance().getProfesori();
-		for(Profesor p : bazaProfesora) {
-			if(p.getBrLicne().equals(AddProfToPredDialog.getDodatProfesor().getBrLicne())) {
-				profesor = p;
-				return;
-			}
-		}
 		
 		
 		if(!sifra.matches("[A-Z0-9]+")) {
@@ -47,14 +40,14 @@ public class ActionListenerEditPred implements ActionListener{
 			return;
 		}  
 		
-		ArrayList<Predmet> bazaPredmeta = BazaPredmeta.getInstance().getPredmeti();
-		for(Predmet p : bazaPredmeta) {
-			if(p.getSifraPred().equals(sifra)) {
-				JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!\n"
-						+ "\tNAPOMENA: Šifra predmeta već postoji u bazi predmeta!");
-				return;
-			}
-		}
+//		ArrayList<Predmet> bazaPredmeta = BazaPredmeta.getInstance().getPredmeti();
+//		for(Predmet p : bazaPredmeta) {
+//			if(p.getSifraPred().equals(sifra)) {
+//				JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!\n"
+//						+ "\tNAPOMENA: Šifra predmeta već postoji u bazi predmeta!");
+//				return;
+//			}
+//		}
 		
 		if(!espbString.matches("[0-9]+") || espbString.length() > 2) {
 			JOptionPane.showMessageDialog(null,"Obavezno je popunjavanje svih polja!\n"
@@ -79,19 +72,16 @@ public class ActionListenerEditPred implements ActionListener{
 			god = 4;
 		}
 		
-		if (semestarString.equals("Zimski")) {
-			if(god == 1) {
-				semestar = 1;
-			}else if(god == 2) {
-				semestar = 3;
-			}else if(god == 3) {
-				semestar = 5;
-			}else {
-				semestar = 7;
-			}
-		}else if (semestarString.equals("Letnji")) {
-			semestar = 2 * god;
+		
+		ArrayList<Profesor> bazaProfesora = BazaProfesora.getInstance().getProfesori();
+		for(Profesor p : bazaProfesora) {
+			if(AddProfToPredDialog.getDodatProfesor() != null)
+				if(p.getBrLicne().equals(AddProfToPredDialog.getDodatProfesor().getBrLicne())) {
+					profesor = p;
+					return;
+				}
 		}
+
 		
 		if (sifra.equals("") || naziv.equals("") || espbString.equals("")) {
 				JOptionPane.showMessageDialog(null, "\"Obavezno je popunjavanje svih polja!");
