@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
+
 public class AddPredmetDialog extends JDialog {
 	
 	public static JTextField txtSif = new JTextField();
@@ -34,7 +35,7 @@ public class AddPredmetDialog extends JDialog {
 		int screenHeight = screenSize.height;
 		int screenWidth = screenSize.width;
 		
-		setSize(2*screenWidth/8, 3*screenHeight/8);
+		setSize(2*screenWidth/7, 3*screenHeight/8);
 		setLocationRelativeTo(parent);
 		
 		JPanel panelSif = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -76,8 +77,20 @@ public class AddPredmetDialog extends JDialog {
 		
 		txtSif.setPreferredSize(dimenzija);
 		txtNaz.setPreferredSize(dimenzija);
-		txtProf.setPreferredSize(dimenzija);
 		txtEspb.setPreferredSize(dimenzija);
+		
+		txtProf.setPreferredSize(dimenzija);
+		txtProf.setEditable(false);
+		JButton btnPlus = new JButton("+");
+		btnPlus.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				AddProfToPredDialog dialog = new AddProfToPredDialog(null, "Odaberi profesora", true); 
+				dialog.setVisible(true);
+			}
+		});
 		
 		semest.removeAllItems();
 		semest.addItem("Zimski");
@@ -98,7 +111,6 @@ public class AddPredmetDialog extends JDialog {
 		panelSemest.add(lblSemest);
 		panelSemest.add(semest);
 		
-
 		panelGodStud.add(lblGodStud);
 		panelGodStud.add(godStud);
 		
@@ -107,6 +119,7 @@ public class AddPredmetDialog extends JDialog {
 
 		panelProf.add(lblProf);
 		panelProf.add(txtProf);
+		panelProf.add(btnPlus);
 		
 		panelBtn.add(btnPotvrda);
 		panelBtn.add(btnOdustani);
@@ -116,9 +129,9 @@ public class AddPredmetDialog extends JDialog {
 		boxCentar.add(panelSif);
 		boxCentar.add(panelNaz);
 		boxCentar.add(panelEspb);
-		boxCentar.add(panelProf);
-		boxCentar.add(panelSemest);
 		boxCentar.add(panelGodStud);
+		boxCentar.add(panelSemest);
+		boxCentar.add(panelProf);
 		boxCentar.add(panelBtn);
 
 		add(boxCentar, BorderLayout.NORTH);

@@ -128,10 +128,10 @@ public class BazaPredmeta {
 			}
 		}
 		
-//		public void dodajPredmet(String sifraPred, String nazPred, int godStud, int semestar, String profesor, int espb,
-//				ArrayList<String> studentiPolozili, ArrayList<String> studentiNisuPolozili)
-//		{
-//			Predmet p = new Predmet(sifraPred, nazPred, godStud, semestar, profesor, espb,studentiPolozili,studentiNisuPolozili);
-//			this.predmeti.add(p);
-//		}
+		public void dodajPredmet(String sifraPred, String nazPred, int godStud, int semestar, Profesor profesor, int espb,
+				ArrayList<Student> studentiPolozili, ArrayList<Student> studentiNisuPolozili)
+		{
+			Predmet p = new Predmet(sifraPred, nazPred, godStud, semestar, profesor, espb,studentiPolozili,studentiNisuPolozili);
+			this.predmeti.add(p);
+		}
 }

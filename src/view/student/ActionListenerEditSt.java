@@ -9,16 +9,17 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import controller.StudentController;
+import view.ActionListenerAdd;
+import view.ActionListenerEdit;
+import view.TabbedPane;
 import model.BazaStudenata;
 import model.Predmet;
 import model.Student;
 import model.Student.STATUS;
-import view.ActionListenerAdd;
-import controller.StudentController;
 
-
-public class ActionListenerAddSt implements ActionListener {
-
+public class ActionListenerEditSt implements ActionListener{
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -37,10 +38,12 @@ public class ActionListenerAddSt implements ActionListener {
 		ArrayList<Predmet> spisakPolIspitaISpisakOcena = null;
 		ArrayList<Predmet> spisakNepolIspita = null;
 		
+		int rowView = TabbedPane.tabelaStudenata.getSelectedRow();
+		int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(rowView);
+		String stariIndeks = (String)BazaStudenata.getInstance().getRow(rowModel).getBrIndeksa();
 		
-		
-		ime=AddStudentDialog.txtIme.getText();
-		prz=AddStudentDialog.txtPrz.getText();	
+		ime=EditStudentDialog.txtIme.getText();
+		prz=EditStudentDialog.txtPrz.getText();	
 
 		if(!ime.matches("[A-Za-zšđžćčŠĐŽČĆ]+") ) {
 			JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!\n"
@@ -57,26 +60,26 @@ public class ActionListenerAddSt implements ActionListener {
 		
 		SimpleDateFormat format= new SimpleDateFormat("dd/mm/yyyy");		
 		try {
-			dat=format.parse(AddStudentDialog.txtDat.getText());			
+			dat=format.parse(EditStudentDialog.txtDat.getText());			
 		} catch(ParseException e1) {
 			JOptionPane.showMessageDialog(null,"Obavezno je popunjavanje svih polja!\n"
-					+ "\tNAPOMENA: Datum uneti u formatu dd/mm/yyyy! \n");
+					+ "\tNAPOMENA: Datum uneti u formatu dd.mm.yyyy!\n");
 			return;
 		}
 		
 		
-		adresa=AddStudentDialog.txtAdresa.getText();
+		adresa=EditStudentDialog.txtAdresa.getText();
 		
 		
 		
-		tel=AddStudentDialog.txtTel.getText();
+		tel=EditStudentDialog.txtTel.getText();
 		if(!tel.matches("[0-9]{3}/[0-9]{3,4}-[0-9]{3,4}") ) {
 			JOptionPane.showMessageDialog(null,"Obavezno je popunjavanje svih polja!\n"
 					+ "\tNAPOMENA: Telefon unositi kao niz brojeva formata xxx/xxx-xxx!\\n");
 			return;
 		}
 		
-		email=AddStudentDialog.txtEmail.getText();
+		email=EditStudentDialog.txtEmail.getText();
 		if(!email.matches("[A-Za-zšđžćčŠĐŽČĆ0-9.]+[A-Za-zšđžćčŠĐŽČĆ0-9.]+@[A-Za-z.]+[A-Za-z.]+")) {
 			JOptionPane.showMessageDialog(null,"Obavezno je popunjavanje svih polja!\n"
 					+ "\tNAPOMENA: Email uneti sa obaveznim znakom @!");
@@ -84,18 +87,27 @@ public class ActionListenerAddSt implements ActionListener {
 		}
 		
 		
-		indeks=AddStudentDialog.txtIndeks.getText();		
+		indeks=EditStudentDialog.txtIndeks.getText();		
 		ArrayList<Student> listaStudenata = BazaStudenata.getInstance().getStudenti();
-		for(Student s:listaStudenata) {
-			if(indeks.equals(s.getBrIndeksa())) {
-				JOptionPane.showMessageDialog(null,"Broj indeksa već postoji!\n");
-				return;
+		if(!stariIndeks.equals(indeks))
+		{
+			for(Student s:listaStudenata) {
+				if(indeks.equals(s.getBrIndeksa())) {
+					JOptionPane.showMessageDialog(null,"Broj indeksa već postoji!\n");
+					return;
+				}
 			}
 		}
+//		for(Student s:listaStudenata) {
+//			if(indeks.equals(s.getBrIndeksa())) {
+//				JOptionPane.showMessageDialog(null,"Broj indeksa već postoji!\n");
+//				return;
+//			}
+//		}
 		
 		
 		try{
-			godUpisa = Integer.parseInt(AddStudentDialog.txtGodUpisa.getText());
+			godUpisa = Integer.parseInt(EditStudentDialog.txtGodUpisa.getText());
 		} catch(NumberFormatException ex){
 			JOptionPane.showMessageDialog(null,"Obavezno je popunjavanje svih polja!\n"
 					+ "\tNAPOMENA: Godina upisa mora biti broj!");
@@ -103,7 +115,7 @@ public class ActionListenerAddSt implements ActionListener {
 		}
 		
 		int god=0;
-		godStudija=AddStudentDialog.cbGodStudija.getSelectedItem().toString();
+		godStudija=EditStudentDialog.cbGodStudija.getSelectedItem().toString();
 		if(godStudija.equals("I (prva)")) {
 			god=1;
 		}else if(godStudija.equals("II (druga)")) {
@@ -115,7 +127,7 @@ public class ActionListenerAddSt implements ActionListener {
 		}
 		
 		
-		if(AddStudentDialog.cbStatus.getSelectedItem().toString() == "Budžet" )
+		if(EditStudentDialog.cbStatus.getSelectedItem().toString() == "Budžet" )
 			status = STATUS.B;
 		else
 			status = STATUS.S;
@@ -128,13 +140,12 @@ public class ActionListenerAddSt implements ActionListener {
 			JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!");
 			return;
 		}else{
-//			StudentController.getInstance().dodajStudenta(ime, prz, dat, adresa, tel, email, indeks, godUpisa, god, status, prosek, spisakPolIspitaISpisakOcena, spisakNepolIspita);
-			StudentController.getInstance().dodajStudenta(ime, prz, dat, adresa, tel, email, indeks, godUpisa, god, status, prosek, new ArrayList<Predmet>(), new ArrayList<Predmet>());
-			int  exit = JOptionPane.showConfirmDialog(null, "Student dodat" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+//			StudentController.getInstance().izmeniStudenta(ime, prz, dat, adresa, tel, email, indeks, godUpisa, god, status, prosek, spisakPolIspitaISpisakOcena, spisakNepolIspita);
+			StudentController.getInstance().izmeniStudenta(ime, prz, dat, adresa, tel, email, indeks, godUpisa, god, status, prosek, new ArrayList<Predmet>(), new ArrayList<Predmet>());
+			int  exit = JOptionPane.showConfirmDialog(null, "Student je izmenjen" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION){
-				ActionListenerAdd.dialogStd.setVisible(false);			
+				ActionListenerEdit.dialogStd.setVisible(false);			
 			}
 		}
 	}
-
 }

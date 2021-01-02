@@ -20,7 +20,8 @@ public class StudentiJTable extends JTable {
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		// Sama JTable komponenta je implementirana postujuci MVC arhitekturu.
 		this.setModel(new AbstractTableModelStudent());
-		
+		this.getTableHeader().setReorderingAllowed(false);
+		this.setAutoCreateRowSorter(true);
 	}
 
 	@Override
@@ -37,7 +38,10 @@ public class StudentiJTable extends JTable {
 		if (isRowSelected(row)) {
 			c.setBackground(Color.LIGHT_GRAY);
 		} else {
-			c.setBackground(Color.WHITE);
+			if(row%2!=0)
+				c.setBackground(new Color(230, 230, 230));
+			else
+				c.setBackground(Color.WHITE);
 		}			
 		return c;
 	}

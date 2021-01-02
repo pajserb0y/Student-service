@@ -24,7 +24,6 @@ public class ActionListenerAdd implements ActionListener {
 		dialogPred = new AddPredmetDialog(null, "Dodavanje predmeta", true);
 		 
 		if(index == 0) {
-			
 			dialogStd.setVisible(true);
 			AddStudentDialog.txtIme.setText("");
 			AddStudentDialog.txtPrz.setText("");
@@ -33,9 +32,7 @@ public class ActionListenerAdd implements ActionListener {
 			AddStudentDialog.txtTel.setText("");
 			AddStudentDialog.txtEmail.setText("");
 			AddStudentDialog.txtIndeks.setText("");
-			//AddStudentDialog.txtProsek.setText("");
 			AddStudentDialog.txtGodUpisa.setText("");
-
 		}	
 		else if(index == 1){
 			dialogProf.setVisible(true);
