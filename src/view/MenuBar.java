@@ -28,6 +28,13 @@ public class MenuBar extends JMenuBar{
 		miClose.setIcon(new ImageIcon("images/close.png"));
 		miClose.setMnemonic('C');
 		miClose.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
+		miClose.addActionListener(new ActionListener() 
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		
 		file.add(miNew);
 		file.addSeparator();

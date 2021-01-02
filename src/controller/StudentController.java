@@ -41,4 +41,5 @@ public class StudentController {
 				spisakPolIspitaISpisakOcena, spisakNepolIspita);
 		TabbedPane.azurirajPrikaz("IZMENJEN", -1);
 	}
+
 }

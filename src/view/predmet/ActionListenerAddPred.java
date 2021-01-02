@@ -20,18 +20,25 @@ public class ActionListenerAddPred implements ActionListener {
 		// TODO Auto-generated method stub
 		String sifra  = "";
 		String naziv = "";
-		String profesor = null;
+		Profesor profesor = null;
 		int espb = 0;
 		int semestar = 0;
 		int god = 0;
-		boolean f = false;
+		
 		
 		sifra = AddPredmetDialog.txtSif.getText();
 		naziv = AddPredmetDialog.txtNaz.getText();
-		profesor = AddPredmetDialog.txtProf.getText();
 		String espbString = AddPredmetDialog.txtEspb.getText();
 		String semestarString = AddPredmetDialog.semest.getSelectedItem().toString();
 		String godString = AddPredmetDialog.godStud.getSelectedItem().toString();
+		
+		ArrayList<Profesor> bazaProfesora = BazaProfesora.getInstance().getProfesori();
+		for(Profesor p : bazaProfesora) {
+			if(p.getBrLicne().equals(AddProfToPredDialog.getDodatProfesor().getBrLicne())) {
+				profesor = p;
+				return;
+			}
+		}
 		
 		
 		if(!sifra.matches("[A-Z0-9]+")) {
@@ -60,25 +67,7 @@ public class ActionListenerAddPred implements ActionListener {
 		{
 			e.printStackTrace();
 		}
-		
-		if (!profesor.matches("[0-9]+") || profesor.length() != 9) {
-				JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!\n"
-						+ "\tNAPOMENA: Broj lične karte profesora treba da ima tačno 9 cifara!");
-				return;
-		}
-		
-		ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();
-		for(Profesor p : profesori)
-			if(profesor.equals(p.getBrLicne()))
-			{
-				f = true;
-				break;
-			}
-		if(f != true) {
-			JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!\n"
-					+ "\tNAPOMENA: Broj lične karte profesora ne postoji u bazi profesora!");
-			return;
-		}
+
 		
 		if (godString.equals("Prva")) {
 			god = 1;
@@ -104,15 +93,15 @@ public class ActionListenerAddPred implements ActionListener {
 			semestar = 2 * god;
 		}
 		
-		if (sifra.equals("") || naziv.equals("") || espbString.equals("") || profesor.equals("")) {
+		if (sifra.equals("") || naziv.equals("") || espbString.equals("")) {
 				JOptionPane.showMessageDialog(null, "\"Obavezno je popunjavanje svih polja!");
 				return;
 		}
-//		else{
-//			PredmetController.getInstance().dodajPredmet(sifra, naziv, god, semestar, profesor, espb, new ArrayList<String>(), new ArrayList<String>());
-//			int  exit = JOptionPane.showConfirmDialog(null, "Predmet dodat" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-//			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION)
-//				ActionListenerAdd.dialogPred.setVisible(false);	
-//		}
+		else{
+			PredmetController.getInstance().dodajPredmet(sifra, naziv, god, semestar, profesor, espb, null, null);
+			int  exit = JOptionPane.showConfirmDialog(null, "Predmet dodat" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION)
+				ActionListenerAdd.dialogPred.setVisible(false);	
+		}
 	}
 }

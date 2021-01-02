@@ -7,7 +7,6 @@ import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -17,11 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import model.BazaProfesora;
-import model.Profesor;
-import view.TabbedPane;
-import view.profesor.ActionListenerAddProf;
-import view.profesor.AddProfesorDialog;
 
 
 public class AddPredmetDialog extends JDialog {
@@ -86,31 +80,17 @@ public class AddPredmetDialog extends JDialog {
 		txtEspb.setPreferredSize(dimenzija);
 		
 		txtProf.setPreferredSize(dimenzija);
-		//txtProf.setEditable(false);
+		txtProf.setEditable(false);
 		JButton btnPlus = new JButton("+");
-//		btnPlus.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent arg0) {
-//				// TODO Auto-generated method stub
-//				ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();	
-////				int red = MyTabbedPane.tabelaProfesora.getSelectedRow();
-////				ArrayList<String> lista = (ArrayList<String>) TabbedPane.tabelaProfesora.getValueAt(red, 4);
-//				Profesor p = profesori.get(row);
-//				switch(col) {
-//				case 0:
-//					return p.getIme();
-//				case 1:
-//					return p.getPrezime();
-//				case 2:
-//					return p.getTitula();
-//				case 3:
-//					return p.getZvanje();
-//				default :
-//					return null;
-//				}
-//			}
-//		});
+		btnPlus.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				AddProfToPredDialog dialog = new AddProfToPredDialog(null, "Odaberi profesora", true); 
+				dialog.setVisible(true);
+			}
+		});
 		
 		semest.removeAllItems();
 		semest.addItem("Zimski");
