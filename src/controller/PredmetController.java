@@ -26,4 +26,13 @@ public class PredmetController {
 		BazaPredmeta.getInstance().dodajPredmet(sifraPred, nazPred, godStud, semestar, profesor, espb, studentiPolozili, studentiNisuPolozili);
 		TabbedPane.azurirajPrikaz("DODAT", -1);
 	}
+
+	public void izmeniPredmet(String sifraPred, String nazPred, int godStud, int semestar, Profesor profesor, int espb,
+			ArrayList<Student> studentiPolozili, ArrayList<Student> studentiNisuPolozili)
+	{
+		studentiPolozili = null;
+		studentiNisuPolozili = null;
+		BazaPredmeta.getInstance().izmeniPredmet(sifraPred, nazPred, godStud, semestar, profesor, espb, studentiPolozili, studentiNisuPolozili);
+		TabbedPane.azurirajPrikaz("IZMENJEN", -1);
+	}
 }

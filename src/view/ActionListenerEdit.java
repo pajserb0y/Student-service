@@ -7,8 +7,11 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import model.BazaPredmeta;
 import model.BazaProfesora;
 import model.BazaStudenata;
+import model.Profesor;
+import view.predmet.EditPredmetDialog;
 import view.profesor.EditProfesorDialog;
 import view.student.EditStudentDialog;
 
@@ -17,20 +20,25 @@ public class ActionListenerEdit implements ActionListener{
 	
 	public static EditStudentDialog dialogStd;
 	public static EditProfesorDialog dialogProf;
+	public static EditPredmetDialog dialogPred;
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		
+		int index = TabbedPane.getInstance().getSelectedIndex();
+		
 		dialogStd = new EditStudentDialog(null, "Izmena studenta", true);
 		dialogProf = new EditProfesorDialog(null, "Izmena profesora", true);
+		dialogPred = new EditPredmetDialog(null, "Izmena predmeta", true);
 		
-		int index = TabbedPane.getInstance().getSelectedIndex();
 		
 		if(index == 0)
 		{
+			try{
 			int rowView = TabbedPane.tabelaStudenata.getSelectedRow();
 			int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(rowView);
+			
 			if(rowModel != -1)
 			{
 				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
@@ -57,6 +65,9 @@ public class ActionListenerEdit implements ActionListener{
 				dialogStd.setVisible(true);
 				dialogStd.pack();
 			}else {
+				JOptionPane.showMessageDialog(null, "Morate izabrati studenta pre izmene!");
+			}
+			}catch(Exception e){
 				JOptionPane.showMessageDialog(null, "Morate izabrati studenta pre izmene!");
 			}
 		}
@@ -98,6 +109,35 @@ public class ActionListenerEdit implements ActionListener{
 				dialogProf.pack();
 			}else {
 				JOptionPane.showMessageDialog(null, "Morate izabrati profesora pre izmene!");
+			}
+		}
+		else if(index == 2)
+		{
+			int rowView = TabbedPane.tabelaPredmeta.getSelectedRow();
+			int rowModel = TabbedPane.tabelaPredmeta.convertRowIndexToModel(rowView);
+			if(rowModel != -1)
+			{				
+				String sifra = BazaPredmeta.getInstance().getRow(rowModel).getSifraPred();
+				String naziv = BazaPredmeta.getInstance().getRow(rowModel).getNazPred();
+				int god = BazaPredmeta.getInstance().getRow(rowModel).getGodStud();
+				int semestar = BazaPredmeta.getInstance().getRow(rowModel).getSemestar();
+				Profesor profesor = BazaProfesora.getInstance().getRow(rowModel);
+				int espb = BazaPredmeta.getInstance().getRow(rowModel).getEspb();
+
+							
+				EditPredmetDialog.txtSif.setText(sifra);
+				EditPredmetDialog.txtNaz.setText(naziv);
+				EditPredmetDialog.godStud.getModel().setSelectedItem(god);
+				EditPredmetDialog.godStud.updateUI();
+				EditPredmetDialog.semest.getModel().setSelectedItem(semestar);
+				EditPredmetDialog.semest.updateUI();
+				EditPredmetDialog.txtEspb.setText(Integer.toString(espb));
+				EditPredmetDialog.txtProf.setText(profesor.getIme() + " " + profesor.getPrezime());
+				
+				dialogPred.setVisible(true);
+				dialogPred.pack();
+			}else {
+				JOptionPane.showMessageDialog(null, "Morate izabrati predmet pre izmene!");
 			}
 		}
 	}

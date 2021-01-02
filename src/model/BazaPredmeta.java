@@ -121,4 +121,21 @@ public class BazaPredmeta {
 			Predmet p = new Predmet(sifraPred, nazPred, godStud, semestar, profesor, espb,studentiPolozili,studentiNisuPolozili);
 			this.predmeti.add(p);
 		}
+
+		public void izmeniPredmet(String sifraPred, String nazPred,	int godStud, int semestar, Profesor profesor, int espb,
+				ArrayList<Student> studentiPolozili, ArrayList<Student> studentiNisuPolozili) 
+		{
+			for(Predmet p : predmeti)
+			{
+				p.setSifraPred(sifraPred);
+				p.setNazPred(nazPred);
+				p.setGodStud(godStud);
+				p.setSemestar(semestar);
+				p.setEspb(espb);
+				p.setProfesor(profesor);
+				p.setStudentiPolozili(studentiPolozili); //msm da ovo treba da ostane ne pormenjeno jer se to sne moze izmeniti
+				p.setStudentiNisuPolozili(studentiNisuPolozili); //msm da ovo treba da ostane ne pormenjeno jer se to sne moze izmeniti
+				return;
+			}
+		}
 }
