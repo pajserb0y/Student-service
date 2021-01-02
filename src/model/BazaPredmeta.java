@@ -109,7 +109,10 @@ public class BazaPredmeta {
 			case 3:
 				return p.getGodStud();
 			case 4:
-				return p.getSemestar();
+				if(p.getSemestar() % 2 == 0)
+					return "letnji";
+				else
+					return "zimski";
 			default :
 				return null;
 			}
