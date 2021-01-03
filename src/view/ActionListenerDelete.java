@@ -4,12 +4,15 @@ package view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
 import controller.PredmetController;
+import controller.ProfesorController;
 import controller.StudentController;
 import model.BazaPredmeta;
+import model.BazaProfesora;
 import model.BazaStudenata;
 import model.Predmet;
 import model.Profesor;
@@ -34,7 +37,6 @@ public class ActionListenerDelete implements ActionListener{
 				if (izbor == JOptionPane.YES_OPTION) {
 				
 					ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
-					ArrayList<Student> studenti = new ArrayList<Student>();
 				
 					for(Predmet p : predmeti)
 						if(p.getStudentiPolozili() != null)
@@ -50,7 +52,7 @@ public class ActionListenerDelete implements ActionListener{
 
 					
 					StudentController.getInstance().izbrisiStudenta(student.getBrIndeksa());
-					JOptionPane.showMessageDialog(null, "Student obrisan");
+					JOptionPane.showMessageDialog(null, "Student obrisan!");
 				}
 			}else{
 				JOptionPane.showMessageDialog(null, "Morate selektovati studenta pre izmene!");
@@ -59,7 +61,33 @@ public class ActionListenerDelete implements ActionListener{
 		
 		else if(index == 1)
 		{
-			
+			int rowView = TabbedPane.tabelaProfesora.getSelectedRow();
+			if(rowView != -1) {
+				
+				int rowModel = TabbedPane.tabelaProfesora.convertRowIndexToModel(rowView);
+				Profesor profesor = BazaProfesora.getInstance().getRow(rowModel);
+				
+				int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da želite da obrišete profesora?",
+						"Obriši profesora", JOptionPane.YES_NO_OPTION);
+				if (izbor == JOptionPane.YES_OPTION) {
+				
+					ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
+				
+					for(Predmet pred : predmeti)
+						if(pred.getProfesor() != null)
+							if(profesor.getBrLicne().equals(pred.getProfesor().getBrLicne())) 
+							{
+								//pred.getProfesor().remove(profesor);
+//								((List<Predmet>) pred.getProfesor()).remove(profesor);
+//								pred.setProfesor(null);
+								
+							}
+					ProfesorController.getInstance().izbrisiProfesora(profesor.getBrLicne());
+					JOptionPane.showMessageDialog(null, "Profesor obrisan!");
+				}
+			}else{
+				JOptionPane.showMessageDialog(null, "Morate selektovati predmet pre izmene!");
+			}
 		}
 		
 		else if(index == 2)
@@ -104,7 +132,7 @@ public class ActionListenerDelete implements ActionListener{
 					}
 					
 					PredmetController.getInstance().izbrisiPredmet(predmet.getSifraPred());
-					JOptionPane.showMessageDialog(null, "Predmet obrisan");
+					JOptionPane.showMessageDialog(null, "Predmet obrisan!");
 				}
 			}else{
 				JOptionPane.showMessageDialog(null, "Morate selektovati predmet pre izmene!");

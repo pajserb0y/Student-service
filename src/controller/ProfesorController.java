@@ -51,4 +51,9 @@ public class ProfesorController {
 		TabbedPane.azurirajPrikaz("IZMENA", -1);
 			
 	}
+
+	public void izbrisiProfesora(String brLicne) {
+		BazaProfesora.getInstance().izbrisiProfesora(brLicne);
+		TabbedPane.azurirajPrikaz("IZBRISAN", -1);
+	}
 }

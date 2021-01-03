@@ -157,5 +157,13 @@ public class BazaProfesora {
 		}
 	}
 
+	public void izbrisiProfesora(String brLicne) {
+		for(Profesor p : profesori) 
+			if(brLicne.equals(p.getBrLicne())) {
+				profesori.remove(p);
+				break;
+			}
+	}
+
 }
 
