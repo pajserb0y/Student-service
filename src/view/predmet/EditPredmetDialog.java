@@ -7,14 +7,21 @@ import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
+import model.BazaPredmeta;
+import model.Predmet;
 
 public class EditPredmetDialog extends JDialog{
 	
@@ -80,11 +87,80 @@ public class EditPredmetDialog extends JDialog{
 		txtProf.setPreferredSize(dimenzija);
 		txtProf.setEditable(false);
 		JButton btnPlus = new JButton("+");
+		
+		txtProf.getDocument().addDocumentListener(new DocumentListener() {
+			
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				changed();
+			}
+			
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				changed();
+			}
+			
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				changed();
+			}
+			
+			public void changed() {
+				if(txtProf.getText().equals(null))
+					btnPlus.setEnabled(true);
+				else
+					btnPlus.setEnabled(false);
+			}
+		});
+			
+		
 		btnPlus.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				// TODO Auto-generated method stub				
+				String sifra  = "";
+				String naziv = "";
+				int espb = 0;
+				
+				sifra = AddPredmetDialog.txtSif.getText();
+				naziv = AddPredmetDialog.txtNaz.getText();
+				String espbString = AddPredmetDialog.txtEspb.getText();
+
+				if(!sifra.matches("[A-Z0-9]+")) {
+					JOptionPane.showMessageDialog(null,"Obavezno je popunjavanje svih polja!\n"
+							+ "\tNAPOMENA: Šifra mora biti sastojana od velikih slova i brojeva!");
+					return;
+				}  
+				
+				ArrayList<Predmet> bazaPredmeta = BazaPredmeta.getInstance().getPredmeti();
+				for(Predmet p : bazaPredmeta) {
+					if(p.getSifraPred().equals(sifra)) {
+						JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!\n"
+								+ "\tNAPOMENA: Šifra predmeta već postoji u bazi predmeta!");
+						return;
+					}
+				}
+				
+				if(!espbString.matches("[0-9]+") || espbString.length() > 2) {
+					JOptionPane.showMessageDialog(null,"Obavezno je popunjavanje svih polja!\n"
+							+ "\tNAPOMENA: ESP bodovi su jednocifren ili dvocifren broj!");
+					return;
+				} 
+				try {
+					espb = Integer.parseInt(espbString);
+				}catch(NumberFormatException e)
+				{
+					e.printStackTrace();
+				}
+				if (sifra.equals("") || naziv.equals("") || espbString.equals("")){
+					JOptionPane.showMessageDialog(null, "\"Obavezno je popunjavanje svih polja!");
+					return;
+				}
+				
+				
+				
+				
 				AddProfToPredDialog dialog = new AddProfToPredDialog(null, "Odaberi profesora", true); 
 				dialog.setVisible(true);
 			}

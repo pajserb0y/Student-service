@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import view.TabbedPane;
 import view.profesor.ProfesorJTable;
 import model.BazaProfesora;
 import model.Profesor;
@@ -49,19 +50,23 @@ public class AddProfToPredDialog extends JDialog{
 				// TODO Auto-generated method stub
 				int index = tabelaProfesora.getSelectedRow();
 				int rowModel = tabelaProfesora.convertRowIndexToModel(index);
-				dodatProfesor = BazaProfesora.getInstance().getRow(rowModel);
 				
-//				String ime = (String) BazaProfesora.getInstance().getValueAt(index, 0);
-//				String prezime = (String) BazaProfesora.getInstance().getValueAt(index, 1);
-				String ime = dodatProfesor.getIme();
-				String prezime = dodatProfesor.getPrezime();
-				
-				AddPredmetDialog.txtProf.setText(ime + " " + prezime);
+				if(rowModel != -1)
+				{
+					dodatProfesor = BazaProfesora.getInstance().getRow(rowModel);
+					
+					String ime = dodatProfesor.getIme();
+					String prezime = dodatProfesor.getPrezime();
+					
+					AddPredmetDialog.txtProf.setText(ime + " " + prezime);
 
-				int exit = JOptionPane.showConfirmDialog(null, "Profesor dodat." , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-				if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION){
-					setVisible(false);
-				}
+					int exit = JOptionPane.showConfirmDialog(null, "Profesor dodat." , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+					if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION)
+						setVisible(false);
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "Morate izabrati profesora pre izmene!");
+				}				
 			}
 		});
 		JButton btnOdustani = new JButton("Odustani");

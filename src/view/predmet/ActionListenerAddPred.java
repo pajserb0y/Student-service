@@ -62,7 +62,6 @@ public class ActionListenerAddPred implements ActionListener {
 
 		
 		
-		
 		ArrayList<Profesor> bazaProfesora = BazaProfesora.getInstance().getProfesori();
 		for(Profesor p : bazaProfesora)
 			if(AddProfToPredDialog.getDodatProfesor() != null)

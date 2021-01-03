@@ -78,8 +78,8 @@ public class ActionListenerDelete implements ActionListener{
 							if(profesor.getBrLicne().equals(pred.getProfesor().getBrLicne())) 
 							{
 								//pred.getProfesor().remove(profesor);
-//								((List<Predmet>) pred.getProfesor()).remove(profesor);
-//								pred.setProfesor(null);
+								//((List<Predmet>) pred.getProfesor()).remove(profesor);
+								pred.setProfesor(null);
 								
 							}
 					ProfesorController.getInstance().izbrisiProfesora(profesor.getBrLicne());
