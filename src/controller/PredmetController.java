@@ -27,12 +27,12 @@ public class PredmetController {
 		TabbedPane.azurirajPrikaz("DODAT", -1);
 	}
 
-	public void izmeniPredmet(String sifraPred, String nazPred, int godStud, String semestar, Profesor profesor, int espb,
+	public void izmeniPredmet(String staraSifra, String sifraPred, String nazPred, int godStud, String semestar, Profesor profesor, int espb,
 			ArrayList<Student> studentiPolozili, ArrayList<Student> studentiNisuPolozili)
 	{
 		studentiPolozili = null;
 		studentiNisuPolozili = null;
-		BazaPredmeta.getInstance().izmeniPredmet(sifraPred, nazPred, godStud, semestar, profesor, espb, studentiPolozili, studentiNisuPolozili);
+		BazaPredmeta.getInstance().izmeniPredmet(staraSifra, sifraPred, nazPred, godStud, semestar, profesor, espb, studentiPolozili, studentiNisuPolozili);
 		TabbedPane.azurirajPrikaz("IZMENJEN", -1);
 	}
 		

@@ -6,11 +6,12 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import view.ActionListenerAdd;
+import view.ActionListenerEdit;
+import view.TabbedPane;
 import controller.PredmetController;
 import model.BazaPredmeta;
 import model.BazaProfesora;
-import model.Predmet;
+import model.BazaStudenata;
 import model.Profesor;
 
 public class ActionListenerEditPred implements ActionListener{
@@ -25,12 +26,16 @@ public class ActionListenerEditPred implements ActionListener{
 		String semestar = "";
 		int god = 0;
 		
+		int rowView = TabbedPane.tabelaPredmeta.getSelectedRow();
+		int rowModel = TabbedPane.tabelaPredmeta.convertRowIndexToModel(rowView);
+		String staraSifra = BazaPredmeta.getInstance().getRow(rowModel).getSifraPred();
+		
 		
 		sifra = EditPredmetDialog.txtSif.getText();
 		naziv = EditPredmetDialog.txtNaz.getText();
 		String espbString = EditPredmetDialog.txtEspb.getText();
 		semestar = EditPredmetDialog.semest.getSelectedItem().toString();
-		String godString = EditPredmetDialog.godStud.getSelectedItem().toString();
+		god = (int) EditPredmetDialog.godStud.getSelectedItem();
 		
 		
 		
@@ -62,25 +67,15 @@ public class ActionListenerEditPred implements ActionListener{
 		}
 
 		
-		if (godString.equals("Prva")) {
-			god = 1;
-		}else if(godString.equals("Druga")) {
-			god = 2;
-		}else if(godString.equals("Treća")) {
-			god = 3;
-		}else if(godString.equals("Četvrta")) {
-			god = 4;
-		}
+		
 		
 		
 		ArrayList<Profesor> bazaProfesora = BazaProfesora.getInstance().getProfesori();
-		for(Profesor p : bazaProfesora) {
+		for(Profesor p : bazaProfesora) 
 			if(AddProfToPredDialog.getDodatProfesor() != null)
-				if(p.getBrLicne().equals(AddProfToPredDialog.getDodatProfesor().getBrLicne())) {
+				if(p.getBrLicne().equals(AddProfToPredDialog.getDodatProfesor().getBrLicne())) 
 					profesor = p;
-					return;
-				}
-		}
+
 
 		
 		if (sifra.equals("") || naziv.equals("") || espbString.equals("")) {
@@ -88,10 +83,10 @@ public class ActionListenerEditPred implements ActionListener{
 				return;
 		}
 		else{
-			PredmetController.getInstance().izmeniPredmet(sifra, naziv, god, semestar, profesor, espb, null, null);
-			int  exit = JOptionPane.showConfirmDialog(null, "Predmet dodat" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+			PredmetController.getInstance().izmeniPredmet(staraSifra, sifra, naziv, god, semestar, profesor, espb, null, null);
+			int  exit = JOptionPane.showConfirmDialog(null, "Predmet izmenjen" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION)
-				ActionListenerAdd.dialogPred.setVisible(false);	
+				ActionListenerEdit.dialogPred.setVisible(false);	
 		}
 		
 	}

@@ -24,7 +24,7 @@ public class AddPredmetDialog extends JDialog {
 	public static JTextField txtNaz = new JTextField();
 	public static JTextField txtProf = new JTextField();
 	public static JTextField txtEspb = new JTextField();
-	public static JComboBox<String> godStud = new JComboBox<String>();
+	public static JComboBox<Integer> godStud = new JComboBox<Integer>();
 	public static JComboBox<String> semest = new JComboBox<String>();
 	
 	public AddPredmetDialog(Frame parent, String title, boolean modal) {
@@ -97,10 +97,10 @@ public class AddPredmetDialog extends JDialog {
 		semest.addItem("Letnji");
 		
 		godStud.removeAllItems();
-		godStud.addItem("Prva");
-		godStud.addItem("Druga");
-		godStud.addItem("Treća");
-		godStud.addItem("Četvrta");
+		godStud.addItem(1);
+		godStud.addItem(2);
+		godStud.addItem(3);
+		godStud.addItem(4);
 		
 		panelSif.add(lblSif);
 		panelSif.add(txtSif);

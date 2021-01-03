@@ -115,15 +115,6 @@ public class BazaPredmeta {
 			}
 		}
 
-		public void izbrisiPredmet(String sifraPred) {
-			// TODO Auto-generated method stub
-			for(Predmet p : predmeti) {
-				if(sifraPred.equals(p.getSifraPred())) {
-					predmeti.remove(p);
-					break;
-				}
-			}
-		}
 		
 		public void dodajPredmet(String sifraPred, String nazPred, int godStud, String semestar, Profesor profesor, int espb,
 				ArrayList<Student> studentiPolozili, ArrayList<Student> studentiNisuPolozili)
@@ -132,20 +123,33 @@ public class BazaPredmeta {
 			this.predmeti.add(p);
 		}
 
-		public void izmeniPredmet(String sifraPred, String nazPred,	int godStud, String semestar, Profesor profesor, int espb,
+		public void izmeniPredmet(String staraSifra, String sifraPred, String nazPred, int godStud, String semestar, Profesor profesor, int espb,
 				ArrayList<Student> studentiPolozili, ArrayList<Student> studentiNisuPolozili) 
 		{
 			for(Predmet p : predmeti)
 			{
-				p.setSifraPred(sifraPred);
-				p.setNazPred(nazPred);
-				p.setGodStud(godStud);
-				p.setSemestar(semestar);
-				p.setEspb(espb);
-				p.setProfesor(profesor);
-				p.setStudentiPolozili(studentiPolozili); //msm da ovo treba da ostane ne pormenjeno jer se to sne moze izmeniti
-				p.setStudentiNisuPolozili(studentiNisuPolozili); //msm da ovo treba da ostane ne pormenjeno jer se to sne moze izmeniti
-				return;
+				if(p.getSifraPred().equals(staraSifra))
+				{
+					p.setSifraPred(sifraPred);
+					p.setNazPred(nazPred);
+					p.setGodStud(godStud);
+					p.setSemestar(semestar);
+					p.setEspb(espb);
+					p.setProfesor(profesor);
+					p.setStudentiPolozili(studentiPolozili); //msm da ovo treba da ostane ne pormenjeno jer se to sne moze izmeniti
+					p.setStudentiNisuPolozili(studentiNisuPolozili); //msm da ovo treba da ostane ne pormenjeno jer se to sne moze izmeniti
+					return;
+				}
+			}
+		}
+		
+		public void izbrisiPredmet(String sifraPred) {
+			// TODO Auto-generated method stub
+			for(Predmet p : predmeti) {
+				if(sifraPred.equals(p.getSifraPred())) {
+					predmeti.remove(p);
+					break;
+				}
 			}
 		}
 }

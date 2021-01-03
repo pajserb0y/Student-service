@@ -11,6 +11,7 @@ import model.BazaPredmeta;
 import model.BazaProfesora;
 import model.BazaStudenata;
 import model.Profesor;
+import model.Student.STATUS;
 import view.predmet.EditPredmetDialog;
 import view.profesor.EditProfesorDialog;
 import view.student.EditStudentDialog;
@@ -51,6 +52,20 @@ public class ActionListenerEdit implements ActionListener{
 				String email = BazaStudenata.getInstance().getRow(rowModel).getEmail();
 				String indeks = BazaStudenata.getInstance().getRow(rowModel).getBrIndeksa();
 				int godUpisa = BazaStudenata.getInstance().getRow(rowModel).getGodUpisa();
+				int god = BazaStudenata.getInstance().getRow(rowModel).getTrenutnaGodStudija();
+				String god1 = "";
+				if(god == 1) 
+					god1 = "I (prva)";
+				else if(god == 2) 
+					god1 = "II (druga)";
+				else if(god == 3) 
+					god1 = "III (treća)";
+				else if(god == 4) 
+					god1 = "IV (četvrta)";
+				STATUS status = BazaStudenata.getInstance().getRow(rowModel).getStatus();
+				String status1 = "Budžet";
+				if(status == STATUS.S)
+					status1 = "Samofinansiranje";
 				
 				
 				EditStudentDialog.txtIme.setText(ime);
@@ -61,6 +76,11 @@ public class ActionListenerEdit implements ActionListener{
 				EditStudentDialog.txtEmail.setText(email);
 				EditStudentDialog.txtIndeks.setText(indeks);
 				EditStudentDialog.txtGodUpisa.setText(Integer.toString(godUpisa));
+				EditStudentDialog.cbGodStudija.getModel().setSelectedItem(god1);
+				EditStudentDialog.cbGodStudija.updateUI();
+				EditStudentDialog.cbStatus.getModel().setSelectedItem(status1);
+				EditStudentDialog.cbStatus.updateUI();
+				
 				
 				dialogStd.setVisible(true);
 				dialogStd.pack();
@@ -72,7 +92,7 @@ public class ActionListenerEdit implements ActionListener{
 			}
 		}
 		
-		else if(index == 1) //kad budes dodavao studenta promeni ovo u else if samo a ti stavi iznad if(index == 0)
+		else if(index == 1)
 		{
 			int rowView = TabbedPane.tabelaProfesora.getSelectedRow();
 			int rowModel = TabbedPane.tabelaProfesora.convertRowIndexToModel(rowView);

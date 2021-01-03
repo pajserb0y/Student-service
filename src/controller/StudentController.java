@@ -32,14 +32,19 @@ public class StudentController {
 		TabbedPane.azurirajPrikaz("DODAT", -1);
 	}
 
-	public void izmeniStudenta(String ime, String prezime, Date datum, String adresa,
+	public void izmeniStudenta(String stariIndeks, String ime, String prezime, Date datum, String adresa,
 			String telefon, String email, String indeks, int godinaUpisa, int trenutnaGodina, STATUS status, double prosek,
 			ArrayList<Predmet> spisakPolIspitaISpisakOcena, ArrayList<Predmet> spisakNepolIspita) {
 		
 		
-		BazaStudenata.getInstance().izmeniStudenta(ime, prezime, datum, adresa, telefon, email, indeks, godinaUpisa, trenutnaGodina, status, prosek, 
+		BazaStudenata.getInstance().izmeniStudenta(stariIndeks, ime, prezime, datum, adresa, telefon, email, indeks, godinaUpisa, trenutnaGodina, status, prosek, 
 				spisakPolIspitaISpisakOcena, spisakNepolIspita);
 		TabbedPane.azurirajPrikaz("IZMENJEN", -1);
+	}
+
+	public void izbrisiStudenta(String brIndeksa) {
+		BazaStudenata.getInstance().izbrisiStudenta(brIndeksa);
+		TabbedPane.azurirajPrikaz("IZBRISAN", -1);
 	}
 
 }

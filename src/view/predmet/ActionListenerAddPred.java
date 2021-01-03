@@ -30,7 +30,7 @@ public class ActionListenerAddPred implements ActionListener {
 		naziv = AddPredmetDialog.txtNaz.getText();
 		String espbString = AddPredmetDialog.txtEspb.getText();
 		semestar = AddPredmetDialog.semest.getSelectedItem().toString();
-		String godString = AddPredmetDialog.godStud.getSelectedItem().toString();
+		god = (int) AddPredmetDialog.godStud.getSelectedItem();
 		
 		
 		if(!sifra.matches("[A-Z0-9]+")) {
@@ -61,26 +61,14 @@ public class ActionListenerAddPred implements ActionListener {
 		}
 
 		
-		if (godString.equals("Prva")) {
-			god = 1;
-		}else if(godString.equals("Druga")) {
-			god = 2;
-		}else if(godString.equals("Treća")) {
-			god = 3;
-		}else if(godString.equals("Četvrta")) {
-			god = 4;
-		}
 		
 		
 		ArrayList<Profesor> bazaProfesora = BazaProfesora.getInstance().getProfesori();
-		for(Profesor p : bazaProfesora) {
-			if(AddProfToPredDialog.getDodatProfesor() != null){
-				if(p.getBrLicne().equals(AddProfToPredDialog.getDodatProfesor().getBrLicne())) {
+		for(Profesor p : bazaProfesora)
+			if(AddProfToPredDialog.getDodatProfesor() != null)
+				if(p.getBrLicne().equals(AddProfToPredDialog.getDodatProfesor().getBrLicne()))
 					profesor = p;
-					return;
-				}
-			}
-		}
+		
 		
 		
 		if (sifra.equals("") || naziv.equals("") || espbString.equals("")){
