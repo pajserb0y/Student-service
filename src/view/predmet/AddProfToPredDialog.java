@@ -59,6 +59,7 @@ public class AddProfToPredDialog extends JDialog{
 					String prezime = dodatProfesor.getPrezime();
 					
 					AddPredmetDialog.txtProf.setText(ime + " " + prezime);
+//					EditPredmetDialog.txtProf.setText(ime + " " + prezime);
 
 					int exit = JOptionPane.showConfirmDialog(null, "Profesor dodat." , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 					if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION)

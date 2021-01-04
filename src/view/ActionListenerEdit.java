@@ -156,7 +156,6 @@ public class ActionListenerEdit implements ActionListener{
 					EditPredmetDialog.txtProf.setText(profesor.getIme() + " " + profesor.getPrezime());
 				else
 					EditPredmetDialog.txtProf.setText("");
-
 				
 				dialogPred.setVisible(true);
 				dialogPred.pack();
