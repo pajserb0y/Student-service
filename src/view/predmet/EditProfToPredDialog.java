@@ -86,4 +86,8 @@ public class EditProfToPredDialog extends JDialog{
 	public static Profesor getDodatProfesor() {
 		return dodatProfesor;
 	}
+	
+	public static void setDodatProfesor(Profesor profesor) {
+		dodatProfesor = profesor;
+	}
 }

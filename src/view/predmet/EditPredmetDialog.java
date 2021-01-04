@@ -84,6 +84,8 @@ public class EditPredmetDialog extends JDialog{
 		txtProf.setPreferredSize(dimenzija);
 		txtProf.setEditable(false);
 		JButton btnPlus = new JButton("+");
+		JButton btnMinus = new JButton("-");
+		btnMinus.setEnabled(false);
 		
 		txtProf.getDocument().addDocumentListener(new DocumentListener() {
 			
@@ -103,10 +105,14 @@ public class EditPredmetDialog extends JDialog{
 			}
 			
 			public void changed() {
-				if(txtProf.getText().equals(null))
+				if(txtProf.getText().equals("")) {
 					btnPlus.setEnabled(true);
-				else
+					btnMinus.setEnabled(false);
+				}
+				else {
 					btnPlus.setEnabled(false);
+					btnMinus.setEnabled(true);
+				}
 			}
 		});
 			
@@ -119,6 +125,16 @@ public class EditPredmetDialog extends JDialog{
 				
 				EditProfToPredDialog dialog = new EditProfToPredDialog(null, "Odaberi profesora", true); 
 				dialog.setVisible(true);
+			}
+		});
+		
+		btnMinus.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				EditProfToPredDialog.setDodatProfesor(null);
+				txtProf.setText("");
 			}
 		});
 		
@@ -150,6 +166,7 @@ public class EditPredmetDialog extends JDialog{
 		panelProf.add(lblProf);
 		panelProf.add(txtProf);
 		panelProf.add(btnPlus);
+		panelProf.add(btnMinus);
 		
 		panelBtn.add(btnPotvrda);
 		panelBtn.add(btnOdustani);

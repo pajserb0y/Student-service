@@ -152,8 +152,9 @@ public class ActionListenerEdit implements ActionListener{
 				EditPredmetDialog.semest.getModel().setSelectedItem(semestar);
 				EditPredmetDialog.semest.updateUI();
 				EditPredmetDialog.txtEspb.setText(Integer.toString(espb));
-				if(profesor != null)
+				if(profesor != null) {
 					EditPredmetDialog.txtProf.setText(profesor.getIme() + " " + profesor.getPrezime());
+				}
 				else
 					EditPredmetDialog.txtProf.setText("");
 				

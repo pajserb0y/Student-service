@@ -37,7 +37,7 @@ public class ActionListenerDelete implements ActionListener{
 				int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da želite da obrišete studenta?", "Obriši studenta", JOptionPane.YES_NO_OPTION);
 				if (izbor == JOptionPane.YES_OPTION) {
 				
-					ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
+					ArrayList<Predmet> predmeti = BazaPredmeta.getInstance().getPredmeti();
 				
 					for(Predmet p : predmeti)
 						if(p.getStudentiPolozili() != null)
@@ -72,12 +72,13 @@ public class ActionListenerDelete implements ActionListener{
 						"Obriši profesora", JOptionPane.YES_NO_OPTION);
 				if (izbor == JOptionPane.YES_OPTION) {
 				
-					ArrayList<Predmet> predmeti = new ArrayList<Predmet>();
+					ArrayList<Predmet> predmeti = BazaPredmeta.getInstance().getPredmeti();
 				
 					for(Predmet pred : predmeti)
 						if(pred.getProfesor() != null)
-							if(profesor.getBrLicne().equals(pred.getProfesor().getBrLicne())) 
+							if(profesor.getBrLicne().equals(pred.getProfesor().getBrLicne())) {
 								pred.setProfesor(null);
+							}
 						
 					ProfesorController.getInstance().izbrisiProfesora(profesor.getBrLicne());
 					JOptionPane.showMessageDialog(null, "Profesor obrisan!");
@@ -99,8 +100,8 @@ public class ActionListenerDelete implements ActionListener{
 						"Obriši predmet", JOptionPane.YES_NO_OPTION);
 				if (izbor == JOptionPane.YES_OPTION) {
 				
-					ArrayList<Profesor> profesori = new ArrayList<Profesor>();
-					ArrayList<Student> studenti = new ArrayList<Student>();
+					ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();
+					ArrayList<Student> studenti = BazaStudenata.getInstance().getStudenti();
 				
 					for(Profesor prof : profesori){
 						if(prof.getSpisakPredmeta() != null)
