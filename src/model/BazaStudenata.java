@@ -159,10 +159,6 @@ public class BazaStudenata {
 			String email, String indeks, int godinaUpisa, int trenutnaGodina, STATUS status, double prosek, 
 			ArrayList<Predmet> spisakPolIspitaISpisakOcena, ArrayList<Predmet> spisakNepolIspita) {
 		
-		prosek = 0;
-		spisakPolIspitaISpisakOcena = null;
-		spisakNepolIspita = null;
-		
 		this.studenti.add(new Student(ime, prezime, datum, adresa, telefon, email, indeks, godinaUpisa, trenutnaGodina, status, prosek, spisakPolIspitaISpisakOcena, spisakNepolIspita));
 	}
 
@@ -184,7 +180,9 @@ public class BazaStudenata {
 				s.setGodUpisa(godinaUpisa);
 				s.setTrenutnaGodStudija(trenutnaGodina);
 				s.setStatus(status);
-//				s.setProsek(s.getProsek());  i nzm za ostalo sto ne menjam da uopste to i pisem
+				s.setProsek(prosek);  
+				s.setSpisakPolIspitaISpisakOcena(spisakPolIspitaISpisakOcena);
+				s.setSpisakNepolIspita(spisakNepolIspita);
 				
 				return;
 			}

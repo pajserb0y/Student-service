@@ -15,16 +15,16 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import view.TabbedPane;
-import view.profesor.ProfesorJTable;
 import model.BazaProfesora;
 import model.Profesor;
+import view.ActionListenerEdit;
+import view.profesor.ProfesorJTable;
 
-public class AddProfToPredDialog extends JDialog{
+public class EditProfToPredDialog extends JDialog{
 	
 	private static Profesor dodatProfesor;
 
-	public AddProfToPredDialog(Frame parent, String title, boolean modal){
+	public EditProfToPredDialog(Frame parent, String title, boolean modal){
 		super(parent, title, modal);
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		Dimension screenSize = kit.getScreenSize();
@@ -58,10 +58,9 @@ public class AddProfToPredDialog extends JDialog{
 					String ime = dodatProfesor.getIme();
 					String prezime = dodatProfesor.getPrezime();
 					
-					AddPredmetDialog.txtProf.setText(ime + " " + prezime);
-//					EditPredmetDialog.txtProf.setText(ime + " " + prezime);
+					EditPredmetDialog.txtProf.setText(ime + " " + prezime);
 
-					int exit = JOptionPane.showConfirmDialog(null, "Profesor dodat." , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+					int exit = JOptionPane.showConfirmDialog(null, "Profesor izmenjen." , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 					if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION)
 						setVisible(false);
 					
@@ -87,5 +86,4 @@ public class AddProfToPredDialog extends JDialog{
 	public static Profesor getDodatProfesor() {
 		return dodatProfesor;
 	}
-
 }

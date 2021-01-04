@@ -116,4 +116,6 @@ public class Student extends Osoba {
 		this.spisakNepolIspita = spisakNepolIspita;
 	}
 
+
+
 }
