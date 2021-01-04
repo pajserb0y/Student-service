@@ -13,6 +13,7 @@ import model.BazaPredmeta;
 import model.BazaProfesora;
 import model.BazaStudenata;
 import model.Profesor;
+import model.Student;
 
 public class ActionListenerEditPred implements ActionListener{
 	
@@ -25,6 +26,8 @@ public class ActionListenerEditPred implements ActionListener{
 		int espb = 0;
 		String semestar = "";
 		int god = 0;
+		ArrayList<Student> studentiPolozili = null;
+		ArrayList<Student> studentiNisuPolozili = null;
 		
 		int rowView = TabbedPane.tabelaPredmeta.getSelectedRow();
 		int rowModel = TabbedPane.tabelaPredmeta.convertRowIndexToModel(rowView);
@@ -72,8 +75,8 @@ public class ActionListenerEditPred implements ActionListener{
 		
 		ArrayList<Profesor> bazaProfesora = BazaProfesora.getInstance().getProfesori();
 		for(Profesor p : bazaProfesora) 
-			if(AddProfToPredDialog.getDodatProfesor() != null)
-				if(p.getBrLicne().equals(AddProfToPredDialog.getDodatProfesor().getBrLicne())) 
+			if(EditProfToPredDialog.getDodatProfesor() != null)
+				if(p.getBrLicne().equals(EditProfToPredDialog.getDodatProfesor().getBrLicne())) 
 					profesor = p;
 
 
@@ -83,7 +86,7 @@ public class ActionListenerEditPred implements ActionListener{
 				return;
 		}
 		else{
-			PredmetController.getInstance().izmeniPredmet(staraSifra, sifra, naziv, god, semestar, profesor, espb, null, null);
+			PredmetController.getInstance().izmeniPredmet(staraSifra, sifra, naziv, god, semestar, profesor, espb, studentiPolozili, studentiNisuPolozili);
 			int  exit = JOptionPane.showConfirmDialog(null, "Predmet izmenjen" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION)
 				ActionListenerEdit.dialogPred.setVisible(false);	

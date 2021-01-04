@@ -141,7 +141,7 @@ public class ActionListenerEdit implements ActionListener{
 				String naziv = BazaPredmeta.getInstance().getRow(rowModel).getNazPred();
 				int god = BazaPredmeta.getInstance().getRow(rowModel).getGodStud();
 				String semestar = BazaPredmeta.getInstance().getRow(rowModel).getSemestar();
-				Profesor profesor = BazaProfesora.getInstance().getRow(rowModel);
+				Profesor profesor = BazaPredmeta.getInstance().getRow(rowModel).getProfesor();
 				int espb = BazaPredmeta.getInstance().getRow(rowModel).getEspb();
 
 							
@@ -152,7 +152,11 @@ public class ActionListenerEdit implements ActionListener{
 				EditPredmetDialog.semest.getModel().setSelectedItem(semestar);
 				EditPredmetDialog.semest.updateUI();
 				EditPredmetDialog.txtEspb.setText(Integer.toString(espb));
-				EditPredmetDialog.txtProf.setText(profesor.getIme() + " " + profesor.getPrezime());
+				if(profesor != null)
+					EditPredmetDialog.txtProf.setText(profesor.getIme() + " " + profesor.getPrezime());
+				else
+					EditPredmetDialog.txtProf.setText("");
+
 				
 				dialogPred.setVisible(true);
 				dialogPred.pack();

@@ -33,16 +33,14 @@ public class ProfesorController {
 	public void izmeniProfesora(String staraLk, String ime, String prezime, Date datumRodjenja, String adresa,String telefon,
 			String email,String adresaK,String brLicne, String titula,String zvanje, ArrayList<Predmet> predmeti) {
 		
-			ArrayList<Predmet> spisakPredmeta = null; //predmeti koje nalaze kod profesora sa starom licnom kartom(ostace sacuvati tj prebaceni kod ovog sa novom)
 			ArrayList<Predmet> predmetiPom = BazaPredmeta.getInstance().getPredmeti();
 			
 			for(Predmet predmet : predmetiPom)
 			{
 				if(predmet.getProfesor() != null)
 					if(staraLk.equals(predmet.getProfesor().getBrLicne())) {
-						 spisakPredmeta = predmet.getProfesor().getSpisakPredmeta();//sacuvacemo stari spisak predmeta pre prmene profesora jer
-																								      //u ovom momentu promene spisaka jos nisu moguce
-						predmet.setProfesor(new Profesor(ime, prezime, datumRodjenja, adresa, telefon, email, adresaK, brLicne, titula, zvanje, spisakPredmeta));
+						predmet.setProfesor(new Profesor(ime, prezime, datumRodjenja, adresa, telefon, email, 
+								adresaK, brLicne, titula, zvanje, predmeti));
 					}
 			}
 			

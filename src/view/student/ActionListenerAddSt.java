@@ -128,8 +128,7 @@ public class ActionListenerAddSt implements ActionListener {
 			JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!");
 			return;
 		}else{
-//			StudentController.getInstance().dodajStudenta(ime, prz, dat, adresa, tel, email, indeks, godUpisa, god, status, prosek, spisakPolIspitaISpisakOcena, spisakNepolIspita);
-			StudentController.getInstance().dodajStudenta(ime, prz, dat, adresa, tel, email, indeks, godUpisa, god, status, prosek, new ArrayList<Predmet>(), new ArrayList<Predmet>());
+			StudentController.getInstance().dodajStudenta(ime, prz, dat, adresa, tel, email, indeks, godUpisa, god, status, prosek, spisakPolIspitaISpisakOcena, spisakNepolIspita);
 			int  exit = JOptionPane.showConfirmDialog(null, "Student dodat" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION){
 				ActionListenerAdd.dialogStd.setVisible(false);			

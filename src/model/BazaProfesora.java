@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import view.predmet.EditPredmetDialog;
+
 
 public class BazaProfesora {
 	
@@ -151,7 +153,7 @@ public class BazaProfesora {
 				p.setBrLicne(brLicne);
 				p.setTitula(titula);
 				p.setZvanje(zvanje);
-				p.setSpisakPredmeta(p.getSpisakPredmeta()); //msm da ovo treba da ostane ne pormenjeno jer se to ne moze izmeniti ovdeza sada
+				p.setSpisakPredmeta(predmeti); //msm da ovo treba da ostane ne pormenjeno jer se to ne moze izmeniti ovdeza sada
 				return;
 			}
 		}

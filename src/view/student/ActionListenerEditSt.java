@@ -140,8 +140,7 @@ public class ActionListenerEditSt implements ActionListener{
 			JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!");
 			return;
 		}else{
-//			StudentController.getInstance().izmeniStudenta(ime, prz, dat, adresa, tel, email, indeks, godUpisa, god, status, prosek, spisakPolIspitaISpisakOcena, spisakNepolIspita);
-			StudentController.getInstance().izmeniStudenta(stariIndeks, ime, prz, dat, adresa, tel, email, indeks, godUpisa, god, status, prosek, new ArrayList<Predmet>(), new ArrayList<Predmet>());
+			StudentController.getInstance().izmeniStudenta(stariIndeks, ime, prz, dat, adresa, tel, email, indeks, godUpisa, god, status, prosek, spisakPolIspitaISpisakOcena, spisakNepolIspita);
 			int  exit = JOptionPane.showConfirmDialog(null, "Student je izmenjen" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION){
 				ActionListenerEdit.dialogStd.setVisible(false);			

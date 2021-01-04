@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import view.predmet.EditPredmetDialog;
 import controller.PredmetController;
 import controller.ProfesorController;
 import controller.StudentController;
@@ -76,12 +77,8 @@ public class ActionListenerDelete implements ActionListener{
 					for(Predmet pred : predmeti)
 						if(pred.getProfesor() != null)
 							if(profesor.getBrLicne().equals(pred.getProfesor().getBrLicne())) 
-							{
-								//pred.getProfesor().remove(profesor);
-								//((List<Predmet>) pred.getProfesor()).remove(profesor);
 								pred.setProfesor(null);
-								
-							}
+						
 					ProfesorController.getInstance().izbrisiProfesora(profesor.getBrLicne());
 					JOptionPane.showMessageDialog(null, "Profesor obrisan!");
 				}

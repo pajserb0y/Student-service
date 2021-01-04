@@ -31,6 +31,7 @@ public class ActionListenerEditProf implements ActionListener{
 		String adrKanc = "";
 		String titula = "";
 		String zvanje = "";
+		ArrayList<Predmet> spisakPredmeta =  null;
 		int rowView = TabbedPane.tabelaProfesora.getSelectedRow();
 		int rowModel = TabbedPane.tabelaProfesora.convertRowIndexToModel(rowView);
 		String staraLk = (String)BazaProfesora.getInstance().getRow(rowModel).getBrLicne();
@@ -104,7 +105,7 @@ public class ActionListenerEditProf implements ActionListener{
 			return;
 			}
 		else {
-			ProfesorController.getInstance().izmeniProfesora(staraLk,ime, prz, dat, adr, tel, email, adrKanc,brLk, titula, zvanje, new ArrayList<Predmet>());
+			ProfesorController.getInstance().izmeniProfesora(staraLk,ime, prz, dat, adr, tel, email, adrKanc,brLk, titula, zvanje, spisakPredmeta);
 			int  exit = JOptionPane.showConfirmDialog(null, "Profesor je izmenjen." , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION){
 				ActionListenerEdit.dialogProf.setVisible(false);	

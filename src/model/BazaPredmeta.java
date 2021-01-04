@@ -64,7 +64,7 @@ public class BazaPredmeta {
 					
 					
 					
-					Predmet p = new Predmet(tokeni[0], tokeni[1], godina, semestar,profesor , espb, polozili,nisu_polozili);
+					Predmet p = new Predmet(tokeni[0], tokeni[1], godina, semestar, profesor , espb, polozili, nisu_polozili);
 					predmeti.add(p);
 				}
 			} catch (IOException e) {
@@ -136,8 +136,10 @@ public class BazaPredmeta {
 					p.setSemestar(semestar);
 					p.setEspb(espb);
 					p.setProfesor(profesor);
-					p.setStudentiPolozili(studentiPolozili); //msm da ovo treba da ostane ne pormenjeno jer se to sne moze izmeniti
-					p.setStudentiNisuPolozili(studentiNisuPolozili); //msm da ovo treba da ostane ne pormenjeno jer se to sne moze izmeniti
+					p.setStudentiPolozili(studentiPolozili); 
+					p.setStudentiNisuPolozili(studentiNisuPolozili); 
+					p.setStudentiPolozili(p.getStudentiPolozili()); 
+					p.setStudentiNisuPolozili(p.getStudentiPolozili()); 
 					return;
 				}
 			}

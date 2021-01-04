@@ -14,9 +14,13 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 public class EditStudentDialog extends JDialog{
+	
+
 	
 	public static JTextField txtIme = new JTextField();
 	public static JTextField txtPrz = new JTextField();
@@ -152,5 +156,12 @@ public class EditStudentDialog extends JDialog{
 			boxCentar.add(panelBtnPot_Odu);
 			
 			add(boxCentar, BorderLayout.NORTH);
+			
+			JTabbedPane tp = new JTabbedPane();
+			JScrollPane scrollPaneS = new JScrollPane(boxCentar);
+			tp.addTab("Informacije", scrollPaneS);
+			add(tp);
+			
+			
 	 }
 }

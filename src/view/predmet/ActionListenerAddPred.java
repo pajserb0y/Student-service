@@ -11,6 +11,7 @@ import model.BazaPredmeta;
 import model.BazaProfesora;
 import model.Predmet;
 import model.Profesor;
+import model.Student;
 import view.ActionListenerAdd;
 
 public class ActionListenerAddPred implements ActionListener {
@@ -24,6 +25,8 @@ public class ActionListenerAddPred implements ActionListener {
 		int espb = 0;
 		String semestar = "";
 		int god = 0;
+		ArrayList<Student> studentiPolozili = null;
+		ArrayList<Student> studentiNisuPolozili = null;
 		
 		
 		sifra = AddPredmetDialog.txtSif.getText();
@@ -75,7 +78,7 @@ public class ActionListenerAddPred implements ActionListener {
 				return;
 		}
 		else{
-			PredmetController.getInstance().dodajPredmet(sifra, naziv, god, semestar, profesor, espb, null, null);
+			PredmetController.getInstance().dodajPredmet(sifra, naziv, god, semestar, profesor, espb, studentiPolozili, studentiNisuPolozili);
 			int  exit = JOptionPane.showConfirmDialog(null, "Predmet dodat" , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION)
 				ActionListenerAdd.dialogPred.setVisible(false);	
