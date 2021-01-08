@@ -39,7 +39,16 @@ public class SpisakPredmetaPanel extends JPanel{
 		JScrollPane scrollPaneSP = new JScrollPane(tabelaSpisakPredmeta);
 		add(scrollPaneSP);
 		
-		
+		btnDodajPredmet.addActionListener(new ActionListener() {
+					
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				AddPredToProfDialog dialog = new AddPredToProfDialog(null, "Odaberi profesora", true);
+				dialog.setVisible(true);
+			}
+		});
+
 		Box boxCentar = Box.createVerticalBox();
 		boxCentar.add(Box.createVerticalStrut(20));
 		
