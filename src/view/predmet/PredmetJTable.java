@@ -6,6 +6,8 @@ import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import model.AbstractTableModelPredmet;
 
@@ -18,6 +20,7 @@ public class PredmetJTable extends JTable{
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setModel(new AbstractTableModelPredmet());
 		this.getTableHeader().setReorderingAllowed(false);
+		this.setAutoCreateRowSorter(true);
 	}
 
 	@Override
