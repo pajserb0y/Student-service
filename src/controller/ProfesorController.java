@@ -54,4 +54,9 @@ public class ProfesorController {
 		BazaProfesora.getInstance().izbrisiProfesora(brLicne);
 		TabbedPane.azurirajPrikaz("IZBRISAN", -1);
 	}
+
+	public void pretraziProfesora(String ime, String prezime) {
+		// TODO Auto-generated method stub
+		BazaProfesora.getInstance().pretraziProfesora(ime,prezime);
+	}
 }

@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import view.predmet.EditPredmetDialog;
+import view.TabbedPane;
+
 
 
 public class BazaProfesora {
@@ -166,6 +167,31 @@ public class BazaProfesora {
 				break;
 			}
 	}
-	
+
+	public void pretraziProfesora(String ime, String prezime) {
+		// TODO Auto-generated method stub
+		ArrayList<Profesor> lista = new ArrayList<Profesor>();
+		ArrayList<Profesor> kopija = new ArrayList<Profesor>(profesori); //kuva originalnu listu
+		if(!prezime.equals(""))
+			if(!ime.equals(""))
+				for (Profesor p : profesori) {
+					if(p.getPrezime().toLowerCase().contains(prezime) && p.getIme().toLowerCase().contains(ime)) 
+						lista.add(p);
+				}
+			else 
+				for(Profesor p : profesori)
+					if(p.getPrezime().toLowerCase().contains(prezime)) 
+						lista.add(p);
+		if(!lista.isEmpty()) {
+			profesori = lista;
+			TabbedPane.azurirajPrikaz(null, -1);
+		}else if(!prezime.equals("")){	//slucaj kada je uneto prezime i ime koje nema u tabeli 
+			profesori = new ArrayList<Profesor>();
+			TabbedPane.azurirajPrikaz(null, -1);
+		}else{
+			TabbedPane.azurirajPrikaz(null, -1);
+		}
+		this.profesori = kopija;
+	}
 }
 

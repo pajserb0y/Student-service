@@ -19,7 +19,8 @@ public class Toolbar extends JToolBar {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	public static JTextField txtSearch = new JTextField();
+	
 	public Toolbar() {
 		
 		super(SwingConstants.HORIZONTAL);
@@ -60,7 +61,7 @@ public class Toolbar extends JToolBar {
 		Dimension dim=new Dimension(180,25);
 		
 		JPanel panSearch=new JPanel(new FlowLayout(FlowLayout.RIGHT));
-		JTextField txtSearch=new JTextField();
+		
         txtSearch.setPreferredSize(dim);
 		
 		panSearch.add(txtSearch);
@@ -72,6 +73,7 @@ public class Toolbar extends JToolBar {
 		JButton btnSearch = new JButton();
 		btnSearch.setToolTipText("Search");
 		btnSearch.setIcon(new ImageIcon("images/search.png"));
+		btnSearch.addActionListener(new ActionListenerSearch());
 		this.add(btnSearch, BorderLayout.EAST);
 	}
 }
