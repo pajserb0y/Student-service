@@ -88,4 +88,9 @@ public class PredmetController {
 		BazaPredmeta.getInstance().izbrisiPredmet(sifraPred);
 		TabbedPane.azurirajPrikaz("IZBRISAN", -1);
 	}
+
+	public void pretraziPredmet(String naziv) {
+		// TODO Auto-generated method stub
+		BazaPredmeta.getInstance().pretraziPredmet(naziv);
+	}
 }

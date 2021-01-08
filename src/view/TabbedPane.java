@@ -8,6 +8,7 @@ import javax.swing.JTable;
 import model.AbstractTableModelPredmet;
 import model.AbstractTableModelProfesor;
 import model.AbstractTableModelStudent;
+import model.BazaPredmeta;
 import model.BazaProfesora;
 import view.predmet.PredmetJTable;
 import view.profesor.ProfesorJTable;
@@ -56,6 +57,7 @@ public class TabbedPane extends JTabbedPane{
 		modelProfesor.fireTableDataChanged();
 		
 		AbstractTableModelPredmet modelPredmet = (AbstractTableModelPredmet) tabelaPredmeta.getModel();
+		modelPredmet.setSpisakPred(BazaPredmeta.getInstance().getPredmeti());
 		modelPredmet.fireTableDataChanged();
 	}
 

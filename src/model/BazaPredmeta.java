@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import view.TabbedPane;
+
 public class BazaPredmeta {
 
 		private static BazaPredmeta instance = null;
@@ -153,5 +155,28 @@ public class BazaPredmeta {
 					break;
 				}
 			}
+		}
+
+		public void pretraziPredmet(String naziv) {
+			// TODO Auto-generated method stub
+			
+			ArrayList<Predmet> lista = new ArrayList<Predmet>();
+			ArrayList<Predmet> kopija = new ArrayList<>(predmeti);
+			
+			if(!naziv.equals(""))
+				for (Predmet p : predmeti) 
+					if(p.getNazPred().toLowerCase().contains(naziv)) 
+						lista.add(p);
+			
+			if(!lista.isEmpty()) {
+				predmeti = lista;
+				TabbedPane.azurirajPrikaz(null, -1);
+			}else if(!naziv.equals("")){	//slucaj kada je unet naziv prdmeta koji nije u bazi 
+				predmeti = new ArrayList<Predmet>();
+				TabbedPane.azurirajPrikaz(null, -1);
+			}else{
+				TabbedPane.azurirajPrikaz(null, -1);
+			}
+			this.predmeti = kopija;
 		}
 }

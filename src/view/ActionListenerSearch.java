@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import controller.PredmetController;
 import controller.ProfesorController;
 
 public class ActionListenerSearch implements ActionListener{
@@ -49,6 +50,9 @@ public class ActionListenerSearch implements ActionListener{
 				}
 			}
 			ProfesorController.getInstance().pretraziProfesora(ime, prezime);
+		}else if(index == 2) {		
+			String naziv = Toolbar.txtSearch.getText().toLowerCase().trim();
+			PredmetController.getInstance().pretraziPredmet(naziv);
 		}
 	}
 }
