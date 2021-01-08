@@ -19,6 +19,7 @@ public class ProfesorJTable extends JTable{
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setModel(new AbstractTableModelProfesor());
 		this.getTableHeader().setReorderingAllowed(false);
+		this.setAutoCreateRowSorter(true);
 	}
 
 	@Override
