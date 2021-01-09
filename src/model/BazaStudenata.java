@@ -94,6 +94,7 @@ public class BazaStudenata {
 				else
 					status = STATUS.S;
 				
+
 				
 				studenti.add(new Student(ime, prezime, datum, adresa, telefon, email, indeks, godUpisa, trenutnaGod, status, prosek, spisakPolIspitaISpisakOcena, spisakNepolIspita));
 			}

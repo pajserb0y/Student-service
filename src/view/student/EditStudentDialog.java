@@ -7,6 +7,7 @@ import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -16,7 +17,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+
+import view.TabbedPane;
+import view.predmet.PredmetJTable;
+import view.profesor.ProfesorJTable;
+import view.profesor.SpisakPredmetaJTable;
+import view.profesor.SpisakPredmetaPanel;
+import model.BazaPredmeta;
+import model.BazaStudenata;
+import model.Predmet;
+import model.Student;
 
 public class EditStudentDialog extends JDialog{
 	
@@ -33,6 +45,9 @@ public class EditStudentDialog extends JDialog{
 	public static JComboBox<String> cbGodStudija = new JComboBox<String>();
 	public static JComboBox<String> cbStatus = new JComboBox<String>();
 	
+	public static JTextField txtProsek = new JTextField();
+	public static JTextField txtEspb = new JTextField();
+	
 	
 	 public EditStudentDialog(Frame parent, String title, boolean modal) {
 	    	super(parent, title, modal);
@@ -41,7 +56,7 @@ public class EditStudentDialog extends JDialog{
 			Dimension screenSize = kit.getScreenSize();
 			int screenHeight = screenSize.height;
 			int screenWidth = screenSize.width;
-			setSize(3*screenWidth/8, screenHeight/2);
+			setSize(3*screenWidth/10, 2*screenHeight/3);
 			setTitle("Izmena studenta");
 			setLocationRelativeTo(parent);
 			Dimension dim = new Dimension(screenWidth/9, screenHeight/38);
@@ -157,11 +172,16 @@ public class EditStudentDialog extends JDialog{
 			
 			add(boxCentar, BorderLayout.NORTH);
 			
+			
 			JTabbedPane tp = new JTabbedPane();
-			JScrollPane scrollPaneS = new JScrollPane(boxCentar);
-			tp.addTab("Informacije", scrollPaneS);
+			
+			JScrollPane scrollPane = new JScrollPane(boxCentar);
+			tp.addTab("Informacije", scrollPane);
 			add(tp);
 			
-			
+			SpisakPolPredmetaPanel sp = new SpisakPolPredmetaPanel();
+			JScrollPane scrollPaneSP = new JScrollPane(sp);
+			tp.addTab("Položeni", scrollPaneSP);
+
 	 }
 }

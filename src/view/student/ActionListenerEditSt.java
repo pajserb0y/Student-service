@@ -10,7 +10,6 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 import controller.StudentController;
-import view.ActionListenerAdd;
 import view.ActionListenerEdit;
 import view.TabbedPane;
 import model.BazaStudenata;

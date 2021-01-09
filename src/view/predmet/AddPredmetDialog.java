@@ -13,12 +13,10 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-
 
 
 
@@ -87,9 +85,8 @@ public class AddPredmetDialog extends JDialog {
 		txtProf.setEditable(false);
 		
 		JButton btnPlus = new JButton("+");
-		JButton btnMinus = new JButton("-");
-		btnMinus.setEnabled(false);
 		
+		// REFERENCA: https://stackoverflow.com/questions/17132452/java-check-if-jtextfield-is-empty-or-notS
 		txtProf.getDocument().addDocumentListener(new DocumentListener() {
 			
 			@Override
@@ -108,14 +105,10 @@ public class AddPredmetDialog extends JDialog {
 			}
 			
 			public void changed() {
-				if(txtProf.getText().equals("")) {
+				if(txtProf.getText().equals(""))
 					btnPlus.setEnabled(true);
-					btnMinus.setEnabled(false);
-				}
-				else {
+				else
 					btnPlus.setEnabled(false);
-					btnMinus.setEnabled(true);
-				}
 			}
 		});
 		
@@ -123,20 +116,10 @@ public class AddPredmetDialog extends JDialog {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-
+				// TODO Auto-generated method stub				
+				
 				AddProfToPredDialog dialog = new AddProfToPredDialog(null, "Odaberi profesora", true); 
 				dialog.setVisible(true);
-			}
-		});
-		
-		btnMinus.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				AddProfToPredDialog.setDodatProfesor(null);
-				txtProf.setText("");
 			}
 		});
 		
@@ -168,7 +151,6 @@ public class AddPredmetDialog extends JDialog {
 		panelProf.add(lblProf);
 		panelProf.add(txtProf);
 		panelProf.add(btnPlus);
-		panelProf.add(btnMinus);
 		
 		panelBtn.add(btnPotvrda);
 		panelBtn.add(btnOdustani);

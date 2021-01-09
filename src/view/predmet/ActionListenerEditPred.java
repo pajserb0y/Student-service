@@ -11,7 +11,6 @@ import view.TabbedPane;
 import controller.PredmetController;
 import model.BazaPredmeta;
 import model.BazaProfesora;
-import model.BazaStudenata;
 import model.Profesor;
 import model.Student;
 

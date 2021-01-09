@@ -20,7 +20,7 @@ public class PredmetJTable extends JTable{
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setModel(new AbstractTableModelPredmet());
 		this.getTableHeader().setReorderingAllowed(false);
-		this.setAutoCreateRowSorter(true);
+		//this.setAutoCreateRowSorter(true);
 	}
 
 	@Override

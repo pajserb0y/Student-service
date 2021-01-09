@@ -7,7 +7,6 @@ import view.TabbedPane;
 import model.BazaPredmeta;
 import model.BazaStudenata;
 import model.Predmet;
-import model.Profesor;
 import model.Student;
 import model.Student.STATUS;
 

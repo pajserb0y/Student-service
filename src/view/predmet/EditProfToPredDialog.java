@@ -7,6 +7,7 @@ import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -15,9 +16,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import model.BazaPredmeta;
 import model.BazaProfesora;
+import model.Predmet;
 import model.Profesor;
 import view.ActionListenerEdit;
+import view.TabbedPane;
 import view.profesor.ProfesorJTable;
 
 public class EditProfToPredDialog extends JDialog{
@@ -54,6 +58,18 @@ public class EditProfToPredDialog extends JDialog{
 				if(rowModel != -1)
 				{
 					dodatProfesor = BazaProfesora.getInstance().getRow(rowModel);
+
+					ArrayList<Predmet> spisakPredmetaProfesora = new ArrayList<Predmet>();
+					
+					if(BazaProfesora.getInstance().getRow(rowModel).getSpisakPredmeta() != null)
+						spisakPredmetaProfesora = BazaProfesora.getInstance().getRow(rowModel).getSpisakPredmeta();
+					
+					int rowViewPredmet = TabbedPane.tabelaPredmeta.getSelectedRow();
+					int rowModelPredmet = TabbedPane.tabelaPredmeta.convertRowIndexToModel(rowViewPredmet);
+					
+					spisakPredmetaProfesora.add(BazaPredmeta.getInstance().getRow(rowModelPredmet));
+					BazaProfesora.getInstance().getRow(rowModel).setSpisakPredmeta(spisakPredmetaProfesora);
+
 					
 					String ime = dodatProfesor.getIme();
 					String prezime = dodatProfesor.getPrezime();

@@ -123,6 +123,13 @@ public class BazaPredmeta {
 		{
 			Predmet p = new Predmet(sifraPred, nazPred, godStud, semestar, profesor, espb,studentiPolozili,studentiNisuPolozili);
 			this.predmeti.add(p);
+			if(profesor != null) {
+				ArrayList<Predmet> spisakPredmeta = new ArrayList<>();
+				if(profesor.getSpisakPredmeta() != null)
+					spisakPredmeta = profesor.getSpisakPredmeta();
+				spisakPredmeta.add(p);
+				profesor.setSpisakPredmeta(spisakPredmeta);
+			}
 		}
 
 		public void izmeniPredmet(String staraSifra, String sifraPred, String nazPred, int godStud, String semestar, Profesor profesor, int espb,
