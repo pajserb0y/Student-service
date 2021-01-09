@@ -76,14 +76,16 @@ public class AddPredToProfDialog extends JDialog{
 						AbstractTableModelDozvoljeniPredmeti mdp = (AbstractTableModelDozvoljeniPredmeti) TabelaDozvoljenihPredmeta.getModel();
 						String sifra = (String) mdp.getValueAt(rowModel,0);
 						
-						for(Predmet p : BazaPredmeta.getInstance().getPredmeti())
-							if(sifra.equals(p.getSifraPred()))
-								spisakPredmetaProfesora.add(p);
-				
 						int rowProfView = TabbedPane.tabelaProfesora.getSelectedRow();
-						int rowProfModel = TabbedPane.tabelaProfesora.convertRowIndexToModel(rowProfView);
+						int rowProfModel = TabbedPane.tabelaProfesora.convertRowIndexToModel(rowProfView); //profesor kom dodajemo predmete
 						
-						BazaProfesora.getInstance().getRow(rowProfModel).setSpisakPredmeta(spisakPredmetaProfesora);
+						for(Predmet p : BazaPredmeta.getInstance().getPredmeti())
+							if(sifra.equals(p.getSifraPred())) {
+								spisakPredmetaProfesora.add(p);
+								p.setProfesor(BazaProfesora.getInstance().getRow(rowProfModel)); //postavljanja profesora na taj predmet referencijalna zavisnost
+							}
+						
+						BazaProfesora.getInstance().getRow(rowProfModel).setSpisakPredmeta(spisakPredmetaProfesora); //dodavanje profesoru predmeta
 						
 						AbstractTableModelSpisakPredmetaZaProfesora model =  (AbstractTableModelSpisakPredmetaZaProfesora) SpisakPredmetaPanel.tabelaSpisakPredmeta.getModel();
 						model.fireTableDataChanged();
