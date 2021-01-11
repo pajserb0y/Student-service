@@ -182,6 +182,10 @@ public class EditStudentDialog extends JDialog{
 			SpisakPolPredmetaPanel sp = new SpisakPolPredmetaPanel();
 			JScrollPane scrollPaneSP = new JScrollPane(sp);
 			tp.addTab("Položeni", scrollPaneSP);
+			
+			SpisakNePolPredmetaPanel snp = new SpisakNePolPredmetaPanel();
+			JScrollPane scrollPaneSNP = new JScrollPane(snp);
+			tp.add("Nepoloženi",scrollPaneSNP);
 
 	 }
 }
