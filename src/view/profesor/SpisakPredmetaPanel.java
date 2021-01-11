@@ -66,19 +66,17 @@ public class SpisakPredmetaPanel extends JPanel{
 				int rowModel = tabelaSpisakPredmeta.convertRowIndexToModel(rowView);
 				if(rowModel != -1){
 					ArrayList<Predmet> spisakPredmetaProfesora = new ArrayList<Predmet>();
+					int rowProfView = TabbedPane.tabelaProfesora.getSelectedRow();
+					int rowProfModel = TabbedPane.tabelaProfesora.convertRowIndexToModel(rowProfView); //profesor kom uklanjamo predmet
 					
-					if(BazaProfesora.getInstance().getRow(rowModel).getSpisakPredmeta() != null)
-						spisakPredmetaProfesora = BazaProfesora.getInstance().getRow(rowModel).getSpisakPredmeta();
+					if(BazaProfesora.getInstance().getRow(rowProfModel).getSpisakPredmeta() != null)
+						spisakPredmetaProfesora = BazaProfesora.getInstance().getRow(rowProfModel).getSpisakPredmeta();
 					
 					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni?", "Ukloni predmet", JOptionPane.YES_NO_OPTION);
 					if (izbor == JOptionPane.YES_OPTION) {
 						
 						AbstractTableModelSpisakPredmetaZaProfesora mdp = (AbstractTableModelSpisakPredmetaZaProfesora) tabelaSpisakPredmeta.getModel();
 						String sifra = (String) mdp.getValueAt(rowModel, 0);
-						
-						int rowProfView = TabbedPane.tabelaProfesora.getSelectedRow();
-						int rowProfModel = TabbedPane.tabelaProfesora.convertRowIndexToModel(rowProfView); //profesor kom uklanjamo predmet
-						
 
 						for(Predmet p : BazaPredmeta.getInstance().getPredmeti())
 							if(p.getProfesor() != null)

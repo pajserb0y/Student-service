@@ -5,6 +5,7 @@ import java.util.Date;
 
 import view.TabbedPane;
 import model.BazaPredmeta;
+import model.BazaProfesora;
 import model.BazaStudenata;
 import model.Predmet;
 import model.Student;
@@ -86,6 +87,11 @@ public class StudentController {
 	public void izbrisiStudenta(String brIndeksa) {
 		BazaStudenata.getInstance().izbrisiStudenta(brIndeksa);
 		TabbedPane.azurirajPrikaz("IZBRISAN", -1);
+	}
+
+	public void pretraziStudenta(String ime, String prezime, String indeks) {
+		// TODO Auto-generated method stub
+		BazaStudenata.getInstance().pretraziStudenta(ime, prezime, indeks);
 	}
 
 }

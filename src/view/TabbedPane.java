@@ -10,6 +10,7 @@ import model.AbstractTableModelProfesor;
 import model.AbstractTableModelStudent;
 import model.BazaPredmeta;
 import model.BazaProfesora;
+import model.BazaStudenata;
 import view.predmet.PredmetJTable;
 import view.profesor.ProfesorJTable;
 import view.student.StudentiJTable;
@@ -50,6 +51,7 @@ public class TabbedPane extends JTabbedPane{
 	public static void azurirajPrikaz(String akcija, int vrednost) {
 		
 		AbstractTableModelStudent modelStudent=(AbstractTableModelStudent) tabelaStudenata.getModel();
+		modelStudent.setSpisakSt(BazaStudenata.getInstance().getStudenti());
 		modelStudent.fireTableDataChanged();
 		
 		AbstractTableModelProfesor modelProfesor = (AbstractTableModelProfesor) tabelaProfesora.getModel();

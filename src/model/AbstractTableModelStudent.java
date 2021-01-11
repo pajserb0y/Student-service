@@ -1,17 +1,24 @@
 package model;
 
+import java.util.ArrayList;
+
 import javax.swing.table.AbstractTableModel;
 
 
 
 public class AbstractTableModelStudent extends AbstractTableModel {
 
-	private static final long serialVersionUID = 1L;	
+	private static final long serialVersionUID = 1L;
+	
+	private ArrayList<Student> spisakStudenata = BazaStudenata.getInstance().getStudenti();
 
+	public void setSpisakSt(ArrayList<Student> studenti) {
+		spisakStudenata = studenti;
+	}
+	
 	@Override
 	public int getRowCount() {
-		return BazaStudenata.getInstance().getStudenti().size();
-		
+		return spisakStudenata.size();
 	}
 	
 	@Override
@@ -28,7 +35,23 @@ public class AbstractTableModelStudent extends AbstractTableModel {
 	// sadrzaj celije
 	@Override
 	public Object getValueAt(int row, int col) {
- 		return BazaStudenata.getInstance().getValueAt(row, col);
+		Student s = this.spisakStudenata.get(row);
+		switch(col) {
+		case 0:
+			return s.getBrIndeksa();
+		case 1:
+			return s.getIme();
+		case 2:
+			return s.getPrezime();
+		case 3:
+			return s.getTrenutnaGodStudija();
+		case 4:
+			return s.getStatus();
+		case 5:
+			return s.getProsek();
+		default :
+			return null;
+		}
 	}
 	
 

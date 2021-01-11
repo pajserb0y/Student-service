@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import view.TabbedPane;
 import model.Student.STATUS;
 
 
@@ -198,5 +199,37 @@ public class BazaStudenata {
 				break;
 			}
 	}
-	
+
+	public void pretraziStudenta(String ime, String prezime, String indeks) {
+		// TODO Auto-generated method stub
+		ArrayList<Student> lista = new ArrayList<Student>();
+		ArrayList<Student> kopija = new ArrayList<Student>(studenti); //cuva originalnu listu
+		
+		if(!prezime.equals("")){
+			if(!indeks.equals("")){
+				for (Student s : studenti) 
+					if(s.getPrezime().toLowerCase().contains(prezime) && s.getIme().toLowerCase().contains(ime) && s.getBrIndeksa().toLowerCase().contains(indeks)) 
+						lista.add(s);
+			}else if(!ime.equals("")){
+				for (Student s : studenti) 
+					if(s.getPrezime().toLowerCase().contains(prezime) && s.getIme().toLowerCase().contains(ime)) 
+						lista.add(s);
+			}else{ 
+				for(Student s : studenti)
+					if(s.getPrezime().toLowerCase().contains(prezime)) 
+						lista.add(s);
+			}
+		}
+		if(!lista.isEmpty()) {
+			studenti = lista;
+			TabbedPane.azurirajPrikaz(null, -1);
+		
+		}else if(!prezime.equals("")){	//slucaj kada je uneto prezime i ime koje nema u tabeli 
+			studenti = new ArrayList<Student>();
+			TabbedPane.azurirajPrikaz(null, -1);
+		}else{
+			TabbedPane.azurirajPrikaz(null, -1);
+		}
+		this.studenti = kopija;
+	}	
 }
