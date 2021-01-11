@@ -4,15 +4,29 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+import model.AbstractTableModelSpisakNePolPredmetaZaStudenta;
+import model.BazaPredmeta;
+import model.BazaStudenata;
+import model.Predmet;
+import view.TabbedPane;
+
 
 import view.predmet.PredmetJTable;
 
 public class SpisakNePolPredmetaPanel extends JPanel{
+	
+	public static JTable tabelaNepolozenihPredmeta = null;
 	
 	public SpisakNePolPredmetaPanel()
 	{
@@ -27,17 +41,29 @@ public class SpisakNePolPredmetaPanel extends JPanel{
 		add(panelBtn, BorderLayout.NORTH);	
 		JButton btnDodaj = new JButton("Dodaj");
 		btnDodaj.setPreferredSize(dim);
+		btnDodaj.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				AddPredToStudent dialog = new AddPredToStudent(null, "Odaberi predmete", true);
+				dialog.setVisible(true);
+			}
+		});
+		
 		JButton btnObrisi = new JButton("Obriši");
 		btnObrisi.setPreferredSize(dim);
+//		btnObrisi.addActionListener(new ActionListener() {});
+		
 		JButton btnPolaganje = new JButton("Polaganje");
 		btnPolaganje.setPreferredSize(dim);					
-
+//		btnPolaganje.addActionListener(new ActionListener() {});
 		panelBtn.add(btnDodaj);
 		panelBtn.add(btnObrisi);
 		panelBtn.add(btnPolaganje);
 		
-		SpisakNePolPredmetaJTable tabelaPredmeta = new SpisakNePolPredmetaJTable();
-		JScrollPane sp =  new JScrollPane(tabelaPredmeta);	
+		tabelaNepolozenihPredmeta = new SpisakNePolPredmetaJTable();
+		JScrollPane sp =  new JScrollPane(tabelaNepolozenihPredmeta);	
 		panelNePolPredmeti.add(sp);
 		
 		Box boxCentar = Box.createVerticalBox();
