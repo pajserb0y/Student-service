@@ -132,6 +132,9 @@ public class ActionListenerEditSt implements ActionListener{
 			status = STATUS.S;
 		
 		
+		spisakPolIspitaISpisakOcena = BazaStudenata.getInstance().getRow(rowModel).getSpisakPolIspitaISpisakOcena();
+		spisakNepolIspita = BazaStudenata.getInstance().getRow(rowModel).getSpisakNepolIspita();
+		
 		
 	
 		if( indeks.equals("") || ime.equals("") || prz.equals("") || adresa.equals("") || tel.equals("")

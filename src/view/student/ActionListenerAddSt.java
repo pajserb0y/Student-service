@@ -9,6 +9,7 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import model.BazaPredmeta;
 import model.BazaStudenata;
 import model.Predmet;
 import model.Student;
@@ -119,6 +120,7 @@ public class ActionListenerAddSt implements ActionListener {
 			status = STATUS.B;
 		else
 			status = STATUS.S;
+		
 		
 		
 		

@@ -53,7 +53,43 @@ public class SpisakNePolPredmetaPanel extends JPanel{
 		
 		JButton btnObrisi = new JButton("Obriši");
 		btnObrisi.setPreferredSize(dim);
-//		btnObrisi.addActionListener(new ActionListener() {});
+		btnObrisi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				int rowView = tabelaNepolozenihPredmeta.getSelectedRow();
+				int rowModel = tabelaNepolozenihPredmeta.convertRowIndexToModel(rowView);
+				if(rowModel != -1){
+					ArrayList<Predmet> spisakNepolPredmetaStudenta = new ArrayList<Predmet>();
+					
+					int rowStudView = TabbedPane.tabelaStudenata.getSelectedRow();
+					int rowStudModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(rowStudView); //student kom uklanjamo predmet
+					
+					if(BazaStudenata.getInstance().getRow(rowStudModel).getSpisakNepolIspita() != null)
+						spisakNepolPredmetaStudenta = BazaStudenata.getInstance().getRow(rowStudModel).getSpisakNepolIspita();
+					
+					int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni?", "Ukloni predmet", JOptionPane.YES_NO_OPTION);
+					if (izbor == JOptionPane.YES_OPTION) {
+						
+						AbstractTableModelSpisakNePolPredmetaZaStudenta mdp = (AbstractTableModelSpisakNePolPredmetaZaStudenta) tabelaNepolozenihPredmeta.getModel();
+						String sifra = (String) mdp.getValueAt(rowModel, 0);
+						
+						for(Predmet p : BazaPredmeta.getInstance().getPredmeti())
+								if(sifra.equals(p.getSifraPred())) {
+									spisakNepolPredmetaStudenta.remove(p);
+								}
+						
+						BazaStudenata.getInstance().getRow(rowStudModel).setSpisakNepolIspita(spisakNepolPredmetaStudenta); //dodavanje studentu predmeta
+						
+						AbstractTableModelSpisakNePolPredmetaZaStudenta model =  (AbstractTableModelSpisakNePolPredmetaZaStudenta) SpisakNePolPredmetaPanel.tabelaNepolozenihPredmeta.getModel();
+						model.fireTableDataChanged();
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "Morate izabrati predmet pre brisanja!");
+				}
+			}
+		});
 		
 		JButton btnPolaganje = new JButton("Polaganje");
 		btnPolaganje.setPreferredSize(dim);					
