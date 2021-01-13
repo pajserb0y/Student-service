@@ -90,8 +90,8 @@ public class SpisakPolPredmetaPanel extends JPanel {
 									break;
 								}
 							
-							
-							studentiNisuPolozili = predmet.getStudentiNisuPolozili(); //resavanje referencijalne zavisnosti
+							if(predmet.getStudentiNisuPolozili() != null)
+								studentiNisuPolozili = predmet.getStudentiNisuPolozili(); //resavanje referencijalne zavisnosti
 							studentiNisuPolozili.add(student);
 
 							if(predmet.getStudentiPolozili() != null){
@@ -105,6 +105,9 @@ public class SpisakPolPredmetaPanel extends JPanel {
 					BazaOcena.getInstance().setOcene(sveOcene);
 					student.setSpisakNepolIspita(spisakNepolPredmetaStudenta); //updateovanje liste
 					student.setSpisakPolIspitaISpisakOcena(spisakPolPredmetaStudenta); //dodavanje na listu polozenih
+					
+					txtProsek.setText(Double.toString(student.getProsek()));
+					txtEspb.setText(Integer.toString(student.espb()));
 					
 					AbstractTableModelSpisakNePolPredmetaZaStudenta model =  (AbstractTableModelSpisakNePolPredmetaZaStudenta) SpisakNePolPredmetaPanel.tabelaNepolozenihPredmeta.getModel();
 					model.fireTableDataChanged();
@@ -128,13 +131,6 @@ public class SpisakPolPredmetaPanel extends JPanel {
 		txtProsek.setEditable(false);
 		txtEspb.setPreferredSize(dim);
 		txtEspb.setEditable(false);
-		int index = TabbedPane.tabelaStudenata.getSelectedRow();
-		int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(index);
-		if(rowModel != -1){
-			Student student = BazaStudenata.getInstance().getRow(rowModel);
-			txtProsek.setText(Double.toString(student.getProsek()));
-			txtEspb.setText(Integer.toString(student.espb()));
-		}
 		
 	
 		JLabel lblProsek = new JLabel("Prosečna ocena");
@@ -153,6 +149,13 @@ public class SpisakPolPredmetaPanel extends JPanel {
 		JScrollPane sp = new JScrollPane(tabelaPolPredmeta);
 		panelPolPredmeti.add(sp);
 		
+		int index = TabbedPane.tabelaStudenata.getSelectedRow();
+		int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(index);
+		if(rowModel != -1){
+			Student student = BazaStudenata.getInstance().getRow(rowModel);
+			txtProsek.setText(Double.toString(student.getProsek()));
+			txtEspb.setText(Integer.toString(student.espb()));
+		}
 		
 		Box boxCentar1 = Box.createVerticalBox();
 		boxCentar1.add(Box.createVerticalStrut(20));

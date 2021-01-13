@@ -35,82 +35,80 @@ public class BazaOcena {
 	}
 	ArrayList<Ocena> initOcena(){
 		ocene = new ArrayList<Ocena>();
-//		String[] tokeni;
-//		BufferedReader br = null;
-//		
-//		try {
-//			br = new BufferedReader(new FileReader("src\\baze\\bazaocena.txt"));
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		String linija = null;
-//		try {
-//			while((linija = br.readLine()) != null)
-//			{
-//				Student st = null;
-//				Predmet pr = null;
-//				tokeni = linija.split(";");
-//				
-//				for(int i = 0;i < tokeni.length;++i)
-//					tokeni[i] = tokeni[i].trim();
-//				
-//				int ocena = Integer.parseInt(tokeni[2]);
-//				SimpleDateFormat formater = new SimpleDateFormat("dd.mm.yyyy.");
-//				String datumString = tokeni[3];
-//				Date datum = null;
-//				try {
-//					datum = formater.parse(datumString);
-//				} catch (ParseException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				
-//				
-//				ArrayList<Student> studenti = BazaStudenata.getInstance().getStudenti();
-//				for(Student s : studenti) 
-//					if(s.getBrIndeksa().equals(tokeni[0])){
-//						System.out.println(s.getBrIndeksa() + "\n");
-//						st = s;	
-//						break;
-//					}
-//				
-//				ArrayList<Predmet> listaPolzoenihPredmetaStudenta = new ArrayList<Predmet>();
-//				if(st.getSpisakPolIspitaISpisakOcena() != null)
-//					listaPolzoenihPredmetaStudenta = st.getSpisakNepolIspita();
-//				
-//				ArrayList<Predmet> predmeti = BazaPredmeta.getInstance().getPredmeti();
-//				for(Predmet p : predmeti) 
-//					if(p.getSifraPred().equals(tokeni[1])){
-//						System.out.println(p.getSifraPred() + "\n");
-//						pr = p;	
-//						break;
-//					}
-//				
-//				ArrayList<Student> listaStudenataKojiSuPolozili = new ArrayList<Student>();
-//				if(pr.getStudentiPolozili() != null)
-//					listaStudenataKojiSuPolozili = pr.getStudentiPolozili();
-//				
-//				listaPolzoenihPredmetaStudenta.add(pr);
-//				listaStudenataKojiSuPolozili.add(st);
-//				
-//				st.setSpisakPolIspitaISpisakOcena(listaPolzoenihPredmetaStudenta);
-//				pr.setStudentiPolozili(listaStudenataKojiSuPolozili);
-//				
-//				Ocena o = new Ocena(st, pr, ocena, datum);
-//				ocene.add(o);
-//			}
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		try {
-//			br.close();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		String[] tokeni;
+		BufferedReader br = null;
+		
+		try {
+			br = new BufferedReader(new FileReader("src\\baze\\bazaocena.txt"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String linija = null;
+		try {
+			while((linija = br.readLine()) != null)
+			{
+				Student st = null;
+				Predmet pr = null;
+				tokeni = linija.split(";");
+				
+				for(int i = 0;i < tokeni.length;++i)
+					tokeni[i] = tokeni[i].trim();
+				
+				int ocena = Integer.parseInt(tokeni[2]);
+				SimpleDateFormat formater = new SimpleDateFormat("dd.mm.yyyy.");
+				String datumString = tokeni[3];
+				Date datum = null;
+				try {
+					datum = formater.parse(datumString);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+				ArrayList<Student> studenti = BazaStudenata.getInstance().getStudenti();
+				for(Student s : studenti) 
+					if(s.getBrIndeksa().equals(tokeni[0])){
+						st = s;	
+						break;
+					}
+				
+				ArrayList<Predmet> listaPolozenihPredmetaStudenta = new ArrayList<Predmet>();
+				if(st.getSpisakPolIspitaISpisakOcena() != null)
+					listaPolozenihPredmetaStudenta = st.getSpisakPolIspitaISpisakOcena();
+				
+				ArrayList<Predmet> predmeti = BazaPredmeta.getInstance().getPredmeti();
+				for(Predmet p : predmeti) 
+					if(p.getSifraPred().equals(tokeni[1])){
+						pr = p;	
+						break;
+					}
+				
+				ArrayList<Student> listaStudenataKojiSuPolozili = new ArrayList<Student>();
+				if(pr.getStudentiPolozili() != null)
+					listaStudenataKojiSuPolozili = pr.getStudentiPolozili();
+				
+				listaPolozenihPredmetaStudenta.add(pr);
+				listaStudenataKojiSuPolozili.add(st);
+				
+				st.setSpisakPolIspitaISpisakOcena(listaPolozenihPredmetaStudenta);
+				pr.setStudentiPolozili(listaStudenataKojiSuPolozili);
+				
+				Ocena o = new Ocena(st, pr, ocena, datum);
+				ocene.add(o);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			br.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return ocene;
 	}
 	

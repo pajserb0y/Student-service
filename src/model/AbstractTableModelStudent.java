@@ -11,6 +11,7 @@ public class AbstractTableModelStudent extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
 	
 	private ArrayList<Student> spisakStudenata = BazaStudenata.getInstance().getStudenti();
+	private ArrayList<Ocena> sveOcene = BazaOcena.getInstance().getOcene();
 
 	public void setSpisakSt(ArrayList<Student> studenti) {
 		spisakStudenata = studenti;

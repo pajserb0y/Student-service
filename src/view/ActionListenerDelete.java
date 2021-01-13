@@ -12,9 +12,11 @@ import view.predmet.EditPredmetDialog;
 import controller.PredmetController;
 import controller.ProfesorController;
 import controller.StudentController;
+import model.BazaOcena;
 import model.BazaPredmeta;
 import model.BazaProfesora;
 import model.BazaStudenata;
+import model.Ocena;
 import model.Predmet;
 import model.Profesor;
 import model.Student;
@@ -105,12 +107,14 @@ public class ActionListenerDelete implements ActionListener{
 				
 					ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();
 					ArrayList<Student> studenti = BazaStudenata.getInstance().getStudenti();
+					ArrayList<Ocena> ocene = BazaOcena.getInstance().getOcene();
 				
 					for(Profesor prof : profesori){
 						if(prof.getSpisakPredmeta() != null)
 							for(Predmet pred : prof.getSpisakPredmeta()){
 								if(predmet.getSifraPred().equals(pred.getSifraPred())) {
 									prof.getSpisakPredmeta().remove(pred);
+									break;
 								}
 							}
 					}
@@ -119,6 +123,7 @@ public class ActionListenerDelete implements ActionListener{
 							for(Predmet pred : s.getSpisakNepolIspita()) {
 								if(predmet.getSifraPred().equals(pred.getSifraPred())) {
 									s.getSpisakNepolIspita().remove(pred);
+									break;
 								}
 							}
 					}
@@ -128,9 +133,16 @@ public class ActionListenerDelete implements ActionListener{
 							for(Predmet pred : s.getSpisakPolIspitaISpisakOcena()) {
 								if(predmet.getSifraPred().equals(pred.getSifraPred())) {
 									s.getSpisakPolIspitaISpisakOcena().remove(pred);
+									break;
 								}
 							}
 					}
+					if(ocene != null)
+						for(Ocena o : ocene)
+							if(o.getPredmet().getSifraPred().equals(predmet.getSifraPred())){
+								ocene.remove(o);
+								break;
+							}
 					
 					PredmetController.getInstance().izbrisiPredmet(predmet.getSifraPred());
 					JOptionPane.showMessageDialog(null, "Predmet obrisan!");

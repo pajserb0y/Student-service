@@ -12,9 +12,11 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
+import model.BazaOcena;
 import model.BazaPredmeta;
 import model.BazaProfesora;
 import model.BazaStudenata;
+import model.Ocena;
 import model.Predmet;
 import model.Profesor;
 import model.Student;
@@ -41,7 +43,9 @@ public class WindowListenerSave implements WindowListener {
 			cuvanjeStudenata(BazaStudenata.getInstance().getStudenti());
 			cuvanjePredmeta(BazaPredmeta.getInstance().getPredmeti());
 			cuvanjeProfesora(BazaProfesora.getInstance().getProfesori());
-
+			if(BazaOcena.getInstance().getOcene() != null)
+				cuvanjeOcena(BazaOcena.getInstance().getOcene());
+			cuvanjeNepolozenihPredmeta();
 		}
 	}
 	public static void cuvanjeStudenata(ArrayList<Student> listaStudenata) {
@@ -104,6 +108,45 @@ public class WindowListenerSave implements WindowListener {
 			ex.printStackTrace();
 		}
 	}
+	
+	public static void cuvanjeOcena(ArrayList<Ocena> listaOcena){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy.");
+        String datumPolaganja;
+        BufferedWriter bw = null;
+        
+        try {
+            bw = new BufferedWriter(new FileWriter("src\\baze\\bazaocena.txt"));
+            for (Ocena o : listaOcena) {
+                Date datum = o.getDatPolaganja();
+                datumPolaganja = formatter.format(datum);
+                bw.write(o.getStudent().getBrIndeksa() + ";" + o.getPredmet().getSifraPred() + ";" + o.getOcena() + ";" + datumPolaganja);
+
+                bw.write("\n");
+            }
+            bw.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public static void cuvanjeNepolozenihPredmeta() {
+        BufferedWriter bw = null;
+        ArrayList<Student> listaStudenata = BazaStudenata.getInstance().getStudenti();
+        try {
+            bw = new BufferedWriter(new FileWriter("src\\baze\\bazanepolozenih.txt"));
+            for (Student s : listaStudenata) {
+                if(s.getSpisakNepolIspita() != null)
+                    for(Predmet p : s.getSpisakNepolIspita()) {
+                        bw.write(s.getBrIndeksa() + ";" + p.getSifraPred());
+        
+                        bw.write("\n");
+                }
+            }
+            bw.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
 	@Override
 	public void windowClosed(WindowEvent e) {

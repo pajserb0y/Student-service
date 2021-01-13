@@ -101,7 +101,7 @@ public class Student extends Osoba {
 						sum += o.getOcena();
 					}
 			}
-			prosek = (float) sum/br;
+			prosek = (double) sum/br;
 		}
 		
 		return prosek;
