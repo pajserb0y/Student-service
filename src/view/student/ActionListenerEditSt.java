@@ -97,12 +97,6 @@ public class ActionListenerEditSt implements ActionListener{
 				}
 			}
 		}
-//		for(Student s:listaStudenata) {
-//			if(indeks.equals(s.getBrIndeksa())) {
-//				JOptionPane.showMessageDialog(null,"Broj indeksa već postoji!\n");
-//				return;
-//			}
-//		}
 		
 		
 		try{

@@ -25,6 +25,7 @@ public class AbstractTableModelSpisakPolPredmetaZaStudenta extends AbstractTable
 			if(student.getSpisakPolIspitaISpisakOcena() != null)
 				spisakPredmeta = student.getSpisakPolIspitaISpisakOcena();
 			spisakOcena = BazaOcena.getInstance().getOceneStudenta(student);
+			
 		}
 	}
 	

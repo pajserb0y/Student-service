@@ -169,7 +169,7 @@ public class PolaganjeDialog extends JDialog{
 					
 					SpisakPolPredmetaPanel.txtProsek.setText(Double.toString(student.getProsek()));
 					SpisakPolPredmetaPanel.txtEspb.setText(Integer.toString(student.espb()));
-					TabbedPane.azurirajPrikaz(null, -1);
+//					TabbedPane.azurirajPrikaz(null, -1);
 					}
 			}
 		});

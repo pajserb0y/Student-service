@@ -153,12 +153,6 @@ public class SpisakPolPredmetaPanel extends JPanel {
 		JScrollPane sp = new JScrollPane(tabelaPolPredmeta);
 		panelPolPredmeti.add(sp);
 		
-//		int index = TabbedPane.tabelaStudenata.getSelectedRow();
-//		int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(index);
-//		float prosek = BazaOcena.getInstance().getProsekOcenaStudenta(BazaStudenata.getInstance().getRow(rowModel));
-//		txtProsek.setText(Float.toString(prosek));
-//		int espb = BazaOcena.getInstance().getUkupanEspbStudenta(BazaStudenata.getInstance().getRow(rowModel));
-//		txtEspb.setText(Integer.toString(espb));
 		
 		Box boxCentar1 = Box.createVerticalBox();
 		boxCentar1.add(Box.createVerticalStrut(20));

@@ -36,7 +36,9 @@ public class DialogHelp extends JDialog{
 	    				+ "kasnije ce se dodatno implementirati i ostale sve metode i zadaci projekta. \n"
 	    				+ "-------------------------------------------------------------\n"
 	    				+ "Za domaci 2 je omogucen prikaz i dodavanje novi studenata i profesora. \n"
-	    				+ "Dodati su ActionListeneri na toolbar i menubar. \n");
+	    				+ "Dodati su ActionListeneri na toolbar i menubar. \n"
+	    				+ "-------------------------------------------------------------\n"
+	    				+ "Kao krajnju verziju predajedmo skroz zadovoljavajuci model studentske sluzbe.");
 	    
 	    getContentPane().add(textArea); 
 	}

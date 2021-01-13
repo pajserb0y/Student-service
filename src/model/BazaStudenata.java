@@ -111,8 +111,65 @@ public class BazaStudenata {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		BufferedReader br1 = null;
+		try {
+			br1 = new BufferedReader(new FileReader("src\\baze\\bazanepolozenih.txt"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String linija1 = null;
+		String[] tokeni1;
+		try {
+			while((linija1 = br1.readLine())!= null)
+			{
+				tokeni1 = linija1.split(";");
+				
+				for(int i = 0; i < tokeni1.length; i++)
+					tokeni1[i] = tokeni1[i].trim();
+				
+				String brIndeks = tokeni1[0];
+				String sifraPredmeta = tokeni1[1];
+				Predmet pr = null;
+				
+				for(Predmet p : BazaPredmeta.getInstance().getPredmeti())
+					if(p.getSifraPred().equals(sifraPredmeta)){
+						pr = p;
+					}
+				ArrayList<Predmet> listaNePolPredmeta = new ArrayList<Predmet>();
+				ArrayList<Student> listaStudenataNePol = new ArrayList<Student>();
+				for(Student s : studenti)
+						if(s.getBrIndeksa().equals(brIndeks)){
+							if(s.getSpisakNepolIspita() !=  null){
+								listaNePolPredmeta = s.getSpisakNepolIspita();
+								listaNePolPredmeta.add(pr);
+							}
+							else
+								listaNePolPredmeta.add(pr);
+							if(pr.getStudentiNisuPolozili() != null){
+								listaStudenataNePol = pr.getStudentiNisuPolozili();
+								listaStudenataNePol.add(s);
+							}else
+								listaStudenataNePol.add(s);
+							
+							pr.setStudentiNisuPolozili(listaStudenataNePol);
+							s.setSpisakNepolIspita(listaNePolPredmeta);
+						}
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		try {
+			br1.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		return studenti;
-
 	}
 
 	public ArrayList<Student> getStudenti() {
