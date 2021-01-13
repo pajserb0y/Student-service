@@ -19,6 +19,7 @@ import model.AbstractTableModelSpisakNePolPredmetaZaStudenta;
 import model.BazaPredmeta;
 import model.BazaStudenata;
 import model.Predmet;
+import model.Student;
 import view.TabbedPane;
 
 public class AddPredToStudent extends JDialog{
@@ -59,6 +60,8 @@ public class AddPredToStudent extends JDialog{
 					int rowModel = TabelaDozvoljenihPredmeta.convertRowIndexToModel(rowView);
 					if(rowModel != -1) {
 						
+						ArrayList<Student> studentiNisuPolozili = new ArrayList<Student>();//studenti koji nisu polozili ovaj predmet(polje predmeta) ref zavisnost
+						
 						AbstractTableModelDozvoljeniPredmetiStudent mdp = (AbstractTableModelDozvoljeniPredmetiStudent) TabelaDozvoljenihPredmeta.getModel();
 						String sifra = (String) mdp.getValueAt(rowModel,0);
 						
@@ -68,6 +71,14 @@ public class AddPredToStudent extends JDialog{
 						for(Predmet p : BazaPredmeta.getInstance().getPredmeti())
 							if(sifra.equals(p.getSifraPred())) {
 								spisakNePolPredmetaStudenta.add(p);
+								
+								if(p.getStudentiNisuPolozili() == null) { //resavanje ref zavisnosti
+									studentiNisuPolozili.add(BazaStudenata.getInstance().getRow(rowStudModel));
+								}else {
+									studentiNisuPolozili = p.getStudentiNisuPolozili();
+									studentiNisuPolozili.add(BazaStudenata.getInstance().getRow(rowStudModel));
+								}
+								p.setStudentiNisuPolozili(studentiNisuPolozili);
 							}
 						
 						BazaStudenata.getInstance().getRow(rowStudModel).setSpisakNepolIspita(spisakNePolPredmetaStudenta); //dodavanje studentu predmeta

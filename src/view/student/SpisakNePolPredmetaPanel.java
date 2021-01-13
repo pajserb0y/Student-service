@@ -93,7 +93,24 @@ public class SpisakNePolPredmetaPanel extends JPanel{
 		
 		JButton btnPolaganje = new JButton("Polaganje");
 		btnPolaganje.setPreferredSize(dim);					
-//		btnPolaganje.addActionListener(new ActionListener() {});
+		btnPolaganje.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				int rowView = tabelaNepolozenihPredmeta.getSelectedRow();
+				int rowModel = tabelaNepolozenihPredmeta.convertRowIndexToModel(rowView);
+				if(rowModel != -1){
+					PolaganjeDialog dialog = new PolaganjeDialog(null, "Unos Ocene", true);
+					PolaganjeDialog.txtSifra.setText((String) tabelaNepolozenihPredmeta.getValueAt(rowModel, 0));
+					PolaganjeDialog.txtNaziv.setText((String) tabelaNepolozenihPredmeta.getValueAt(rowModel, 1));
+					PolaganjeDialog.txtDatum.setText("");
+					dialog.setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(null, "Morate izabrati predmet koji je položen!");
+				}
+			}
+		});
 		panelBtn.add(btnDodaj);
 		panelBtn.add(btnObrisi);
 		panelBtn.add(btnPolaganje);
