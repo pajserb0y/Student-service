@@ -85,7 +85,7 @@ public class BazaStudenata {
 				email = tokeni[7];
 				godUpisa = Integer.parseInt(tokeni[9]);
 				
-				SimpleDateFormat formater = new SimpleDateFormat("dd.mm.yyyy.");
+				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
 				String datumString = tokeni[4];
 				datum = formater.parse(datumString);
 				

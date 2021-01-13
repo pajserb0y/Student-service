@@ -6,11 +6,15 @@ import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import model.AbstractTableModelProfesor;
 
 
 public class ProfesorJTable extends JTable{
+	
+	TableRowSorter<TableModel> sorter;
 	
 	public ProfesorJTable()
 	{
@@ -20,6 +24,8 @@ public class ProfesorJTable extends JTable{
 		this.setModel(new AbstractTableModelProfesor());
 		this.getTableHeader().setReorderingAllowed(false);
 		//this.setAutoCreateRowSorter(true);
+		sorter = new TableRowSorter<TableModel>(this.getModel());
+	    this.setRowSorter(sorter);
 	}
 
 	@Override

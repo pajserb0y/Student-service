@@ -15,10 +15,12 @@ public class AbstractTableModelSpisakNePolPredmetaZaStudenta extends AbstractTab
 
 	public AbstractTableModelSpisakNePolPredmetaZaStudenta() {
 		int rowView = TabbedPane.tabelaStudenata.getSelectedRow();
+		if(rowView > -1){
 		int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(rowView);
 		if(rowModel != -1)
 			if(BazaStudenata.getInstance().getRow(rowModel).getSpisakNepolIspita() != null)
 				spisakNePolPredmeta = BazaStudenata.getInstance().getRow(rowModel).getSpisakNepolIspita();
+		}
 	}
 
 	@Override

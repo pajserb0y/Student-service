@@ -57,7 +57,8 @@ public class BazaOcena {
 					tokeni[i] = tokeni[i].trim();
 				
 				int ocena = Integer.parseInt(tokeni[2]);
-				SimpleDateFormat formater = new SimpleDateFormat("dd.mm.yyyy.");
+				
+				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
 				String datumString = tokeni[3];
 				Date datum = null;
 				try {
@@ -66,7 +67,6 @@ public class BazaOcena {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
 				
 				ArrayList<Student> studenti = BazaStudenata.getInstance().getStudenti();
 				for(Student s : studenti) 
@@ -154,11 +154,11 @@ public class BazaOcena {
 	public ArrayList<Ocena> getOceneStudenta(Student s) {
 		// TODO Auto-generated method stub
 		ArrayList<Ocena> oceneStudenta = new ArrayList<Ocena>();
-		if(s == null)
-			System.out.println("fdgdfg");
+//		if(s == null)
+//			System.out.println("fdgdfg");
 		for(Ocena o : ocene){ 
-			if(o.getStudent() == null)
-				System.out.println("fdgdfgdgfdgfgsfgsgsg");
+//			if(o.getStudent() == null)
+//				System.out.println("fdgdfgdgfdgfgsfgsgsg");
 			if(s.getBrIndeksa().equals(o.getStudent().getBrIndeksa()))
 				oceneStudenta.add(o);
 		}

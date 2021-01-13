@@ -61,15 +61,32 @@ public class BazaPredmeta {
 					int godina = Integer.parseInt(tokeni[2]);
 					String semestar = tokeni[4].substring(0, 1) + tokeni[4].substring(1).toLowerCase();;
 					int espb = Integer.parseInt(tokeni[3]);
+					
 					Profesor profesor = null;
+					ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();
+					for(Profesor p : profesori) 
+						if(p.getBrLicne().equals(tokeni[5])){
+							profesor = p;
+							break;
+						}
+					
 					
 					ArrayList<Student> polozili  = null;
 					ArrayList<Student> nisu_polozili = null;
 					
 					
-					
 					Predmet p = new Predmet(sifra, naziv, godina, semestar, profesor , espb, polozili, nisu_polozili);
 					predmeti.add(p);
+					
+					
+					ArrayList<Predmet> listaPredmeta = new ArrayList<Predmet>();
+					if(profesor != null){
+						if(profesor.getSpisakPredmeta() != null)
+							listaPredmeta = profesor.getSpisakPredmeta();
+						listaPredmeta.add(p);
+						profesor.setSpisakPredmeta(listaPredmeta);
+					}
+					
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import sun.security.util.Length;
 import view.TabbedPane;
 
 
@@ -62,21 +63,24 @@ public class BazaProfesora {
 				for(int i = 0; i < tokeni.length; ++i)
 					tokeni[i] = tokeni[i].trim();
 				
+//				String lk = tokeni[0].substring(1, tokeni[0].length()-1);
 				String lk = tokeni[0];
 				
-				SimpleDateFormat formater = new SimpleDateFormat("dd.MM.yyyy.");
+				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
 				String datumString = tokeni[3];
 				Date datum = formater.parse(datumString);
 				
-				String titula = tokeni[8].substring(0, 1) + tokeni[8].substring(1).toLowerCase();
-				if(titula.equals("Prof_dr"))
-					titula = "Prof. dr";
-				
-				String zvanje = tokeni[9].substring(0, 1) + tokeni[9].substring(1).toLowerCase();
-				if(zvanje.equals("Vanredni_profesor"))
-					zvanje = "Vanredni profesor";
-				if(zvanje.equals("Redovni_profesor"))
-					zvanje = "Redovni profesor";
+//				String titula = tokeni[8].substring(0, 1) + tokeni[8].substring(1).toLowerCase();
+//				if(titula.equals("Prof_dr"))
+//					titula = "Prof. dr";
+//				
+//				String zvanje = tokeni[9].substring(0, 1) + tokeni[9].substring(1).toLowerCase();
+//				if(zvanje.equals("Vanredni_profesor"))
+//					zvanje = "Vanredni profesor";
+//				if(zvanje.equals("Redovni_profesor"))
+//					zvanje = "Redovni profesor";
+				String titula = tokeni[8];
+				String zvanje = tokeni[9];
 				
 				ArrayList<Predmet> predmeti = null;
 				

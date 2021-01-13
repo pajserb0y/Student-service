@@ -6,6 +6,8 @@ import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import model.AbstractTableModelStudent;
 
@@ -13,6 +15,7 @@ import model.AbstractTableModelStudent;
 public class StudentiJTable extends JTable {
 
 	private static final long serialVersionUID = 1L;
+	TableRowSorter<TableModel> sorter;
 
 	public StudentiJTable() {
 		this.setRowSelectionAllowed(true);
@@ -22,6 +25,8 @@ public class StudentiJTable extends JTable {
 		this.setModel(new AbstractTableModelStudent());
 		this.getTableHeader().setReorderingAllowed(false);
 //		this.setAutoCreateRowSorter(true);
+		sorter = new TableRowSorter<TableModel>(this.getModel());
+	    this.setRowSorter(sorter);
 	}
 
 	@Override

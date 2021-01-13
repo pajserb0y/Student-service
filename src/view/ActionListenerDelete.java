@@ -4,6 +4,7 @@ package view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -40,6 +41,9 @@ public class ActionListenerDelete implements ActionListener{
 				if (izbor == JOptionPane.YES_OPTION) {
 				
 					ArrayList<Predmet> predmeti = BazaPredmeta.getInstance().getPredmeti();
+                    ArrayList<Ocena> ocene = new ArrayList<>(BazaOcena.getInstance().getOcene());//DODATO
+                    ArrayList<Ocena> oceneBris = BazaOcena.getInstance().getOcene();//DODATO
+
 				
 					for(Predmet p : predmeti)
 						if(p.getStudentiPolozili() != null)
@@ -56,6 +60,13 @@ public class ActionListenerDelete implements ActionListener{
 									p.getStudentiNisuPolozili().remove(s);
 									break;
 								}
+					
+					 if(ocene != null)             //DODATA FOR PETLJA
+	                        for(Ocena o : ocene)
+	                            if(o.getStudent().getBrIndeksa().equals(student.getBrIndeksa())){ //IZMENJENO
+	                                oceneBris.remove(o);
+	                            }
+					
 					
 					StudentController.getInstance().izbrisiStudenta(student.getBrIndeksa());
 					JOptionPane.showMessageDialog(null, "Student obrisan!");
@@ -107,7 +118,8 @@ public class ActionListenerDelete implements ActionListener{
 				
 					ArrayList<Profesor> profesori = BazaProfesora.getInstance().getProfesori();
 					ArrayList<Student> studenti = BazaStudenata.getInstance().getStudenti();
-					ArrayList<Ocena> ocene = BazaOcena.getInstance().getOcene();
+                    ArrayList<Ocena> ocene = new ArrayList<>(BazaOcena.getInstance().getOcene()); //NAPRAVLJENA BAS KOPIJA ZA PROLAZAK
+                    ArrayList<Ocena> oceneBris = BazaOcena.getInstance().getOcene(); //OVO JE ZA BRISANJE
 				
 					for(Profesor prof : profesori){
 						if(prof.getSpisakPredmeta() != null)
@@ -137,12 +149,13 @@ public class ActionListenerDelete implements ActionListener{
 								}
 							}
 					}
-					if(ocene != null)
-						for(Ocena o : ocene)
-							if(o.getPredmet().getSifraPred().equals(predmet.getSifraPred())){
-								ocene.remove(o);
-								break;
-							}
+					
+                    if(ocene != null)
+                        for(Ocena o : ocene)
+                            if(o.getPredmet().getSifraPred().equals(predmet.getSifraPred())){
+                                oceneBris.remove(o);            //PROMENJENO U OCENEBRIS
+                            }                            //OBRSIAN BREAK;
+					
 					
 					PredmetController.getInstance().izbrisiPredmet(predmet.getSifraPred());
 					JOptionPane.showMessageDialog(null, "Predmet obrisan!");

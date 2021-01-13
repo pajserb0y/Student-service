@@ -1,27 +1,27 @@
-RA2/2020;Marko;Milosevic;1;12.03.2001.;Karađorđeva 83, Novi Sad;021/333-555;marko.milosevic@mailinator.com;B;2020
-RA3/2019;Marija;Milić;2;12.01.2000.;Stražilovska 12, Novi Sad;021/555-2222;marija.milic@mailinator.com;S;2019
-RA3/2017;Nikola;Nikolic;1;30.08.2001.;Knez Mihajlova 16, Beograd;021/135-463;nikola.nikolic@mailinator.com;B;2017
-RA134/2015;Pera;Peric;3;07.06.1995.;Gogoljeva 3, Novi Sad;021/903-463;pera.peric@mailinator.com;S;2015
-RA5/2019;Sofija;Ilic;3;06.05.1999.;Miše Dimitrijevića 44, Novi Sad;021/731-067;sofija.ilic@mailinator.com;B;2019
-RA8/2018;Martina;Lukic;3;16.05.1999.;Vojvode Stepe 180, Beograd;011/4333-800;martina.lukic@mailinator.com;S;2018
-RA10/2017;Stojan;Stojakovic;1;19.10.2001.;1300 Kaplara, Šabac;011/3130-007;stojan.stojakovic@mailinator.com;B;2017
-RA12/2017;Milan;Milanovic;2;02.11.2000.;Surepova 12, Šabac;015/313-061;milan.milanovic@mailinator.com;S;2017
-RA16/2019;Miroslav;Milic;2;11.10.2000.;Milovana Glišića, Valjevo;021/351-091;miroslav.milic@mailinator.com;B;2019
-RA21/2015;Stefan;Gojic;3;01.05.1999.;Bulevar Mihajla Pupina, Novi Sad;015/324-500;stefan.gojic@mailinator.com;S;2015
-RA9/2020;Anastasija;Jokic;3;11.07.1999.;Braće Ribnikar 12, Novi Sad;011/2333-900;anastasija.jokic@mailinator.com;B;2020
-RA4/2017;Bogdan;Bogdanovic;3;23.07.1999.;Cara Dušana 42, Subotica;021/231-114;bogdan.bogdanovic@mailinator.com;S;2017
-RA30/2019;Ana;Dabovic;1;12.12.2001.;Marka Kraljevića 1, Kikinda;014/303-007;ana.dabovic@mailinator.com;B;2019
-RA1/2020;Mika;Mikic;1;05.11.2001.;Nikole Stojanovića 2, Kraljevo;015/101-909;mika.mikic@mailinator.com;S;2020
-RA11/2018;Jovan;Deretic;4;10.09.1998.;Marka Bratića 99, Niš;002/200-300;jovan.deretic@mailinator.com;B;2018
-RA12/2018;Nikola;Miskovic;4;03.08.1998.;Cara Dušana 12, Banja Luka;022/123-456;nikola.miskovic@mailinator.com;S;2018
-RA13/2018;Martin;Stojanovic;4;01.05.1998.;Borisa Bačkog 1, Bijeljina;024/321-775;martin.stojanovic@mailinator.com;S;2018
-RA14/2018;Tomislav;Novakovic;4;25.02.1996.;Mirka Maksića 10, Kruševac;011/1188-379;tomislav.novakovic@mailinator.com;B;2018
-RA154/2016;Lena;Ivic;4;11.05.1998.;Stari Most 6, Sremska Mitrovica;024/333-555;lena.ivic@mailinator.com;B;2016
-RA23/2020;Jovan;Lazic;1;22.01.2001.;Nevesinjskih ustanika 10, Nevesinje;025/1189-479;jovan.lazic@mailinator.com;B;2020
-RA1/2019;Isidora;Mikic;2;31.12.2000.;Radničка 11, Novi Sad;011/1122-366;isidora.mikic@mailinator.com;B;2019
-SW4/2014;Vladimir;Ilic;4;31.08.1998.;Miloša Obilića 1, Beograd;021/1122-367;vladimir.ilic@mailinator.com;B;2014
-SW17/2015;Mirko;Alicic;3;21.07.1999.;Heroja Pinkija 112, Novi Sad;012/1122-368;mirko.alicic@mailinator.com;S;2015
-SW17/2016;Milisav;Perkovic;4;28.09.1998.;Pavla Bakića 26, Novi Sad;012/1122-369;milisav.pejkovic@mailinator.com;S;2016
-SW27/2018;Purisa;Djordjevic;2;29.02.2000.;Pavla Papa 1, Novi Sad;011/1543-370;purisa.djordjevic@mailinator.com;B;2018
-RA226/2017;Mikica;Kovacevic;3;23.03.1999.;Valentina Vodnika 112, Novi Sad;011/1992-371;mikica.kovacevic@mailinator.com;S;2017
-SW12/2020;Miloš;Milić;1;21.10.2001.;Neznanog junaka 12, Beograd;011/8172-372;milos.milic@mailinator.com;S;2020
+RA2/2020;Marko;Milosevic;1;12/01/2001;Karađorđeva 83, Novi Sad;021/333-555;marko.milosevic@mailinator.com;B;2020;0.0
+RA3/2019;Marija;Milić;2;12/01/2000;Stražilovska 12, Novi Sad;021/555-2222;marija.milic@mailinator.com;S;2019;10.0
+RA3/2017;Nikola;Nikolic;1;30/01/2001;Knez Mihajlova 16, Beograd;021/135-463;nikola.nikolic@mailinator.com;B;2017;0.0
+RA134/2015;Pera;Peric;3;07/06/1995;Gogoljeva 3, Novi Sad;021/903-463;pera.peric@mailinator.com;S;2015;9.0
+RA5/2019;Sofija;Ilic;3;06/01/1999;Miše Dimitrijevića 44, Novi Sad;021/731-067;sofija.ilic@mailinator.com;B;2019;0.0
+RA8/2018;Martina;Lukic;3;16/01/1999;Vojvode Stepe 180, Beograd;011/4333-800;martina.lukic@mailinator.com;S;2018;0.0
+RA10/2017;Stoja;Stojakovic;1;19/01/2001;1300 Kaplara, Šabac;011/3130-007;stojan.stojakovic@mailinator.com;B;2017;0.0
+RA12/2017;Milan;Milanovic;2;02/01/2000;Surepova 12, Novi Sad;015/313-061;milan.milanovic@mailinator.com;S;2017;0.0
+RA16/2019;Miroslav;Milic;2;11/01/2000;Milovana Glišića, Valjevo;021/351-091;miroslav.milic@mailinator.com;B;2019;0.0
+RA21/2015;Stefan;Gojic;3;01/01/1999;Bulevar Mihajla Pupina, Novi Sad;015/324-500;stefan.gojic@mailinator.com;S;2015;0.0
+RA9/2020;Anastasija;Jokic;3;11/01/1999;Braće Ribnikar 12, Novi Sad;011/2333-900;anastasija.jokic@mailinator.com;B;2020;0.0
+RA4/2017;Bogdan;Bogdanovic;3;23/01/1999;Cara Dušana 42, Subotica;021/231-114;bogdan.bogdanovic@mailinator.com;S;2017;0.0
+RA30/2019;Ana;Dabovic;1;12/12/2001;Marka Kraljevića 1, Kikinda;014/303-007;ana.dabovic@mailinator.com;B;2019;0.0
+RA1/2020;Mika;Mikic;1;05/01/2001;Nikole Stojanovića 2, Kraljevo;015/101-909;mika.mikic@mailinator.com;S;2020;0.0
+RA11/2018;Jovan;Deretic;4;10/01/1998;Marka Bratića 99, Niš;002/200-300;jovan.deretic@mailinator.com;B;2018;9.5
+RA12/2018;Nikola;Miskovic;4;03/01/1998;Cara Dušana 12, Banja Luka;022/123-456;nikola.miskovic@mailinator.com;S;2018;9.0
+RA13/2018;Martin;Stojanovic;4;01/01/1998;Borisa Bačkog 1, Bijeljina;024/321-775;martin.stojanovic@mailinator.com;S;2018;0.0
+RA14/2018;Tomislav;Novakovic;4;25/01/1996;Mirka Maksića 10, Kruševac;011/1188-379;tomislav.novakovic@mailinator.com;B;2018;0.0
+RA154/2016;Lena;Ivic;4;11/01/1998;Stari Most 6, Sremska Mitrovica;024/333-555;lena.ivic@mailinator.com;B;2016;0.0
+RA23/2020;Jovan;Lazic;1;22/01/2001;Nevesinjskih ustanika 10, Nevesinje;025/1189-479;jovan.lazic@mailinator.com;B;2020;0.0
+RA1/2019;Isidora;Mikic;2;31/01/2000;Radničка 11, Novi Sad;011/1122-366;isidora.mikic@mailinator.com;B;2019;0.0
+SW4/2014;Vladimir;Ilic;4;31/01/1998;Miloša Obilića 1, Beograd;021/1122-367;vladimir.ilic@mailinator.com;B;2014;0.0
+SW17/2015;Mirko;Alicic;3;21/01/1999;Heroja Pinkija 112, Novi Sad;012/1122-368;mirko.alicic@mailinator.com;S;2015;0.0
+SW17/2016;Milisav;Perkovic;4;28/01/1998;Pavla Bakića 26, Novi Sad;012/1122-369;milisav.pejkovic@mailinator.com;S;2016;0.0
+SW27/2018;Purisa;Djordjevic;2;29/01/2000;Pavla Papa 1, Novi Sad;011/1543-370;purisa.djordjevic@mailinator.com;B;2018;0.0
+RA226/2017;Mikica;Kovacevic;3;23/01/1999;Valentina Vodnika 112, Novi Sad;011/1992-371;mikica.kovacevic@mailinator.com;S;2017;0.0
+SW12/2020;Miloš;Milić;1;21/01/2001;Neznanog junaka 12, Beograd;011/8172-372;milos.milic@mailinator.com;S;2020;0.0

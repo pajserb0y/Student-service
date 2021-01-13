@@ -35,11 +35,15 @@ public class ActionListenerEdit implements ActionListener{
 		dialogPred = new EditPredmetDialog(null, "Izmena predmeta", true);
 		
 		
+		
 		if(index == 0)
 		{
 			int rowView = TabbedPane.tabelaStudenata.getSelectedRow();
-			int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(rowView);
-			
+			int rowModel;
+			if(rowView != -1)
+				rowModel= TabbedPane.tabelaStudenata.convertRowIndexToModel(rowView);
+			else
+				rowModel = -1;
 			if(rowModel != -1)
 			{
 				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
@@ -92,7 +96,11 @@ public class ActionListenerEdit implements ActionListener{
 		else if(index == 1)
 		{
 			int rowView = TabbedPane.tabelaProfesora.getSelectedRow();
-			int rowModel = TabbedPane.tabelaProfesora.convertRowIndexToModel(rowView);
+			int rowModel;
+			if(rowView != -1)
+				rowModel= TabbedPane.tabelaProfesora.convertRowIndexToModel(rowView);
+			else
+				rowModel = -1;
 			if(rowModel != -1)
 			{
 				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
@@ -131,7 +139,11 @@ public class ActionListenerEdit implements ActionListener{
 		else if(index == 2)
 		{
 			int rowView = TabbedPane.tabelaPredmeta.getSelectedRow();
-			int rowModel = TabbedPane.tabelaPredmeta.convertRowIndexToModel(rowView);
+			int rowModel;
+			if(rowView != -1)
+				rowModel= TabbedPane.tabelaPredmeta.convertRowIndexToModel(rowView);
+			else
+				rowModel = -1;
 			if(rowModel != -1)
 			{				
 				String sifra = BazaPredmeta.getInstance().getRow(rowModel).getSifraPred();

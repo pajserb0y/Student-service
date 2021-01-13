@@ -19,6 +19,7 @@ public class AbstractTableModelSpisakPolPredmetaZaStudenta extends AbstractTable
 
 	public AbstractTableModelSpisakPolPredmetaZaStudenta() {
 		int rowView = TabbedPane.tabelaStudenata.getSelectedRow();
+		if(rowView > -1){
 		int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(rowView);
 		if(rowModel != -1){
 			student = BazaStudenata.getInstance().getRow(rowModel);
@@ -26,6 +27,7 @@ public class AbstractTableModelSpisakPolPredmetaZaStudenta extends AbstractTable
 				spisakPredmeta = student.getSpisakPolIspitaISpisakOcena();
 			spisakOcena = BazaOcena.getInstance().getOceneStudenta(student);
 			
+			}
 		}
 	}
 	

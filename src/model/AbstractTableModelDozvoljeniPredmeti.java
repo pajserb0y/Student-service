@@ -22,11 +22,17 @@ public class AbstractTableModelDozvoljeniPredmeti extends AbstractTableModel {
 		if(rowModel != -1) {
 			ArrayList<Predmet> sviPredmeti = BazaPredmeta.getInstance().getPredmeti();
 			ArrayList<Predmet> predmetiProfesora = BazaProfesora.getInstance().getRow(rowModel).getSpisakPredmeta();
-			if(predmetiProfesora != null) 
+			if(predmetiProfesora != null) {
 				for(Predmet p1 : sviPredmeti) 
 					for(Predmet p2 : predmetiProfesora)
-						if(p1.getSifraPred().equals(p2.getSifraPred()))
+						if(p1.getSifraPred().equals(p2.getSifraPred()) || p1.getProfesor() != null){
 							spisakDozvoljenijhPredmeta.remove(p1);
+						}
+			}
+			else
+				for(Predmet p3 : sviPredmeti) 
+					if(p3.getProfesor() != null)
+						spisakDozvoljenijhPredmeta.remove(p3);
 		}
 	}		
 

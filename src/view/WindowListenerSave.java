@@ -49,7 +49,7 @@ public class WindowListenerSave implements WindowListener {
 		}
 	}
 	public static void cuvanjeStudenata(ArrayList<Student> listaStudenata) {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy.");
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		String datumRodj;
 		BufferedWriter bw = null;
 			try { 
@@ -73,7 +73,7 @@ public class WindowListenerSave implements WindowListener {
 	}
 	
 	public static void cuvanjeProfesora(ArrayList<Profesor> listaProfesora) {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy.");
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		String datumRodj;
 		BufferedWriter bw = null;
 
@@ -98,9 +98,10 @@ public class WindowListenerSave implements WindowListener {
 		try {
 			bw = new BufferedWriter(new FileWriter("src\\baze\\bazapredmeta.txt"));
 			for (Predmet p : listaPredmeta) {
-
-				bw.write(p.getSifraPred() + ";" + p.getNazPred() + ";" + p.getGodStud() + ";" + p.getEspb() + ";" + p.getSemestar());
-
+				if(p.getProfesor() != null)
+					bw.write(p.getSifraPred() + ";" + p.getNazPred() + ";" + p.getGodStud() + ";" + p.getEspb() + ";" + p.getSemestar() + ";" + p.getProfesor().getBrLicne());
+				else
+					bw.write(p.getSifraPred() + ";" + p.getNazPred() + ";" + p.getGodStud() + ";" + p.getEspb() + ";" + p.getSemestar() + ";" + "null");
 				bw.write("\n");
 			}
 			bw.close();
@@ -110,7 +111,7 @@ public class WindowListenerSave implements WindowListener {
 	}
 	
 	public static void cuvanjeOcena(ArrayList<Ocena> listaOcena){
-        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy.");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String datumPolaganja;
         BufferedWriter bw = null;
         

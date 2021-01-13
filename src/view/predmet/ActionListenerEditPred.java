@@ -8,9 +8,12 @@ import javax.swing.JOptionPane;
 
 import view.ActionListenerEdit;
 import view.TabbedPane;
+import view.student.EditStudentDialog;
 import controller.PredmetController;
 import model.BazaPredmeta;
 import model.BazaProfesora;
+import model.BazaStudenata;
+import model.Predmet;
 import model.Profesor;
 import model.Student;
 
@@ -47,14 +50,17 @@ public class ActionListenerEditPred implements ActionListener{
 			return;
 		}  
 		
-//		ArrayList<Predmet> bazaPredmeta = BazaPredmeta.getInstance().getPredmeti();
-//		for(Predmet p : bazaPredmeta) {
-//			if(p.getSifraPred().equals(sifra)) {
-//				JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!\n"
-//						+ "\tNAPOMENA: Šifra predmeta već postoji u bazi predmeta!");
-//				return;
-//			}
-//		}
+		ArrayList<Predmet> bazaPredmeta = BazaPredmeta.getInstance().getPredmeti();
+		if(!staraSifra.equals(sifra))
+		{
+			for(Predmet p : bazaPredmeta) {
+				if(p.getSifraPred().equals(sifra)) {
+					JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!\n"
+							+ "\tNAPOMENA: Šifra predmeta već postoji u bazi predmeta!");
+					return;
+				}
+			}
+		}
 		
 		if(!espbString.matches("[0-9]+") || espbString.length() > 2) {
 			JOptionPane.showMessageDialog(null,"Obavezno je popunjavanje svih polja!\n"

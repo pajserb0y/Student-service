@@ -150,11 +150,13 @@ public class SpisakPolPredmetaPanel extends JPanel {
 		panelPolPredmeti.add(sp);
 		
 		int index = TabbedPane.tabelaStudenata.getSelectedRow();
+		if(index > -1){
 		int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(index);
 		if(rowModel != -1){
 			Student student = BazaStudenata.getInstance().getRow(rowModel);
 			txtProsek.setText(Double.toString(student.getProsek()));
 			txtEspb.setText(Integer.toString(student.espb()));
+		}
 		}
 		
 		Box boxCentar1 = Box.createVerticalBox();

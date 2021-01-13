@@ -17,10 +17,13 @@ public class AbstractTableModelSpisakPredmetaZaProfesora extends AbstractTableMo
 	
 	public AbstractTableModelSpisakPredmetaZaProfesora() {
 		int rowView = TabbedPane.tabelaProfesora.getSelectedRow();
-		int rowModel = TabbedPane.tabelaProfesora.convertRowIndexToModel(rowView);
-		if(rowModel != -1)
-			if(BazaProfesora.getInstance().getRow(rowModel).getSpisakPredmeta() != null)
-				spisakPredmeta = BazaProfesora.getInstance().getRow(rowModel).getSpisakPredmeta();
+		if(rowView > -1){
+			int rowModel = TabbedPane.tabelaProfesora.convertRowIndexToModel(rowView);
+			if(rowModel != -1)
+				if(BazaProfesora.getInstance().getRow(rowModel).getSpisakPredmeta() != null)
+					spisakPredmeta = BazaProfesora.getInstance().getRow(rowModel).getSpisakPredmeta();
+		}
+		
 	}
 
 	@Override

@@ -83,13 +83,13 @@ public class PolaganjeDialog extends JDialog{
 			}
 			public void changed() {
 				Date dat;
-				SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");		
+				SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");		
 				try {
 					dat =  format.parse(txtDatum.getText());
 					btnPotvrdi.setEnabled(true);
 					
 				} catch(ParseException e1) {
-					//JOptionPane.showMessageDialog(null,"Datum uneti u formatu dd/mm/yyyy! \n");
+					//JOptionPane.showMessageDialog(null,"Datum uneti u formatu dd/MM/yyyy! \n");
 					return;
 				}
 			}
@@ -102,11 +102,11 @@ public class PolaganjeDialog extends JDialog{
 				// TODO Auto-generated method stub
 				int ocena = Integer.parseInt((String) cbOcena.getSelectedItem());
 				Date dat;
-				SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");		
+				SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");		
 				try {
 					dat =  format.parse(txtDatum.getText());
 				} catch(ParseException e1) {
-					JOptionPane.showMessageDialog(null,"Datum uneti u formatu dd/mm/yyyy! \n");
+					JOptionPane.showMessageDialog(null,"Datum uneti u formatu dd/MM/yyyy! \n");
 					return;
 				}
 				

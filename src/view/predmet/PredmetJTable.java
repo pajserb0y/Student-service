@@ -14,6 +14,8 @@ import model.AbstractTableModelPredmet;
 
 public class PredmetJTable extends JTable{
 	
+	TableRowSorter<TableModel> sorter;
+	
 	public PredmetJTable() {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
@@ -21,6 +23,8 @@ public class PredmetJTable extends JTable{
 		this.setModel(new AbstractTableModelPredmet());
 		this.getTableHeader().setReorderingAllowed(false);
 		//this.setAutoCreateRowSorter(true);
+		sorter = new TableRowSorter<TableModel>(this.getModel());
+	    this.setRowSorter(sorter);
 	}
 
 	@Override

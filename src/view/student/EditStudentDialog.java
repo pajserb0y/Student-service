@@ -7,7 +7,6 @@ import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -17,18 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import view.TabbedPane;
-import view.predmet.PredmetJTable;
-import view.profesor.ProfesorJTable;
-import view.profesor.SpisakPredmetaJTable;
-import view.profesor.SpisakPredmetaPanel;
-import model.BazaPredmeta;
-import model.BazaStudenata;
-import model.Predmet;
-import model.Student;
 
 public class EditStudentDialog extends JDialog{
 	
