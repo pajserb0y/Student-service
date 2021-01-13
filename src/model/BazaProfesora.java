@@ -62,7 +62,7 @@ public class BazaProfesora {
 				for(int i = 0; i < tokeni.length; ++i)
 					tokeni[i] = tokeni[i].trim();
 				
-				String lk = tokeni[0].substring(1, tokeni[0].length() - 1);
+				String lk = tokeni[0];
 				
 				SimpleDateFormat formater = new SimpleDateFormat("dd.MM.yyyy.");
 				String datumString = tokeni[3];

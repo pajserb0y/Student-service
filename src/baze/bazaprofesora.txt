@@ -1,19 +1,19 @@
-"123123123";Milos;Nikolic;12.12.1965.;Temerinska 15, Novi Sad;021/356-785;milos.nikolic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 600;PROF_DR;REDOVNI_PROFESOR
-"321321321";Nikola;Mirkovic;01.01.1978.;Jovana Cvjića 25, Subotica;021/368-456;nikola.mirkovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 601;PROF_DR;REDOVNI_PROFESOR
-"456456456";Ilija;Petkovic;03.09.1988.;Gogoljeva 1, Novi Sad;021/215-314;ilija.petkovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 602;DR;VANREDNI_PROFESOR
-"789789789";Mitar;Petrovic;25.07.1976.;Marka Kraljevića 102, Beograd;021/884-640;mitar.petrovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 603;DR;VANREDNI_PROFESOR
-"001001001";Vasa;Micic;14.02.1970.;Tolstojeva 55, Novi Sad;021/212-114;vasa.micic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 604;DR;DOCENT
-"002002002";Srdjan;Miletic;20.04.1966.;Šekspirova 12, Novi Sad;021/978-225;srdjan.miletic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 605;DR;DOCENT
-"559585632";Branislav;Mihajlovic;28.06.1980.;Jovana Subotića 99, Novi Sad;021/778-323;branislav.mihajlovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 606;PROF_DR;REDOVNI_PROFESOR
-"334968855";Marko;Marković;31.01.1985.;Mirka Markovića 101, Kraljevo;021/899-659;marko.markovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 607;PROF_DR;REDOVNI_PROFESOR
-"073070365";Miloš;Milaković;21.09.1975.;Braće Jugović 1, Kragujevac;021/122-326;milos.milakovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 608;DR;VANREDNI_PROFESOR
-"006003786";Lazar;Bratić;13.11.1973.;Jovanke Orleanke 3, Niš;021/156-326;lazar.bratic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 609;DR;VANREDNI_PROFESOR
-"158496152";Ljeposava;Dražić;11.08.1964.;Vojvode Stepe 1100, Beograd;021/888-156;ljeposava.drazic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 610;DR;DOCENT
-"777348595";Miroljub;Dragić;02.03.1959.;Miše Ljubibratiće 123, Aleksandrovac;021/456-125;miroljub.dragic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 611;DR;DOCENT
-"721254363";Bogdan;Rekavić;23.06.1977.;Resavska 12, Beograd;021/886-455;bogdan.rekavic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 612;DR;VANREDNI_PROFESOR
-"225533448";Stanka;Milić;03.03.1990.;Vidakovićeva 90, Novi Sad;021/945-255;stanka.milic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 613;DR;DOCENT
-"111555888";Milica;Vuković;18.10.1967.;Nikolićeva 12, Novi Sad;021/746-659;milica.vukovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 614;PROF_DR;VANREDNI_PROFESOR
-"003003003";Miša;Mišić;20.10.1969.;Šojićeva 10, Subotica;021/489-326;misa.misic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 615;DR;DOCENT
-"004004004";Branko;Maricic;18.01.1973.;Nikole Tesle 25, Sombor;021/487-265;branko.maricic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 616;PROF_DR;DOCENT
-"005005005";Branislav;Lukovic;08.04.1982.;Živojina Mišića 7, Apatin;021/159-478;branislav.lukovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 617;DR;REDOVNI_PROFESOR
-"006006006";Branimir;Obradovic;07.01.1979.;Stari šor 18, Sremska Mitrovica;021/922-333;branimir.obradovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 618;PROF_DR;DOCENT
+123123123;Milos;Nikolic;12.12.1965.;Temerinska 15, Novi Sad;021/356-785;milos.nikolic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 600;PROF_DR;REDOVNI_PROFESOR
+321321321;Nikola;Mirkovic;01.01.1978.;Jovana Cvjića 25, Subotica;021/368-456;nikola.mirkovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 601;PROF_DR;REDOVNI_PROFESOR
+456456456;Ilija;Petkovic;03.09.1988.;Gogoljeva 1, Novi Sad;021/215-314;ilija.petkovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 602;DR;VANREDNI_PROFESOR
+789789789;Mitar;Petrovic;25.07.1976.;Marka Kraljevića 102, Beograd;021/884-640;mitar.petrovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 603;DR;VANREDNI_PROFESOR
+001001001;Vasa;Micic;14.02.1970.;Tolstojeva 55, Novi Sad;021/212-114;vasa.micic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 604;DR;DOCENT
+002002002;Srdjan;Miletic;20.04.1966.;Šekspirova 12, Novi Sad;021/978-225;srdjan.miletic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 605;DR;DOCENT
+559585632;Branislav;Mihajlovic;28.06.1980.;Jovana Subotića 99, Novi Sad;021/778-323;branislav.mihajlovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 606;PROF_DR;REDOVNI_PROFESOR
+334968855;Marko;Marković;31.01.1985.;Mirka Markovića 101, Kraljevo;021/899-659;marko.markovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 607;PROF_DR;REDOVNI_PROFESOR
+073070365;Miloš;Milaković;21.09.1975.;Braće Jugović 1, Kragujevac;021/122-326;milos.milakovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 608;DR;VANREDNI_PROFESOR
+006003786;Lazar;Bratić;13.11.1973.;Jovanke Orleanke 3, Niš;021/156-326;lazar.bratic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 609;DR;VANREDNI_PROFESOR
+158496152;Ljeposava;Dražić;11.08.1964.;Vojvode Stepe 1100, Beograd;021/888-156;ljeposava.drazic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 610;DR;DOCENT
+777348595;Miroljub;Dragić;02.03.1959.;Miše Ljubibratiće 123, Aleksandrovac;021/456-125;miroljub.dragic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 611;DR;DOCENT
+721254363;Bogdan;Rekavić;23.06.1977.;Resavska 12, Beograd;021/886-455;bogdan.rekavic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 612;DR;VANREDNI_PROFESOR
+225533448;Stanka;Milić;03.03.1990.;Vidakovićeva 90, Novi Sad;021/945-255;stanka.milic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 613;DR;DOCENT
+111555888;Milica;Vuković;18.10.1967.;Nikolićeva 12, Novi Sad;021/746-659;milica.vukovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 614;PROF_DR;VANREDNI_PROFESOR
+003003003;Miša;Mišić;20.10.1969.;Šojićeva 10, Subotica;021/489-326;misa.misic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 615;DR;DOCENT
+004004004;Branko;Maricic;18.01.1973.;Nikole Tesle 25, Sombor;021/487-265;branko.maricic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 616;PROF_DR;DOCENT
+005005005;Branislav;Lukovic;08.04.1982.;Živojina Mišića 7, Apatin;021/159-478;branislav.lukovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 617;DR;REDOVNI_PROFESOR
+006006006;Branimir;Obradovic;07.01.1979.;Stari šor 18, Sremska Mitrovica;021/922-333;branimir.obradovic@mailinator.com;Dositeja Obradovića 6, Novi Sad, NTP 618;PROF_DR;DOCENT

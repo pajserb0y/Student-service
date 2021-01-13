@@ -102,8 +102,16 @@ public class ActionListenerSearch implements ActionListener{
 			}
 			ProfesorController.getInstance().pretraziProfesora(ime, prezime);
 			
-		}else if(index == 2) {		
-			String naziv = Toolbar.txtSearch.getText().toLowerCase().trim();
+		}else if(index == 2) {	
+			String unos = Toolbar.txtSearch.getText().toLowerCase().trim();
+			String naziv = "";
+			
+			if(unos.contains(" ")) {
+				JOptionPane.showMessageDialog(null, "Morate pravilno da unesete parametre pretrage predmeta!");
+				return;
+				}
+			else
+				naziv = unos;
 			PredmetController.getInstance().pretraziPredmet(naziv);
 		}
 	}

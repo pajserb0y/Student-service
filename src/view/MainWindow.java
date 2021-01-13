@@ -43,5 +43,7 @@ public class MainWindow extends JFrame {
 		
 		TabbedPane tp = TabbedPane.getInstance();
 		add(tp, BorderLayout.CENTER);
+		
+		addWindowListener(new WindowListenerSave());
 	}
 }
