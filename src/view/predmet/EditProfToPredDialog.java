@@ -26,7 +26,7 @@ import view.profesor.ProfesorJTable;
 
 public class EditProfToPredDialog extends JDialog{
 	
-	private static Profesor dodatProfesor;
+
 
 	public EditProfToPredDialog(Frame parent, String title, boolean modal){
 		super(parent, title, modal);
@@ -57,7 +57,7 @@ public class EditProfToPredDialog extends JDialog{
 				
 				if(rowModel != -1)
 				{
-					dodatProfesor = BazaProfesora.getInstance().getRow(rowModel);
+					Profesor dodatProfesor = BazaProfesora.getInstance().getRow(rowModel);
 
 					ArrayList<Predmet> spisakPredmetaProfesora = new ArrayList<Predmet>();
 					
@@ -66,6 +66,8 @@ public class EditProfToPredDialog extends JDialog{
 					
 					int rowViewPredmet = TabbedPane.tabelaPredmeta.getSelectedRow();
 					int rowModelPredmet = TabbedPane.tabelaPredmeta.convertRowIndexToModel(rowViewPredmet);
+					
+					BazaPredmeta.getInstance().getRow(rowModelPredmet).setProfesor(dodatProfesor); //dodavanje tog profesora na predmet
 					
 					spisakPredmetaProfesora.add(BazaPredmeta.getInstance().getRow(rowModelPredmet));
 					BazaProfesora.getInstance().getRow(rowModel).setSpisakPredmeta(spisakPredmetaProfesora);
@@ -97,13 +99,5 @@ public class EditProfToPredDialog extends JDialog{
 		panelBtn.add(btnPotvrda);
 		panelBtn.add(btnOdustani);
 		add(panelBtn, BorderLayout.SOUTH);
-	}
-	
-	public static Profesor getDodatProfesor() {
-		return dodatProfesor;
-	}
-	
-	public static void setDodatProfesor(Profesor profesor) {
-		dodatProfesor = profesor;
 	}
 }
