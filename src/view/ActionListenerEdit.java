@@ -15,6 +15,7 @@ import model.Student.STATUS;
 import view.predmet.EditPredmetDialog;
 import view.profesor.EditProfesorDialog;
 import view.student.EditStudentDialog;
+import view.student.SpisakPolPredmetaPanel;
 
 
 public class ActionListenerEdit implements ActionListener{

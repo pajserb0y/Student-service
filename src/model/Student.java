@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import view.student.SpisakPolPredmetaPanel;
+
 //enum STATUS {B, S}; //budzet i samofinansiranje
 
 public class Student extends Osoba {
@@ -87,6 +89,21 @@ public class Student extends Osoba {
 
 
 	public double getProsek() {
+		prosek = 0;
+		int br = 0;
+		int sum = 0;
+		
+		if(this.getSpisakPolIspitaISpisakOcena() != null){
+			for(int i=0; i < this.getSpisakPolIspitaISpisakOcena().size(); i++){
+				for(Ocena o : BazaOcena.getInstance().getOcene())
+					if(o.getStudent().getBrIndeksa().equals(this.getBrIndeksa())){
+						br++;
+						sum += o.getOcena();
+					}
+			}
+			prosek = (float) sum/br;
+		}
+		
 		return prosek;
 	}
 
@@ -116,6 +133,14 @@ public class Student extends Osoba {
 		this.spisakNepolIspita = spisakNepolIspita;
 	}
 
-
+	public int espb(){
+		int espb =  0;
+		if(this.spisakPolIspitaISpisakOcena != null){
+			for(Predmet p : this.spisakPolIspitaISpisakOcena){
+				espb  += p .getEspb();
+			}
+		}
+		return espb;
+	}
 
 }

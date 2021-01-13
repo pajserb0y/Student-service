@@ -1,5 +1,6 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.table.AbstractTableModel;
@@ -67,7 +68,9 @@ public class AbstractTableModelSpisakPolPredmetaZaStudenta extends AbstractTable
 		case 3:
 			return ocena.getOcena();
 		case 4:
-			return ocena.getDatPolaganja();
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+			String strDate = formatter.format(ocena.getDatPolaganja());  
+			return strDate;
 		default :
 			return null;
 		}

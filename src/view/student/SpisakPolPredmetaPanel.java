@@ -33,8 +33,8 @@ import view.TabbedPane;
 public class SpisakPolPredmetaPanel extends JPanel {
 	
 	public static JTable tabelaPolPredmeta = null;
-	public static JTextField txtProsek = new JTextField(); //ovo ako budes prepreavljao vrv ce morati biti oba null jer ce pokazivati isti prosek za svakog studenta!
-	public static JTextField txtEspb = new JTextField();
+	public static JTextField txtProsek = null; //ovo ako budes prepreavljao vrv ce morati biti oba null jer ce pokazivati isti prosek za svakog studenta!
+	public static JTextField txtEspb = null;
 	
 	public SpisakPolPredmetaPanel() {
 		
@@ -89,7 +89,6 @@ public class SpisakPolPredmetaPanel extends JPanel {
 									sveOcene.remove(o);
 									break;
 								}
-							System.out.println(sveOcene.size());
 							
 							
 							studentiNisuPolozili = predmet.getStudentiNisuPolozili(); //resavanje referencijalne zavisnosti
@@ -123,12 +122,21 @@ public class SpisakPolPredmetaPanel extends JPanel {
 		Dimension screenSize = kit.getScreenSize();
 		Dimension dim = new Dimension(screenSize.width/9, screenSize.height/38);
 		
+		txtProsek = new JTextField();
+		txtEspb = new JTextField();
 		txtProsek.setPreferredSize(dim);
 		txtProsek.setEditable(false);
 		txtEspb.setPreferredSize(dim);
 		txtEspb.setEditable(false);
+		int index = TabbedPane.tabelaStudenata.getSelectedRow();
+		int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(index);
+		if(rowModel != -1){
+			Student student = BazaStudenata.getInstance().getRow(rowModel);
+			txtProsek.setText(Double.toString(student.getProsek()));
+			txtEspb.setText(Integer.toString(student.espb()));
+		}
 		
-			
+	
 		JLabel lblProsek = new JLabel("Prosečna ocena");
 		lblProsek.setPreferredSize(dim);
 		JLabel lblEspb = new JLabel("Ukupno ESPB");

@@ -142,7 +142,6 @@ public class PolaganjeDialog extends JDialog{
 								spisakNepolPredmetaStudenta.remove(predmet);
 								spisakPolPredmetaStudenta.add(predmet);
 								sveOcene.add(new Ocena(student, predmet, ocena, dat));
-								
 								studentiNisuPolozili = predmet.getStudentiNisuPolozili(); //resavanje referencijalne zavisnosti
 								studentiNisuPolozili.remove(student);
 								if(predmet.getStudentiPolozili() == null)
@@ -167,7 +166,11 @@ public class PolaganjeDialog extends JDialog{
 					int exit = JOptionPane.showConfirmDialog(null, "Predmet dodat." , null, JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 					if (exit == JOptionPane.YES_OPTION || exit == JOptionPane.CANCEL_OPTION || exit==JOptionPane.CLOSED_OPTION) {
 						setVisible(false);
-				}
+					
+					SpisakPolPredmetaPanel.txtProsek.setText(Double.toString(student.getProsek()));
+					SpisakPolPredmetaPanel.txtEspb.setText(Integer.toString(student.espb()));
+					TabbedPane.azurirajPrikaz(null, -1);
+					}
 			}
 		});
 		JButton btnOdustani = new JButton("Odustani");

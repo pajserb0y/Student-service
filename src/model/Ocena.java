@@ -49,10 +49,8 @@ public class Ocena {
 	}
 
 
-	public String getDatPolaganja() {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
-		String strDate = formatter.format(datPolaganja);  
-		return strDate;
+	public Date getDatPolaganja() {
+		return datPolaganja;
 	}
 
 
