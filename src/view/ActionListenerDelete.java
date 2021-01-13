@@ -42,15 +42,18 @@ public class ActionListenerDelete implements ActionListener{
 					for(Predmet p : predmeti)
 						if(p.getStudentiPolozili() != null)
 							for(Student s : p.getStudentiPolozili())
-								if(student.getBrIndeksa().equals(s.getBrIndeksa())) 
+								if(student.getBrIndeksa().equals(s.getBrIndeksa())) {
 									p.getStudentiPolozili().remove(s);
+									break;
+								}
 					
 					for(Predmet p : predmeti)
 						if(p.getStudentiNisuPolozili() != null)
 							for(Student s : p.getStudentiNisuPolozili())
-								if(student.getBrIndeksa().equals(s.getBrIndeksa())) 
+								if(student.getBrIndeksa().equals(s.getBrIndeksa())){
 									p.getStudentiNisuPolozili().remove(s);
-
+									break;
+								}
 					
 					StudentController.getInstance().izbrisiStudenta(student.getBrIndeksa());
 					JOptionPane.showMessageDialog(null, "Student obrisan!");
