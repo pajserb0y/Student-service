@@ -68,16 +68,8 @@ public class ActionListenerEditPred implements ActionListener{
 			e.printStackTrace();
 		}
 
-		
-		
-		
-		
-		ArrayList<Profesor> bazaProfesora = BazaProfesora.getInstance().getProfesori();
-		for(Profesor p : bazaProfesora) 
-			if(EditProfToPredDialog.getDodatProfesor() != null)
-				if(p.getBrLicne().equals(EditProfToPredDialog.getDodatProfesor().getBrLicne())) 
-					profesor = p;
 
+		profesor = BazaPredmeta.getInstance().getRow(rowModel).getProfesor();
 
 		
 		if (sifra.equals("") || naziv.equals("") || espbString.equals("")) {

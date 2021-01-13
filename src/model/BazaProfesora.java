@@ -154,7 +154,7 @@ public class BazaProfesora {
 				p.setBrLicne(brLicne);
 				p.setTitula(titula);
 				p.setZvanje(zvanje);
-				//p.setSpisakPredmeta(predmeti); //ne treba da se menja posto nije implementacija tako isla
+				p.setSpisakPredmeta(predmeti);
 				return;
 			}
 		}

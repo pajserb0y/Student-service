@@ -99,6 +99,9 @@ public class ActionListenerEditProf implements ActionListener{
 			return;
 		}
 		
+		spisakPredmeta  = BazaProfesora.getInstance().getRow(rowModel).getSpisakPredmeta();
+	
+		
 		if(ime.equals("") || prz.equals("") || adr.equals("") || email.equals("") || tel.equals("") ||
 				adrKanc.equals("") || titula.equals("") || zvanje.equals("")) {
 			JOptionPane.showMessageDialog(null, "Obavezno je popunjavanje svih polja!");

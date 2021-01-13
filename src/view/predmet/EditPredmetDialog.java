@@ -7,16 +7,24 @@ import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+
+import model.BazaPredmeta;
+import model.BazaProfesora;
+import model.Predmet;
+import model.Profesor;
+import view.TabbedPane;
 
 
 
@@ -133,8 +141,25 @@ public class EditPredmetDialog extends JDialog{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				EditProfToPredDialog.setDodatProfesor(null);
-				txtProf.setText("");
+				
+				
+				int rowViewPredmet = TabbedPane.tabelaPredmeta.getSelectedRow();
+				int rowModelPredmet = TabbedPane.tabelaPredmeta.convertRowIndexToModel(rowViewPredmet);
+				Predmet predmet = BazaPredmeta.getInstance().getRow(rowModelPredmet);
+				Profesor UklonjenProf = predmet.getProfesor(); //profesor sa kon treba da sklonimo predmet sa kog je uklonjen
+			
+				int izbor = JOptionPane.showConfirmDialog(null, "Da li ste sigurni?", "Ukloni profesora", JOptionPane.YES_NO_OPTION);
+				if (izbor == JOptionPane.YES_OPTION) {
+					txtProf.setText("");
+					predmet.setProfesor(null);
+					ArrayList<Predmet> spisakPredmetaProfesora = new ArrayList<Predmet>();
+					
+					if(UklonjenProf.getSpisakPredmeta() != null)
+						spisakPredmetaProfesora = UklonjenProf.getSpisakPredmeta();
+					
+					spisakPredmetaProfesora.remove(predmet);
+					UklonjenProf.setSpisakPredmeta(spisakPredmetaProfesora); //referencijalna zavisnost
+				}
 			}
 		});
 		
