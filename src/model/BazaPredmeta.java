@@ -56,9 +56,11 @@ public class BazaPredmeta {
 					for(int i = 0;i < tokeni.length;++i)
 						tokeni[i] = tokeni[i].trim();
 					
-					int godina = Integer.parseInt(tokeni[3]);
-					String semestar = tokeni[2];
-					int espb = Integer.parseInt(tokeni[4]);
+					String sifra = tokeni[0].toUpperCase();
+					String naziv = tokeni[1].substring(0, 1).toUpperCase() + tokeni[1].substring(1).toLowerCase();
+					int godina = Integer.parseInt(tokeni[2]);
+					String semestar = tokeni[4].substring(0, 1) + tokeni[4].substring(1).toLowerCase();;
+					int espb = Integer.parseInt(tokeni[3]);
 					Profesor profesor = null;
 					
 					ArrayList<Student> polozili  = null;
@@ -66,7 +68,7 @@ public class BazaPredmeta {
 					
 					
 					
-					Predmet p = new Predmet(tokeni[0], tokeni[1], godina, semestar, profesor , espb, polozili, nisu_polozili);
+					Predmet p = new Predmet(sifra, naziv, godina, semestar, profesor , espb, polozili, nisu_polozili);
 					predmeti.add(p);
 				}
 			} catch (IOException e) {

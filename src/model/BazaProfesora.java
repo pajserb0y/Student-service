@@ -62,14 +62,25 @@ public class BazaProfesora {
 				for(int i = 0; i < tokeni.length; ++i)
 					tokeni[i] = tokeni[i].trim();
 				
-				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
-				String datumString = tokeni[2];
+				String lk = tokeni[0].substring(1, tokeni[0].length() - 1);
+				
+				SimpleDateFormat formater = new SimpleDateFormat("dd.MM.yyyy.");
+				String datumString = tokeni[3];
 				Date datum = formater.parse(datumString);
+				
+				String titula = tokeni[8].substring(0, 1) + tokeni[8].substring(1).toLowerCase();
+				if(titula.equals("Prof_dr"))
+					titula = "Prof. dr";
+				
+				String zvanje = tokeni[9].substring(0, 1) + tokeni[9].substring(1).toLowerCase();
+				if(zvanje.equals("Vanredni_profesor"))
+					zvanje = "Vanredni profesor";
+				if(zvanje.equals("Redovni_profesor"))
+					zvanje = "Redovni profesor";
 				
 				ArrayList<Predmet> predmeti = null;
 				
-				profesori.add(new Profesor(tokeni[0],tokeni[1],datum,tokeni[3],tokeni[4],tokeni[5],tokeni[6],tokeni[7],
-						tokeni[8],tokeni[9],predmeti));
+				profesori.add(new Profesor(tokeni[1], tokeni[2], datum, tokeni[4],tokeni[5],tokeni[6],tokeni[7],lk, titula, zvanje, predmeti));
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

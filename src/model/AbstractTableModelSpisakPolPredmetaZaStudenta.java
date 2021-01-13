@@ -11,18 +11,19 @@ public class AbstractTableModelSpisakPolPredmetaZaStudenta extends AbstractTable
 	private String[] kolone = {"Šifra predmeta","Naziv predmeta","ESPB"
 			,"Ocena", "Datum"};
 	
-	private ArrayList<Predmet> spisakPredmeta = null;//new ArrayList<Predmet>();
-	private ArrayList<Ocena> spisakOcena = null;
-	private String student = "";
+	private ArrayList<Predmet> spisakPredmeta = new ArrayList<Predmet>();
+	private ArrayList<Ocena> spisakOcena;
+	private Student student;
 	
 
 	public AbstractTableModelSpisakPolPredmetaZaStudenta() {
 		int rowView = TabbedPane.tabelaStudenata.getSelectedRow();
 		int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(rowView);
 		if(rowModel != -1){
-			spisakPredmeta = BazaStudenata.getInstance().getRow(rowModel).getSpisakPolIspitaISpisakOcena();
-			spisakOcena = BazaOcena.getInstance().getOcene();
-			student = BazaStudenata.getInstance().getRow(rowModel).getBrIndeksa();
+			student = BazaStudenata.getInstance().getRow(rowModel);
+			if(student.getSpisakPolIspitaISpisakOcena() != null)
+				spisakPredmeta = student.getSpisakPolIspitaISpisakOcena();
+			spisakOcena = BazaOcena.getInstance().getOceneStudenta(student);
 		}
 	}
 	
@@ -41,19 +42,20 @@ public class AbstractTableModelSpisakPolPredmetaZaStudenta extends AbstractTable
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
-		if(spisakPredmeta != null)
-			return spisakPredmeta.size();
-		else
-			return 0;
+		int rowView = TabbedPane.tabelaStudenata.getSelectedRow();
+		int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(rowView);
+		if(rowModel != -1)
+			if(BazaStudenata.getInstance().getRow(rowModel).getSpisakPolIspitaISpisakOcena() != null) {
+				spisakPredmeta = BazaStudenata.getInstance().getRow(rowModel).getSpisakPolIspitaISpisakOcena();
+				spisakOcena = BazaOcena.getInstance().getOceneStudenta(student);
+			}
+		return spisakPredmeta.size();
 	}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		// TODO Auto-generated method stub
-		Ocena ocena = null;
-		for(Ocena o : spisakOcena)
-			if(o.getStudent().getBrIndeksa().equals(student))
-				ocena=o;
+		Ocena ocena = spisakOcena.get(rowIndex);
 		
 		switch(columnIndex) {
 		case 0:

@@ -36,7 +36,6 @@ public class ActionListenerEdit implements ActionListener{
 		
 		if(index == 0)
 		{
-			try{
 			int rowView = TabbedPane.tabelaStudenata.getSelectedRow();
 			int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(rowView);
 			
@@ -85,9 +84,6 @@ public class ActionListenerEdit implements ActionListener{
 				dialogStd.setVisible(true);
 				dialogStd.pack();
 			}else {
-				JOptionPane.showMessageDialog(null, "Morate izabrati studenta pre izmene!");
-			}
-			}catch(Exception e){
 				JOptionPane.showMessageDialog(null, "Morate izabrati studenta pre izmene!");
 			}
 		}

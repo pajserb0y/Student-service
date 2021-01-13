@@ -13,10 +13,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import model.BazaOcena;
+import model.BazaStudenata;
+import view.TabbedPane;
+
 public class SpisakPolPredmetaPanel extends JPanel {
 	
-	public static JTable tabelaSpisakPredmeta = null;
-	public static JTextField txtProsek = new JTextField();
+	public static JTable tabelaPolPredmeta = null;
+	public static JTextField txtProsek = new JTextField(); //ovo ako budes prepreavljao vrv ce morati biti oba null jer ce pokazivati isti prosek za svakog studenta!
 	public static JTextField txtEspb = new JTextField();
 	
 	public SpisakPolPredmetaPanel() {
@@ -53,9 +57,16 @@ public class SpisakPolPredmetaPanel extends JPanel {
 		panelEspb.add(lblEspb);
 		panelEspb.add(txtEspb);
 		
-		JTable tabelaPolPredmeta = new SpisakPolPredmetaJTable();
+		tabelaPolPredmeta = new SpisakPolPredmetaJTable();
 		JScrollPane sp = new JScrollPane(tabelaPolPredmeta);
 		panelPolPredmeti.add(sp);
+		
+//		int index = TabbedPane.tabelaStudenata.getSelectedRow();
+//		int rowModel = TabbedPane.tabelaStudenata.convertRowIndexToModel(index);
+//		float prosek = BazaOcena.getInstance().getProsekOcenaStudenta(BazaStudenata.getInstance().getRow(rowModel));
+//		txtProsek.setText(Float.toString(prosek));
+//		int espb = BazaOcena.getInstance().getUkupanEspbStudenta(BazaStudenata.getInstance().getRow(rowModel));
+//		txtEspb.setText(Integer.toString(espb));
 		
 		Box boxCentar1 = Box.createVerticalBox();
 		boxCentar1.add(Box.createVerticalStrut(20));

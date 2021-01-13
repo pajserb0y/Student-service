@@ -39,7 +39,7 @@ public class AddStudentDialog extends JDialog{
 			Dimension screenSize = kit.getScreenSize();
 			int screenHeight = screenSize.height;
 			int screenWidth = screenSize.width;
-			setSize(3*screenWidth/8, screenHeight/2);
+			setSize(3*screenWidth/10, screenHeight/2);
 			setTitle("Dodavanje studenta");
 			setLocationRelativeTo(parent);
 			Dimension dim = new Dimension(screenWidth/9, screenHeight/38);

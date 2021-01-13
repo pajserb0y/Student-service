@@ -1,5 +1,30 @@
-OS50;Operativni sistemi;zimski;1;4;005666607;RA-1-2019:RA-21-2015:RA-33-2018:RA-51-2020;RA-13-2017:RA-12-2018
-MA91;Matematička analiza;zimski;2;6;009999331;RA-3-2018:RA-15-2018;RA-133-2017:RA-121-2018
-EJ1;Engleski jezik;zimski;3;8;007441098;RA-1-2017;RA-4-2017:RA-33-2016:RA-52-2016
-V69;Verovatnoća;zimski;4;7;007558452;RA-12-2016:RA-15-2016:RA-33-2015:RA-107-2017
-SAU1;Sistemi automatskog upravljanja;letnji;4;6;;
+p1;osnove programiranja;1;7;ZIMSKI
+p2;statistika;3;8;LETNJI
+p3;algoritmi i strukture podataka;2;9;LETNJI
+p4;LPRS;3;7;ZIMSKI
+p5;matematika;1;11;LETNJI
+p6;xml i web servisi;4;6;LETNJI
+p7;Metode optimizacije;3;6;ZIMSKI
+p8;osnove elektortehnike;1;11;LETNJI
+p9;Sociologija;1;10;ZIMSKI
+p10;Filozofija;1;4;ZIMSKI
+p11;ORT;2;7;LETNJI
+p12;NANS;2;5;LETNJI
+p13;Organizacija podataka;2;7;ZIMSKI
+p14;Baze podataka;2;6;ZIMSKI
+p15;paralelno programiranje;2;8;ZIMSKI
+p16;konkurentno programiranje;2;9;LETNJI
+p17;Operativni sistemi;2;8;LETNJI
+p18;Algebra;1;15;ZIMSKI
+p19;Verovatnoca;3;14;LETNJI
+ps20;Upravljacki sistemi;3;8;LETNJI
+ps21;Osnovi elektronike;2;7;ZIMSKI
+ps22;Slucajni procesi;4;9;LETNJI
+ps23;Racunarstvo visokih performansi;4;10;LETNJI
+p24;Analiza 1;1;20;ZIMSKI
+it25;Informaciona bezbednost;4;9;LETNJI
+it26;Elektronsko placanje;3;8;ZIMSKI
+it27;Distribuirani sistemi;4;6;ZIMSKI
+p28;Projektovanje softvera;3;5;ZIMSKI
+p29;Informacioni sistemi;4;6;ZIMSKI
+p30;Masinsko ucenje;4;7;LETNJI

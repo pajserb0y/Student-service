@@ -79,23 +79,21 @@ public class BazaStudenata {
 				indeks = tokeni[0];
 				ime = tokeni[1];
 				prezime = tokeni[2];
-				adresa = tokeni[4];
-				telefon = tokeni[5];
-				email = tokeni[6];
-				godUpisa = Integer.parseInt(tokeni[7]);
-				trenutnaGod = Integer.parseInt(tokeni[8]);
-				prosek = Double.parseDouble(tokeni[10]);
+				trenutnaGod = Integer.parseInt(tokeni[3]);
+				adresa = tokeni[5];
+				telefon = tokeni[6];
+				email = tokeni[7];
+				godUpisa = Integer.parseInt(tokeni[9]);
 				
-				SimpleDateFormat formater = new SimpleDateFormat("dd/mm/yyyy");
-				String datumString = tokeni[3];
+				SimpleDateFormat formater = new SimpleDateFormat("dd.mm.yyyy.");
+				String datumString = tokeni[4];
 				datum = formater.parse(datumString);
 				
-				if (tokeni[9].equals("B"))
+				if (tokeni[8].equals("B"))
 					status = STATUS.B;
 				else
 					status = STATUS.S;
 				
-
 				
 				studenti.add(new Student(ime, prezime, datum, adresa, telefon, email, indeks, godUpisa, trenutnaGod, status, prosek, spisakPolIspitaISpisakOcena, spisakNepolIspita));
 			}

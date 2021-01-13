@@ -1,5 +1,6 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Ocena {
@@ -48,8 +49,10 @@ public class Ocena {
 	}
 
 
-	public Date getDatPolaganja() {
-		return datPolaganja;
+	public String getDatPolaganja() {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+		String strDate = formatter.format(datPolaganja);  
+		return strDate;
 	}
 
 

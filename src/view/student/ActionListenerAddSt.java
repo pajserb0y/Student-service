@@ -78,7 +78,7 @@ public class ActionListenerAddSt implements ActionListener {
 		}
 		
 		email=AddStudentDialog.txtEmail.getText();
-		if(!email.matches("[A-Za-zšđžćčŠĐŽČĆ0-9.]+[A-Za-zšđžćčŠĐŽČĆ0-9.]+@[A-Za-z.]+[A-Za-z.]+")) {
+		if(!email.matches("[A-Za-z0-9.]+[A-Za-z0-9.]+@[A-Za-z.]+[A-Za-z.]+")) {
 			JOptionPane.showMessageDialog(null,"Obavezno je popunjavanje svih polja!\n"
 					+ "\tNAPOMENA: Email uneti sa obaveznim znakom @!");
 			return;
